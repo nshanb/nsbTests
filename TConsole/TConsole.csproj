@@ -89,6 +89,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\simpleGeometry\SimpleGeometry.csproj">
+      <Project>{4d952d17-2e25-417a-838d-1da1fd38ebab}</Project>
+      <Name>SimpleGeometry</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

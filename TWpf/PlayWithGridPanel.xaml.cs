@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TWpf
 {
-  /// <summary>
-  /// Interaction logic for MainWindow.xaml
-  /// </summary>
-  public partial class MainWindow : Window
-  {
-    public MainWindow()
+    /// <summary>
+    /// Interaction logic for PlayWithGridPanel.xaml
+    /// </summary>
+    public partial class PlayWithGridPanel : Window
     {
-      InitializeComponent();
-    }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public PlayWithGridPanel()
         {
-            PlayWithGridPanel window = new PlayWithGridPanel();
-            window.Show();
+            InitializeComponent();
         }
     }
 }

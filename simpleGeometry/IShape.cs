@@ -8,7 +8,7 @@ namespace SimpleGeometry
 {
   interface IShape
   {
-    int Perimeter();
-    int Area();
+    double Perimeter();
+    double Area();
   }
 }

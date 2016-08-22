@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9D84E6AC-1C62-4170-9BB5-EF6B2723A809}</ProjectGuid>
+    <ProjectGuid>{BCEFDE85-D34D-4B0C-86D7-B74A8B1BFB28}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimpleGeometryUTest</RootNamespace>
-    <AssemblyName>SimpleGeometryUTest</AssemblyName>
+    <RootNamespace>RegExPGTests</RootNamespace>
+    <AssemblyName>RegExPGTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -16,6 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,14 +51,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="PolygonUTests.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Class1Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\simpleGeometry\SimpleGeometry.csproj">
-      <Project>{4d952d17-2e25-417a-838d-1da1fd38ebab}</Project>
-      <Name>SimpleGeometry</Name>
+    <ProjectReference Include="..\RegExPG\RegExPG.csproj">
+      <Project>{78B0BEAD-D74F-4E8D-8224-68F01569A6A7}</Project>
+      <Name>RegExPG</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

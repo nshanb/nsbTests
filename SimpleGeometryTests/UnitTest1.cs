@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using SimpleGeometry;
 
-namespace SimpleGeometryUTest
+namespace SimpleGeometryTests
 {
   [TestClass]
   public class UnitTest1

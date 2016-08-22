@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 using SimpleGeometry;
 
-namespace SimpleGeometryUTest
+namespace SimpleGeometryTests
 {
   [TestClass()]
-  public class PolygonUTests
+  public class Polygon4UTest
   {
     class PolygonProtectedTester : Polygon
     {

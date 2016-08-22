@@ -1,20 +1,22 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RegExPG;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using RegExPG;
 namespace RegExPG.Tests
 {
     [TestClass()]
-    public class Class1Tests
+    public class FindInFilesTests
     {
         [TestMethod()]
-        public void FindTest()
+        public void FindInFilesTest()
         {
-            Assert.Fail();
+            FindInFiles f = new FindInFiles();
+            Assert.IsNull(f.FilesToSearch);
         }
+
     }
 }

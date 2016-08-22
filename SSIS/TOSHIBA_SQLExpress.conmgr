@@ -3,8 +3,10 @@
   DTS:ObjectName="TOSHIBA_SQLExpress"
   DTS:DTSID="{9C0E71C5-835E-4F90-A698-101547838B26}"
   DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::MainServerName]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=TOSHIBA\SQLExpress;Initial Catalog=ForSSIStests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      DTS:ConnectionString="Data Source=PC-0609;Initial Catalog=forSSIStests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

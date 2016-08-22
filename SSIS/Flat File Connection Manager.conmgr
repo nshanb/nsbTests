@@ -3,6 +3,8 @@
   DTS:ObjectName="Flat File Connection Manager"
   DTS:DTSID="{4DF8C4D2-13B3-4D08-881A-76FB9A8840D1}"
   DTS:CreationName="FLATFILE">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::DefaultPath]+"first.csv"</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:Format="Delimited"

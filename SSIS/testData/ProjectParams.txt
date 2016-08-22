@@ -1,0 +1,4 @@
+MainServerName:	TOSHIBA\SQLEXPRESS
+		PC-0609
+DefaultPath:	C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testData
+		D:\Nshan\nsbTests\SSIS\testData

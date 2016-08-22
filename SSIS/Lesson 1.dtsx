@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Lesson 1"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{119D79D8-559C-452F-B131-4CFFAFF55BCF}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{58D65E7D-5AB7-4EB9-9BEA-B8FC2C37987A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -704,73 +704,20 @@ where [refTable].[Name] = ?</property>
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="179,42"
+          Id="Package\Extract Sample Currency Data\Lookup Currency Key"
+          TopLeft="314,45" />
+        <NodeLayout
+          Size="179,42"
           Id="Package\Extract Sample Currency Data\Flat File Source"
           TopLeft="53,43" />
         <NodeLayout
           Size="179,42"
-          Id="Package\Extract Sample Currency Data\Lookup Currency Key"
-          TopLeft="314,45" />
-        <EdgeLayout
-          Id="Package\Extract Sample Currency Data.Paths[Flat File Source Output]"
-          TopLeft="232,65">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="82,0"
-              Start="0,0"
-              End="74.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="74.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Id="Package\Extract Sample Currency Data\OLE DB Destination 1"
+          TopLeft="655,145" />
         <NodeLayout
           Size="179,42"
           Id="Package\Extract Sample Currency Data\OLE DB Destination"
-          TopLeft="650,45" />
-        <AnnotationLayout
-          Text="This is an annotation"
-          ParentId="Package\Extract Sample Currency Data"
-          FontInfo="{assembly:Null}"
-          Size="139,60"
-          Id="be82493a-840a-40c4-89c3-10f2958af94a"
-          TopLeft="46,200" />
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Extract Sample Currency Data\OLE DB Destination 1"
-          TopLeft="655,145" />
-        <EdgeLayout
-          Id="Package\Extract Sample Currency Data.Paths[Lookup Match Output]"
-          TopLeft="493,66">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="157,0"
-              Start="0,0"
-              End="149.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="149.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-153.94138671875,32.9667774086379,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="651,44" />
         <EdgeLayout
           Id="Package\Extract Sample Currency Data.Paths[Lookup No Match Output]"
           TopLeft="403.5,87">
@@ -807,6 +754,59 @@ where [refTable].[Name] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extract Sample Currency Data.Paths[Lookup Match Output]"
+          TopLeft="493,65.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158,0"
+              Start="0,0"
+              End="150.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="150.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="27.05861328125,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extract Sample Currency Data.Paths[Flat File Source Output]"
+          TopLeft="232,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82,0"
+              Start="0,0"
+              End="74.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="74.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="This is an annotation"
+          ParentId="Package\Extract Sample Currency Data"
+          FontInfo="{assembly:Null}"
+          Size="139,40"
+          Id="be82493a-840a-40c4-89c3-10f2958af94a"
+          TopLeft="46,200" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -816,7 +816,7 @@ where [refTable].[Name] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -826,7 +826,7 @@ where [refTable].[Name] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -834,7 +834,7 @@ where [refTable].[Name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Extract Sample Currency Data\OLE DB Destination">
+    design-time-name="Package\Extract Sample Currency Data\OLE DB Destination 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -847,7 +847,7 @@ where [refTable].[Name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Extract Sample Currency Data\OLE DB Destination 1">
+    design-time-name="Package\Extract Sample Currency Data\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -11,19 +11,23 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SchemaCopy"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{C7FDA212-D873-465B-A9BA-F86EED93D4E3}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{87B924F2-13F3-4460-BB6E-D20EC968BA07}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[TOSHIBA\SQLEXPRESS]"
+      DTS:refId="Package.ConnectionManagers[SMO_Connection]"
       DTS:CreationName="SMOServer"
       DTS:DTSID="{38FDDADB-FD9C-4C0D-9D65-D896066BEAC1}"
-      DTS:ObjectName="TOSHIBA\SQLEXPRESS">
+      DTS:ObjectName="SMO_Connection">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::MainServerName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="SqlServerName">@[$Project::MainServerName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SMOServerConnectionManager
-          ConnectionString="SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;" />
+          ConnectionString="SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>

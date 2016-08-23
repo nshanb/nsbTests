@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/21/2016 3:17:22 PM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="SchemaCopy"
   DTS:PackageType="5"
   DTS:VersionBuild="6"
-  DTS:VersionGUID="{87B924F2-13F3-4460-BB6E-D20EC968BA07}">
+  DTS:VersionGUID="{5B78D444-5A1A-4223-83B2-A97098915D2B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -59,7 +59,7 @@
 <!--If you manually edit this section and make a mistake, you can delete it. -->
 <!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
-  Version="8">
+  Version="sql12">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/19/2016 11:33:24 PM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="myFirstPackage"
   DTS:PackageType="5"
   DTS:VersionBuild="32"
-  DTS:VersionGUID="{A7DE51C1-C79A-4424-B776-8EF85ED9BB36}">
+  DTS:VersionGUID="{95466A3F-EAAD-494D-A825-F4347044FF97}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -320,8 +320,8 @@
               <connections>
                 <connection
                   refId="Package\csv conversion\Flat File Source.Connections[FlatFileConnection]"
-                  connectionManagerID="{4DF8C4D2-13B3-4D08-881A-76FB9A8840D1}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerID="{4DF8C4D2-13B3-4D08-881A-76FB9A8840D1}:invalid"
+                  connectionManagerRefId="{4DF8C4D2-13B3-4D08-881A-76FB9A8840D1}:invalid"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -454,7 +454,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -690,7 +690,7 @@
 <!--If you manually edit this section and make a mistake, you can delete it. -->
 <!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
-  Version="8">
+  Version="sql12">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">

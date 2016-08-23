@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="myFirstPackage"
   DTS:PackageType="5"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{3A73A42D-5AFE-488E-B952-1DD0D3C0AB5B}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{937B57AD-1E1A-47DA-A32D-C40B1B67A219}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -22,7 +22,7 @@
       DTS:DTSID="{37E9D2C5-E7E6-4642-AF09-DB81FD2D1A2D}"
       DTS:ObjectName="error.txt">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::DefaultPath]+"error.txt"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::DefaultPath]+"error.txt"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:FileUsageType="1"
@@ -35,7 +35,7 @@
       DTS:DTSID="{7D66814D-C3B2-4270-AF50-C9898E7CB4CC}"
       DTS:ObjectName="fileconnection2.txt">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::DefaultPath]+"fileconnection2.txt"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::DefaultPath]+"fileconnection2.txt"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testDatafileconnection2.txt" />
@@ -47,7 +47,7 @@
       DTS:DTSID="{4DF8C4D2-13B3-4D08-881A-76FB9A8840D1}"
       DTS:ObjectName="Flat File Connection Manager">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::DefaultPath]+"first.csv"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::DefaultPath]+"first.csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -115,7 +115,7 @@
       DTS:DTSID="{9EE189F0-9D0A-40DC-8F60-6AA265094C82}"
       DTS:ObjectName="sucess.txt">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::DefaultPath]+"success.txt"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::DefaultPath]+"success.txt"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:FileUsageType="1"
@@ -128,7 +128,7 @@
       DTS:DTSID="{2454900F-CB6E-4528-BE16-919984FE3BE3}"
       DTS:ObjectName="toshiba\sqlexpress.ForSSIStests">
       <DTS:PropertyExpression
-        DTS:Name="ServerName">@[$Package::MainServerName]</DTS:PropertyExpression>
+        DTS:Name="ServerName">@[$Project::MainServerName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=ForSSIStests;Integrated Security=True;Application Name=SSIS-Package-{2454900F-CB6E-4528-BE16-919984FE3BE3}toshiba\sqlexpress.ForSSIStests;" />
@@ -140,7 +140,7 @@
       DTS:DTSID="{30C0ED4D-68C9-4DC3-98FA-A2259D019616}"
       DTS:ObjectName="TOSHIBA\SQLEXPRESS.ForSSIStests">
       <DTS:PropertyExpression
-        DTS:Name="ServerName">@[$Package::MainServerName]</DTS:PropertyExpression>
+        DTS:Name="ServerName">@[$Project::MainServerName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=ForSSIStests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
@@ -152,33 +152,13 @@
       DTS:DTSID="{9C0E71C5-835E-4F90-A698-101547838B26}"
       DTS:ObjectName="TOSHIBA_SQLExpress">
       <DTS:PropertyExpression
-        DTS:Name="ServerName">@[$Package::MainServerName]</DTS:PropertyExpression>
+        DTS:Name="ServerName">@[$Project::MainServerName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=forSSIStests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{FE678D17-2074-493A-9F5A-41B6395501A2}"
-      DTS:ObjectName="DefaultPath">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">D:\Nshan\nsbTests\SSIS\testData</DTS:Property>
-    </DTS:PackageParameter>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{71A6570A-051E-4864-BCE5-B301CF9A1711}"
-      DTS:ObjectName="MainServerName">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">PC-0609</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -690,7 +670,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="delete error"
       DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <FileSystemData
@@ -707,7 +687,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="delete success"
       DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <FileSystemData

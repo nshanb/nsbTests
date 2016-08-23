@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SchemaCopy"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{A7E455B1-0093-4B25-9413-35E4F5D318FF}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{87B924F2-13F3-4460-BB6E-D20EC968BA07}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -22,35 +22,15 @@
       DTS:DTSID="{38FDDADB-FD9C-4C0D-9D65-D896066BEAC1}"
       DTS:ObjectName="SMO_Connection">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::MainServerName]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::MainServerName]</DTS:PropertyExpression>
       <DTS:PropertyExpression
-        DTS:Name="SqlServerName">@[$Package::MainServerName]</DTS:PropertyExpression>
+        DTS:Name="SqlServerName">@[$Project::MainServerName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SMOServerConnectionManager
-          ConnectionString="SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;" />
+          ConnectionString="SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{9562AD31-3AB8-498A-98A5-E007C40E8DD6}"
-      DTS:ObjectName="DefaultPath">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">D:\Nshan\nsbTests\SSIS\testData</DTS:Property>
-    </DTS:PackageParameter>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{54E3D430-3A63-413C-BA35-87AAF7591EF9}"
-      DTS:ObjectName="MainServerName">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">PC-0609</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Lesson 5"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{FE42C74F-EC72-4148-B247-A83BE6336955}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{58C2AA20-AFDD-4964-AFC0-E26F35DA5ADB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -22,7 +22,7 @@
       DTS:DTSID="{4DF8C4D2-13B3-4D08-881A-76FB9A8840D1}"
       DTS:ObjectName="Flat File Connection Manager">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::DefaultPath]+"first.csv"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Package::DefaultPath]+"first.csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -157,7 +157,7 @@
       DTS:DTSID="{05CC7D66-5BC4-4ECF-A739-D5433C52DFB7}"
       DTS:ObjectName="lesson3.log">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::DefaultPath]+"lesson3.log"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Package::DefaultPath]+"lesson3.log"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:FileUsageType="1"
@@ -170,7 +170,7 @@
       DTS:DTSID="{9C0E71C5-835E-4F90-A698-101547838B26}"
       DTS:ObjectName="TOSHIBA_SQLExpress">
       <DTS:PropertyExpression
-        DTS:Name="ServerName">@[$Project::MainServerName]</DTS:PropertyExpression>
+        DTS:Name="ServerName">@[$Package::MainServerName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=forSSIStests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
@@ -189,6 +189,26 @@
       </DTS:ObjectData>
     </DTS:LogProvider>
   </DTS:LogProviders>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{93A5B665-A7C8-4C88-A59B-566DD0605174}"
+      DTS:ObjectName="DefaultPath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\Nshan\nsbTests\SSIS\testData</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{904AB737-67D2-4685-9BA1-3054C4BBC417}"
+      DTS:ObjectName="MainServerName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">PC-0609</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -244,7 +264,7 @@
         DTS:DTSID="{D92F5793-7EB8-4CE0-BF8C-98206D0D7C40}"
         DTS:ObjectName="{D92F5793-7EB8-4CE0-BF8C-98206D0D7C40}">
         <DTS:PropertyExpression
-          DTS:Name="Directory">@[$Project::DefaultPath]</DTS:PropertyExpression>
+          DTS:Name="Directory">@[$Package::DefaultPath]</DTS:PropertyExpression>
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty

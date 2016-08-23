@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="myFirstPackage"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{937B57AD-1E1A-47DA-A32D-C40B1B67A219}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{A7DE51C1-C79A-4424-B776-8EF85ED9BB36}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,7 +26,7 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:FileUsageType="1"
-          DTS:ConnectionString="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testDataerror.txt" />
+          DTS:ConnectionString="D:\Nshan\nsbTests\SSIS\testData\error.txt" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -38,75 +38,7 @@
         DTS:Name="ConnectionString">@[$Project::DefaultPath]+"fileconnection2.txt"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testDatafileconnection2.txt" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{4DF8C4D2-13B3-4D08-881A-76FB9A8840D1}"
-      DTS:ObjectName="Flat File Connection Manager">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::DefaultPath]+"first.csv"</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:Unicode="True"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testDatafirst.csv">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="130"
-              DTS:TextQualified="True"
-              DTS:ObjectName="FirstName"
-              DTS:DTSID="{ABCA7DC2-2323-4085-A850-44A054D52B6E}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="130"
-              DTS:TextQualified="True"
-              DTS:ObjectName="LastName"
-              DTS:DTSID="{746CED13-5D23-40D5-B41D-5947EDC2FB85}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="130"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Country"
-              DTS:DTSID="{A73FFDB3-16DA-4FA7-99A4-4970A6DF5BA3}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="130"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Currency"
-              DTS:DTSID="{5029C005-B27E-46AF-A88A-3000D9764E06}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:DataType="131"
-              DTS:DataPrecision="18"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Amount"
-              DTS:DTSID="{B836319D-0AB3-4B46-A69C-C43614A3B69A}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="D:\Nshan\nsbTests\SSIS\testData\fileconnection2.txt" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -119,7 +51,7 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:FileUsageType="1"
-          DTS:ConnectionString="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testDatasuccess.txt" />
+          DTS:ConnectionString="D:\Nshan\nsbTests\SSIS\testData\success.txt" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -131,7 +63,7 @@
         DTS:Name="ServerName">@[$Project::MainServerName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=ForSSIStests;Integrated Security=True;Application Name=SSIS-Package-{2454900F-CB6E-4528-BE16-919984FE3BE3}toshiba\sqlexpress.ForSSIStests;" />
+          DTS:ConnectionString="Data Source=PC-0609;Initial Catalog=ForSSIStests;Integrated Security=True;Application Name=SSIS-Package-{2454900F-CB6E-4528-BE16-919984FE3BE3}toshiba\sqlexpress.ForSSIStests;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -143,19 +75,7 @@
         DTS:Name="ServerName">@[$Project::MainServerName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=ForSSIStests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[TOSHIBA_SQLExpress]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{9C0E71C5-835E-4F90-A698-101547838B26}"
-      DTS:ObjectName="TOSHIBA_SQLExpress">
-      <DTS:PropertyExpression
-        DTS:Name="ServerName">@[$Project::MainServerName]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=forSSIStests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=PC-0609;Initial Catalog=ForSSIStests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -400,8 +320,8 @@
               <connections>
                 <connection
                   refId="Package\csv conversion\Flat File Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerID="{4DF8C4D2-13B3-4D08-881A-76FB9A8840D1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Flat File Connection Manager]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -932,10 +852,6 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="171,42"
-          Id="Package\csv conversion\OLE DB Destination"
-          TopLeft="671,18" />
-        <NodeLayout
           Size="155,42"
           Id="Package\csv conversion\Conditional Split"
           TopLeft="343,21" />
@@ -947,6 +863,10 @@
           Size="179,42"
           Id="Package\csv conversion\ADO NET Destination"
           TopLeft="663,113" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\csv conversion\OLE DB Destination"
+          TopLeft="671,18" />
         <EdgeLayout
           Id="Package\csv conversion.Paths[Flat File Source Output]"
           TopLeft="225,43">
@@ -1033,6 +953,14 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\csv conversion\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\csv conversion\OLE DB Destination">
     <Properties>
       <Property>
@@ -1042,14 +970,6 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\csv conversion\ADO NET Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

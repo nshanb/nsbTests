@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="TOSHIBA"
   DTS:CreatorName="Toshiba\User"
-  DTS:DTSID="{87C0CF52-4E4D-4DE0-A485-E4E62BD3B3F1}"
+  DTS:DTSID="{CD1CC714-9710-4BB7-94BD-D6B89E116F15}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Lesson 5"
+  DTS:ObjectName="Lesson1"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{7F8256D1-D08C-4647-AE4E-2D651FB5AE0E}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{549E7736-0F92-4232-A44A-E11D6F55C52D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{D1899F25-0BA8-4B28-8C69-E93CF382E382}"
+      DTS:DTSID="{daea8096-9469-4cf6-b0e1-c144494d834c}"
       DTS:ObjectName="Flat File Connection Manager 1">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">@[User::varFileName]</DTS:PropertyExpression>
@@ -41,7 +41,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="FirstName"
-              DTS:DTSID="{5EAD16EB-B525-4A69-8FB6-B9B2B5946A66}"
+              DTS:DTSID="{ABCA7DC2-2323-4085-A850-44A054D52B6E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -50,7 +50,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="LastName"
-              DTS:DTSID="{D3D78516-247E-4BA3-8A12-A4828B388B41}"
+              DTS:DTSID="{746CED13-5D23-40D5-B41D-5947EDC2FB85}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -59,7 +59,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Country"
-              DTS:DTSID="{00018299-1357-4AD3-83C0-586E65955AAF}"
+              DTS:DTSID="{A73FFDB3-16DA-4FA7-99A4-4970A6DF5BA3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -68,7 +68,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Currency"
-              DTS:DTSID="{4C05E9E6-63B6-40E4-AA70-823DE200BB3E}"
+              DTS:DTSID="{5029C005-B27E-46AF-A88A-3000D9764E06}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -77,42 +77,17 @@
               DTS:DataPrecision="18"
               DTS:TextQualified="True"
               DTS:ObjectName="Amount"
-              DTS:DTSID="{3B5A6F54-7057-43BD-BA78-537389C1D13C}"
+              DTS:DTSID="{B836319D-0AB3-4B46-A69C-C43614A3B69A}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[lesson3.log]"
-      DTS:CreationName="FILE"
-      DTS:DTSID="{05CC7D66-5BC4-4ECF-A739-D5433C52DFB7}"
-      DTS:ObjectName="lesson3.log">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::DefaultPath]+"lesson3.log"</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:FileUsageType="1"
-          DTS:ConnectionString="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testDatalesson3.log" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:LogProviders>
-    <DTS:LogProvider
-      DTS:ConfigString="lesson3.log"
-      DTS:CreationName="Microsoft.LogProviderTextFile"
-      DTS:Description="Writes log entries for events to a CSV file"
-      DTS:DTSID="{2FF88DF2-54D0-450B-AE4F-AE6CC3D70888}"
-      DTS:ObjectName="Lesson 3 logs">
-      <DTS:ObjectData>
-        <InnerObject />
-      </DTS:ObjectData>
-    </DTS:LogProvider>
-  </DTS:LogProviders>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{66092CCF-CE5C-410F-8089-7FB9668D07BB}"
+      DTS:DTSID="{04DEB92E-6143-4EAD-A3F9-D67C43D787BA}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="varFileName">
@@ -121,54 +96,23 @@
         xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
-  <DTS:LoggingOptions
-    DTS:FilterKind="0"
-    DTS:LoggingMode="1">
-    <DTS:Property
-      DTS:DataType="8"
-      DTS:Name="EventFilter">1,18,OnPipelineRowsSent</DTS:Property>
-    <DTS:Property
-      DTS:EventName="OnPipelineRowsSent"
-      DTS:Name="ColumnFilter">
-      <DTS:Property
-        DTS:Name="Computer">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="Operator">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceName">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="ExecutionID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="MessageText">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="DataBytes">-1</DTS:Property>
-    </DTS:Property>
-    <DTS:SelectedLogProviders>
-      <DTS:SelectedLogProvider
-        DTS:InstanceID="{2FF88DF2-54D0-450B-AE4F-AE6CC3D70888}" />
-    </DTS:SelectedLogProviders>
-  </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{0FF55075-1C9A-4606-8286-7FB415307EBF}"
+      DTS:DTSID="{3898DF3A-35BE-40A8-81FA-2283FC4579D0}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Foreach Loop Container">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
-        DTS:DTSID="{D92F5793-7EB8-4CE0-BF8C-98206D0D7C40}"
-        DTS:ObjectName="{D92F5793-7EB8-4CE0-BF8C-98206D0D7C40}">
-        <DTS:PropertyExpression
-          DTS:Name="Directory">@[$Project::DefaultPath]</DTS:PropertyExpression>
+        DTS:DTSID="{85646F22-BC9D-4653-B516-DD355E7678E6}"
+        DTS:ObjectName="{85646F22-BC9D-4653-B516-DD355E7678E6}">
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testData" />
+              Folder="D:\Nshan\nsbTests\SSIS\testData" />
             <FEFEProperty
               FileSpec="currency_*.csv" />
             <FEFEProperty
@@ -179,21 +123,17 @@
         </DTS:ObjectData>
       </DTS:ForEachEnumerator>
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
       <DTS:Executables>
         <DTS:Executable
           DTS:refId="Package\Foreach Loop Container\Extract Sample Currency Data"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{47885578-A28F-4741-B099-B72500E74A99}"
+          DTS:DTSID="{C1D5CA32-B500-4FFD-9D5A-5FDEE25BC9A1}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Extract Sample Currency Data"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
-          <DTS:LoggingOptions
-            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <pipeline
               version="1">
@@ -848,8 +788,8 @@ where [refTable].[Name] = ?</property>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{73065EFA-3147-4319-9AF6-98FF909557CA}"
-          DTS:ObjectName="{73065EFA-3147-4319-9AF6-98FF909557CA}"
+          DTS:DTSID="{E9F21E14-E05A-4D0B-B42C-C4E2D53A0D8B}"
+          DTS:ObjectName="{E9F21E14-E05A-4D0B-B42C-C4E2D53A0D8B}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::varFileName" />
       </DTS:ForEachVariableMappings>
@@ -867,6 +807,13 @@ where [refTable].[Name] = ?</property>
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <AnnotationLayout
+          Text="https://msdn.microsoft.com/en-us/library/ms169800.aspx"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="333,40"
+          Id="0c68048e-a764-402d-9a9e-05e7d495fb73"
+          TopLeft="12,244" />
         <NodeLayout
           Size="220,42"
           Id="Package\Foreach Loop Container\Extract Sample Currency Data"
@@ -878,13 +825,6 @@ where [refTable].[Name] = ?</property>
           Size="371,202"
           Id="Package\Foreach Loop Container"
           TopLeft="469,90" />
-        <AnnotationLayout
-          Text="Lesson3 + configurations?"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="168,40"
-          Id="0c68048e-a764-402d-9a9e-05e7d495fb73"
-          TopLeft="12,244" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -991,6 +931,13 @@ where [refTable].[Name] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="This is an annotation"
+          ParentId="Package\Foreach Loop Container\Extract Sample Currency Data"
+          FontInfo="{assembly:Null}"
+          Size="139,40"
+          Id="be82493a-840a-40c4-89c3-10f2958af94a"
+          TopLeft="46,200" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>

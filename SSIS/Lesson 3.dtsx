@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/21/2016 8:21:20 PM"
@@ -9,10 +9,10 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Lesson1"
+  DTS:ObjectName="Lesson 3"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{8DA66D76-2B03-4BA1-8C9A-629857B37FA7}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{08A546C1-61F7-454E-91AA-A85E4B68A2C6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -406,13 +406,13 @@
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Currency]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Currency]</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Currency]) [refTable]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Currency]) [refTable]
 where [refTable].[Name] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -462,8 +462,8 @@ where [refTable].[Name] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Extract Sample Currency Data\Lookup Currency Key.Connections[OleDbConnection]"
-                      connectionManagerID="{9C0E71C5-835E-4F90-A698-101547838B26}:invalid"
-                      connectionManagerRefId="{9C0E71C5-835E-4F90-A698-101547838B26}:invalid"
+                      connectionManagerID="{9C0E71C5-835E-4F90-A698-101547838B26}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[TOSHIBA_SQLExpress]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -575,7 +575,7 @@ where [refTable].[Name] = ?</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -609,8 +609,8 @@ where [refTable].[Name] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Extract Sample Currency Data\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="{9C0E71C5-835E-4F90-A698-101547838B26}:invalid"
-                      connectionManagerRefId="{9C0E71C5-835E-4F90-A698-101547838B26}:invalid"
+                      connectionManagerID="{9C0E71C5-835E-4F90-A698-101547838B26}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[TOSHIBA_SQLExpress]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -717,7 +717,7 @@ where [refTable].[Name] = ?</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -751,8 +751,8 @@ where [refTable].[Name] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Extract Sample Currency Data\OLE DB Destination 1.Connections[OleDbConnection]"
-                      connectionManagerID="{9C0E71C5-835E-4F90-A698-101547838B26}:invalid"
-                      connectionManagerRefId="{9C0E71C5-835E-4F90-A698-101547838B26}:invalid"
+                      connectionManagerID="{9C0E71C5-835E-4F90-A698-101547838B26}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[TOSHIBA_SQLExpress]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -860,7 +860,7 @@ where [refTable].[Name] = ?</property>
 <!--If you manually edit this section and make a mistake, you can delete it. -->
 <!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
-  Version="sql12">
+  Version="8">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">

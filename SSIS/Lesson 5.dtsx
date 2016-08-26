@@ -11,21 +11,11 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Lesson 5"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{C851E9A4-6909-4139-80E0-84C192758C1C}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{1DA0881E-C48E-41FE-B87B-D3E71151491F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Dest]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{8441be4b-13e4-4107-86f7-a9e67044031d}"
-      DTS:ObjectName="Dest">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=SSIS2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[lesson3.log]"
       DTS:CreationName="FILE"
@@ -37,16 +27,6 @@
         <DTS:ConnectionManager
           DTS:FileUsageType="1"
           DTS:ConnectionString="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testDatalesson3.log" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Source]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{31236D32-C5D1-453E-B89D-AEB975A04E62}"
-      DTS:ObjectName="Source">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=SSIS1;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -132,17 +112,17 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <AnnotationLayout
-          Text="https://blogs.msdn.microsoft.com/jorgepc/2010/12/07/synchronize-two-tables-using-sql-server-integration-services-ssispart-i-of-ii/"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="728,60"
-          Id="8c2ff95e-773b-40c5-8c43-9969cea33a3c"
-          TopLeft="26,195" />
         <NodeLayout
           Size="151,42"
           Id="Package\Data Flow Task"
           TopLeft="375,67" />
+        <AnnotationLayout
+          Text="https://blogs.msdn.microsoft.com/jorgepc/2010/12/07/synchronize-two-tables-using-sql-server-integration-services-ssispart-i-of-ii/"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="728,40"
+          Id="8c2ff95e-773b-40c5-8c43-9969cea33a3c"
+          TopLeft="26,195" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

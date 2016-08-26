@@ -37,7 +37,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testData</SSIS:Property>
+        SSIS:Name="Value">D:\Nshan\nsbTests\SSIS\testData\</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>

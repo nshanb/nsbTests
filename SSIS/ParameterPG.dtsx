@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ParameterPG"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{9C9B5A2E-E4DE-40C9-9791-2FD0787FB496}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{6E609DD1-C561-4494-9225-4D33B264B449}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -38,6 +38,33 @@
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Expression Task"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{6D950102-ADE6-4A79-96E8-04F40EE5C93D}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Expression Task"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BE9AECD2-00E9-4F66-9028-18934A67343D}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Value1nsb Value0nsb"
       DTS:CreationName="STOCK:SEQUENCE"
@@ -77,7 +104,18 @@
           FontInfo="{assembly:Null}"
           Size="791,72"
           Id="82abdf0f-556a-4428-9926-8377317685e6"
-          TopLeft="18,252" />
+          TopLeft="23,190" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,55"
+          Size="205,98"
+          Id="Package\Sequence Container"
+          TopLeft="330,57" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Expression Task"
+          TopLeft="615,95" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

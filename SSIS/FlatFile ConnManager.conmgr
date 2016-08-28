@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="Flat File Connection Manager"
+  DTS:ObjectName="FlatFile ConnManager"
   DTS:DTSID="{4DF8C4D2-13B3-4D08-881A-76FB9A8840D1}"
   DTS:CreationName="FLATFILE">
   <DTS:PropertyExpression
@@ -15,7 +15,7 @@
       DTS:RowDelimiter=""
       DTS:TextQualifier="_x003C_none_x003E_"
       DTS:CodePage="1252"
-      DTS:ConnectionString="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testData\first.csv">
+      DTS:ConnectionString="D:\Nshan\nsbTests\SSIS\testData\first.csv">
       <DTS:FlatFileColumns>
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"

@@ -1,0 +1,29 @@
+vsdbcmd.exe
+sqlpackage.exe
+DacFx
+
+ClickOnce manifest signing
+
+
+SELECT o.name AS OBJECT_NAME,
+o.type_desc,
+o.create_date,
+o.modify_date,
+s.name AS schema_name
+FROM sys.all_objects o
+LEFT OUTER JOIN sys.schemas s
+ON ( o.schema_id = s.schema_id)
+--WHERE modify_date > ( GETDATE() - 7)
+ORDER BY o.modify_date descs
+
+SELECT CHECKSUM_AGG(BINARY_CHECKSUM(*)) FROM sample_table WITH (NOLOCK);
+
+https://www.simple-talk.com/sql/database-administration/automated-script-generation-with-powershell-and-smo/
+https://www.simple-talk.com/sql/database-delivery/microsoft-and-database-lifecycle-management-dlm-the-dacpac/
+http://www.codeproject.com/Articles/1080452/Parameterize-Schema-Name-in-SSDT-Database-Project
+https://blogs.msdn.microsoft.com/ssdt/2013/12/23/dacfx-public-model-tutorial/ !!!
+
+
+on Drive
+ssisctc-81799
+ssismhash-98110

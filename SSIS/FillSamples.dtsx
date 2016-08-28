@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FillSamples"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{18668A6A-46FD-4AB6-A930-533571F0C514}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{94DF957C-F028-4FC1-A895-6DBB486FDD85}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -33,7 +33,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\Nshan\nsbTests\SSIS\testDatafillsamples1.csv">
+          DTS:ConnectionString="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testData\fillsamples1.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,6 +75,7 @@
       DTS:refId="Package\FillTabel2"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{E3754048-9111-4BF5-8CE9-9F7D6F7DBE96}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -607,96 +608,31 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <AnnotationLayout
-          Text="https://msdn.microsoft.com/en-us/library/ms169800.aspx"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="333,40"
-          Id="0c68048e-a764-402d-9a9e-05e7d495fb73"
-          TopLeft="12,244" />
-        <NodeLayout
-          Size="123,42"
-          Id="Package\FillTable1"
-          TopLeft="138,81" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="123,42"
           Id="Package\FillTabel2"
           TopLeft="139,173" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\FillTable1"
+          TopLeft="138,81" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\FillTable1">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="151,42"
-          Id="Package\FillTable1\Flat File Source"
-          TopLeft="53,43" />
-        <NodeLayout
-          Size="179,42"
-          Id="Package\FillTable1\OLE DB Destination"
-          TopLeft="650,45" />
-        <AnnotationLayout
-          Text="This is an annotation"
-          ParentId="Package\FillTable1"
-          FontInfo="{assembly:Null}"
-          Size="139,40"
-          Id="be82493a-840a-40c4-89c3-10f2958af94a"
-          TopLeft="46,200" />
-        <EdgeLayout
-          Id="Package\FillTable1.Paths[Flat File Source Output]"
-          TopLeft="204,65">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="446,0"
-              Start="0,0"
-              End="438.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="438.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\FillTable1\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\FillTabel2">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="151,42"
-          Id="Package\FillTabel2\Flat File Source"
-          TopLeft="115,86" />
-        <NodeLayout
           Size="171,42"
           Id="Package\FillTabel2\OLE DB Destination"
           TopLeft="542,79" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\FillTabel2\Flat File Source"
+          TopLeft="115,86" />
         <EdgeLayout
           Id="Package\FillTabel2.Paths[Flat File Source Output]"
           TopLeft="266,103.5">
@@ -724,6 +660,57 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\FillTabel2\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\FillTable1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\FillTable1\OLE DB Destination"
+          TopLeft="650,45" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\FillTable1\Flat File Source"
+          TopLeft="53,43" />
+        <EdgeLayout
+          Id="Package\FillTable1.Paths[Flat File Source Output]"
+          TopLeft="204,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="446,0"
+              Start="0,0"
+              End="438.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="438.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FillTable1\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

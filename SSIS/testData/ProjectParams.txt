@@ -2,3 +2,10 @@ MainServerName:	TOSHIBA\SQLEXPRESS
 		PC-0609
 DefaultPath:	C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testData
 		D:\Nshan\nsbTests\SSIS\testData
+
+
+Data Source=PC-0609;User ID=sa;Initial Catalog=forSSIStests;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;
+Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=SSIS2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;
+SMO
+SqlServerName=PC-0609;UseWindowsAuthentication=False;UserName=sa;
+SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;

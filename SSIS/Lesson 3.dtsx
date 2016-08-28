@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Lesson 3"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{720164EE-D431-45E8-B371-BFC67D129C26}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{8165A0C4-D9A7-4368-ABE0-1A5DA933E7E0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -93,7 +93,7 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:FileUsageType="1"
-          DTS:ConnectionString="D:\Nshan\nsbTests\SSIS\testDatalesson3.log" />
+          DTS:ConnectionString="D:\Nshan\nsbTests\SSIS\testData\lesson3.log" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -829,14 +829,14 @@ where [refTable].[Name] = ?</property>
         <NodeLayout
           Size="220,42"
           Id="Package\Extract Sample Currency Data"
-          TopLeft="1012,157" />
+          TopLeft="435,44" />
         <AnnotationLayout
-          Text="https://msdn.microsoft.com/en-us/library/ms169800.aspx&#xD;&#xA;Lesson2 + logging"
+          Text="https://msdn.microsoft.com/en-us/library/ms169800.aspx&#xA;Lesson2 + logging"
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="333,56"
           Id="0c68048e-a764-402d-9a9e-05e7d495fb73"
-          TopLeft="12,244" />
+          TopLeft="12,175" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

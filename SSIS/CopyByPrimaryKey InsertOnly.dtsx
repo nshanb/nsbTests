@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="CopyByPrimaryKey InsertOnly"
   DTS:PackageType="5"
-  DTS:VersionBuild="51"
-  DTS:VersionGUID="{0811E9E3-DBE5-4129-A72E-0E4EAB4A5C1F}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{C9C1CDE4-C3E5-4F84-BDC1-4D96D0E85C13}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -529,7 +529,7 @@ ORDER BY Id DESC</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
-          SQLTask:SqlStatementSource="update sync4partner.Log set [SyncEndDate] = SYSDATETIME(),[Status]='Failure',[SyncRowCount]=? where id=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="update sync4partner.Log set [SyncEndDate] = SYSDATETIME(),[Status]='Failure',[SyncRowCountInsert]=?, Description='DataFlow' where id=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::rowCount"
@@ -559,7 +559,7 @@ ORDER BY Id DESC</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
-          SQLTask:SqlStatementSource="update sync4partner.Log set [SyncEndDate] = SYSDATETIME(),[Status]='Failure',[SyncRowCount]=? where id=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="update sync4partner.Log set [SyncEndDate] = SYSDATETIME(),[Status]='Failure',[SyncRowCountInsert]=?, Description='Prepare' where id=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::rowCount"
@@ -589,7 +589,7 @@ ORDER BY Id DESC</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
-          SQLTask:SqlStatementSource="insert sync4partner.Log ([SyncName],[SyncStartDate],[Status]) VALUES(?,SYSDATETIME(),'Started')&#xA;&#xA;select @@IDENTITY as Id"
+          SQLTask:SqlStatementSource="insert sync4partner.Log ([SyncName],[SyncStartDate],[Status]) VALUES('Sync '+?+' ById',SYSDATETIME(),'Started')&#xA;&#xA;select @@IDENTITY as Id&#xA;"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="Id"
@@ -617,7 +617,7 @@ ORDER BY Id DESC</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
-          SQLTask:SqlStatementSource="update sync4partner.Log set [SyncEndDate] = SYSDATETIME(),[Status]='Success',[SyncRowCount]=? where id=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="update sync4partner.Log set [SyncEndDate] = SYSDATETIME(),[Status]='Success',[SyncRowCountInsert]=? where id=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::rowCount"
@@ -738,6 +738,10 @@ ORDER BY Id DESC</property>
           Size="133,42"
           Id="Package\LogSuccess"
           TopLeft="829.857142857143,51.8571428571428" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\prepSql"
+          TopLeft="173,57" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="462.357142857143,73.0238095238068">
@@ -807,6 +811,28 @@ ORDER BY Id DESC</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="147.857142857143,76.9285714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.1428571428571,0"
+              Start="0,0"
+              End="17.6428571428571,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="17.6428571428571,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="388.857142857143,97.8571428571428">
           <EdgeLayout.Curve>
@@ -828,39 +854,6 @@ ORDER BY Id DESC</property>
             <mssgm:EdgeLabel
               BoundingBox="-15.24134765625,8.87548828125,30.4826953125,9.7490234375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <AnnotationLayout
-          Text="Could not cancel error as in c# try catch&#xA;@[System::Propagate] = False in EVent Handler&#xA;does not change Failure Constraint to Success"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="277,72"
-          Id="07afdcdc-644d-4ea1-89d9-a22607fda198"
-          TopLeft="318.857142857143,192.857142857143" />
-        <NodeLayout
-          Size="115,42"
-          Id="Package\prepSql"
-          TopLeft="173,57" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="147.857142857143,76.9285714285714">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="25.1428571428571,0"
-              Start="0,0"
-              End="17.6428571428571,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="17.6428571428571,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -885,6 +878,13 @@ ORDER BY Id DESC</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Could not cancel error as in c# try catch&#xA;@[System::Propagate] = False in EVent Handler&#xA;does not change Failure Constraint to Success"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="277,88"
+          Id="07afdcdc-644d-4ea1-89d9-a22607fda198"
+          TopLeft="318.857142857143,192.857142857143" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -892,7 +892,7 @@ ORDER BY Id DESC</property>
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="130,42"
           Id="Package\Data Flow Task\Row Count"
@@ -924,7 +924,9 @@ ORDER BY Id DESC</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -946,7 +948,9 @@ ORDER BY Id DESC</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -984,56 +988,48 @@ ORDER BY Id DESC</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="163,42"
+          Size="NaN,NaN"
           Id="Package\GetLastKey.EventHandlers[OnError]\Execute SQL Task"
-          TopLeft="266,19.5" />
+          TopLeft="NaN,NaN" />
         <NodeLayout
-          Size="155,42"
+          Size="NaN,NaN"
           Id="Package\GetLastKey.EventHandlers[OnError]\Expression Task"
-          TopLeft="12,16.5" />
+          TopLeft="NaN,NaN" />
         <NodeLayout
-          Size="164,42"
+          Size="NaN,NaN"
           Id="Package\GetLastKey.EventHandlers[OnError]\Expression Task 1"
-          TopLeft="502.5,22.5" />
+          TopLeft="NaN,NaN" />
         <EdgeLayout
           Id="Package\GetLastKey.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
-          TopLeft="167,39">
+          TopLeft="NaN,NaN">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="99,0"
+              EndConnector="{assembly:Null}"
               Start="0,0"
-              End="91.5,0">
+              End="0,0">
               <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="91.5,0" />
-                </mssgle:SegmentCollection>
+                <assembly:Null />
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="37.75,5,16,16"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GetLastKey.EventHandlers[OnError].PrecedenceConstraints[Constraint 1]"
-          TopLeft="429,42">
+          TopLeft="NaN,NaN">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="73.5,0"
+              EndConnector="{assembly:Null}"
               Start="0,0"
-              End="66,0">
+              End="0,0">
               <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="66,0" />
-                </mssgle:SegmentCollection>
+                <assembly:Null />
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>

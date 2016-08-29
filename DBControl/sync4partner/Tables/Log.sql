@@ -6,8 +6,9 @@
     [Description]        NVARCHAR (250) NULL,
     [Duration_ms]        BIGINT         NULL,
     [Status]             CHAR (10)      NOT NULL,
-    [SyncRowCount]       INT            NULL,
+    [SyncRowCountInsert]       INT            NULL,
     [SyncRowCountUpdate] INT            NULL,
+    [SyncRowCountDelete] INT            NULL,
     CONSTRAINT [PK_Log] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 

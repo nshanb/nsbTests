@@ -27,3 +27,14 @@ https://blogs.msdn.microsoft.com/ssdt/2013/12/23/dacfx-public-model-tutorial/ !!
 on Drive
 ssisctc-81799
 ssismhash-98110
+
+
+
+SourceStatus
+LastSchemaChange
+
+TaskConfig
+PartnerID, LastSchemaChange, FirstTime, SchemaStatus
+
+
+

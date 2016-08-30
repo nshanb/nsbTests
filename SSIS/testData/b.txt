@@ -1,0 +1,110 @@
+Scanning Package:SchemaSync
+CreationName:Microsoft.Package; PackageType:DTSDesigner100
+GetPackagePath:\Package; GetExecutionPath:\SchemaSync
+Parameters:
+
+Variables:
+System::CancelEvent - DataType:Int32 - Value:0; System::ContainerStartTime - Dat
+aType:DateTime - Value:30/08/2016 11:09:29; System::CreationDate - DataType:Date
+Time - Value:25/08/2016 15:11:46; System::CreatorComputerName - DataType:String
+- Value:PC-0609; System::CreatorName - DataType:String - Value:SOFTCONSTRUCT\nsh
+an.barseghyan; System::ExecutionInstanceGUID - DataType:String - Value:{FD4414BE
+-BCFF-4CAD-853E-70C027451147}; System::FailedConfigurations - DataType:String -
+Value:; System::IgnoreConfigurationsOnLoad - DataType:Boolean - Value:False; Sys
+tem::InteractiveMode - DataType:Boolean - Value:False; System::LastModifiedProdu
+ctVersion - DataType:String - Value:13.0.1601.5; System::LocaleID - DataType:Int
+32 - Value:1033; System::MachineName - DataType:String - Value:PC-0609; System::
+OfflineMode - DataType:Boolean - Value:False; System::PackageID - DataType:Strin
+g - Value:{8D58A69F-CC24-434B-B151-03746B07DD4D}; System::PackageName - DataType
+:String - Value:SchemaSync; System::ParentContainerGUID - DataType:String - Valu
+e:; System::ProductVersion - DataType:String - Value:13.0.1601.5; System::Server
+ExecutionID - DataType:Int64 - Value:0; System::StartTime - DataType:DateTime -
+Value:30/08/2016 11:09:29; User::tableList1 - DataType:String - Value:; User::ta
+bleList2 - DataType:String - Value:; User::tableList3 - DataType:Object - Value:
+System.Object; User::tableList4 - DataType:String - Value:; System::UserName - D
+ataType:String - Value:SOFTCONSTRUCT\nshan.barseghyan; System::VersionBuild - Da
+taType:Int32 - Value:57; System::VersionComments - DataType:String - Value:; Sys
+tem::VersionGUID - DataType:String - Value:{9AC40E67-094C-4A2E-8A88-FC5F71EEB884
+}; System::VersionMajor - DataType:Int32 - Value:1; System::VersionMinor - DataT
+ype:Int32 - Value:0;
+Properties:
+Other - CertificateContext; Other - CertificateObject; Other - CheckpointFileNam
+e; Other - CheckpointUsage; Other - CheckSignatureOnLoad; Other - Configurations
+; Other - Connections; Other - CreationDate; Other - CreationName; Other - Creat
+orComputerName; Other - CreatorName; Other - DelayValidation; Other - Descriptio
+n; Other - DesignEvents; Other - DesignTimeProperties; Other - Disable; Other -
+DisableEventHandlers; Other - DumpDescriptor; Other - DumpOnAnyError; Other - En
+ableConfigurations; Other - EnableDump; Other - EncryptCheckpoints; Other - Erro
+rs; Other - EventHandlers; Other - EventInfos; Other - Executables; Other - Exec
+utionDuration; Other - ExecutionResult; Other - ExecutionStatus; Other - Extende
+dProperties; Other - FailPackageOnFailure; Other - FailParentOnFailure; Other -
+ForcedExecutionValue; Other - ForceExecutionResult; Other - ForceExecutionValue;
+ Other - ID; Other - IgnoreConfigurationsOnLoad; Other - InteractiveMode; Other
+- IsDefaultLocaleID; Other - IsolationLevel; Other - LastModifiedProductVersion;
+ Other - LocaleID; Other - LogEntryInfos; Other - LoggingMode; Other - LoggingOp
+tions; Other - LogProviders; Other - MaxConcurrentExecutables; Other - MaximumEr
+rorCount; Other - Name; Other - OfflineMode; Other - PackageFormatVersion; Other
+ - PackageLocation; Other - PackagePassword; Other - PackagePriorityClass; Other
+ - PackageType; Other - PackageUpgradeOptions; Other - Parent; Other - Precedenc
+eConstraints; Other - ProtectionLevel; Other - SafeRecursiveProjectPackageExecut
+ion; Other - SaveCheckpoints; Other - SQLFolder; Other - StartTime; Other - Stop
+Time; Other - SuppressConfigurationWarnings; Other - TransactionOption; Other -
+UpdateObjects; Other - UpdatePackage; Other - VariableDispenser; Other - Variabl
+es; Other - VersionBuild; Other - VersionComments; Other - VersionGUID; Other -
+VersionMajor; Other - VersionMinor; Other - Warnings;
+Connections:
+destSMO; sourceSMO;
+ExtendedProperties:
+
+Configurations:
+
+Executables:
+Microsoft.SqlServer.Dts.Runtime.TaskHost
+Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer
+.SQLTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91 - [
+GetTables FullResultSet]
+Microsoft.SqlServer.Dts.Runtime.TaskHost
+Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer
+.SQLTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91 - [
+GetTables None]
+Microsoft.SqlServer.Dts.Runtime.TaskHost
+Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer
+.SQLTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91 - [
+GetTables SingleRow]
+Microsoft.SqlServer.Dts.Runtime.TaskHost
+Microsoft.SqlServer.Dts.Tasks.TransferSqlServerObjectsTask.TransferSqlServerObje
+ctsTask, Microsoft.SqlServer.TransferSqlServerObjectsTask, Version=13.0.0.0, Cul
+ture=neutral, PublicKeyToken=89845dcd8080cc91 - [TransferTables]
+
+Errors:
+SchemaSync - The connection "{B70919C3-0B19-432D-A95E-E2A3977CBAB4}" is not foun
+d. This error is thrown by Connections collection when the specific connection e
+lement is not found.
+; SchemaSync - The connection "{B70919C3-0B19-432D-A95E-E2A3977CBAB4}" is not fo
+und. This error is thrown by Connections collection when the specific connection
+ element is not found.
+; SchemaSync - The connection "{B70919C3-0B19-432D-A95E-E2A3977CBAB4}" is not fo
+und. This error is thrown by Connections collection when the specific connection
+ element is not found.
+; SchemaSync - The variable "$Project::dSMOconnstring" was not found in the Vari
+ables collection. The variable might not exist in the correct scope.
+; SchemaSync - Attempt to parse the expression "@[$Project::dSMOconnstring]" fai
+led and returned error code 0xC00470A6. The expression cannot be parsed. It migh
+t contain invalid elements or it might not be well-formed. There may also be an
+out-of-memory error.
+; SchemaSync - The expression "@[$Project::dSMOconnstring]" on property "\Packag
+e.Connections[destSMO].Properties[ConnectionString]" cannot be evaluated. Modify
+ the expression to be valid.
+; SchemaSync - The variable "$Project::sSMOconnstring" was not found in the Vari
+ables collection. The variable might not exist in the correct scope.
+; SchemaSync - Attempt to parse the expression "@[$Project::sSMOconnstring]" fai
+led and returned error code 0xC00470A6. The expression cannot be parsed. It migh
+t contain invalid elements or it might not be well-formed. There may also be an
+out-of-memory error.
+; SchemaSync - The expression "@[$Project::sSMOconnstring]" on property "\Packag
+e.Connections[sourceSMO].Properties[ConnectionString]" cannot be evaluated. Modi
+fy the expression to be valid.
+;
+Warnings:
+
+Configurations:

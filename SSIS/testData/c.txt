@@ -1,0 +1,95 @@
+Scanning Package:SchemaSync
+CreationName:Microsoft.Package; PackageType:DTSDesigner100
+GetPackagePath:\Package; GetExecutionPath:\SchemaSync
+Parameters:
+
+Variables:
+System::CancelEvent - DataType:Int32 - Value:0; System::ContainerStartTime - Dat
+aType:DateTime - Value:30/08/2016 11:20:25; System::CreationDate - DataType:Date
+Time - Value:25/08/2016 15:11:46; System::CreatorComputerName - DataType:String
+- Value:PC-0609; System::CreatorName - DataType:String - Value:SOFTCONSTRUCT\nsh
+an.barseghyan; System::ExecutionInstanceGUID - DataType:String - Value:{FB430635
+-48AD-493D-BC5C-695424663C58}; System::FailedConfigurations - DataType:String -
+Value:; System::IgnoreConfigurationsOnLoad - DataType:Boolean - Value:False; Sys
+tem::InteractiveMode - DataType:Boolean - Value:False; System::LastModifiedProdu
+ctVersion - DataType:String - Value:13.0.1601.5; System::LocaleID - DataType:Int
+32 - Value:1033; System::MachineName - DataType:String - Value:PC-0609; System::
+OfflineMode - DataType:Boolean - Value:False; System::PackageID - DataType:Strin
+g - Value:{8D58A69F-CC24-434B-B151-03746B07DD4D}; System::PackageName - DataType
+:String - Value:SchemaSync; System::ParentContainerGUID - DataType:String - Valu
+e:; System::ProductVersion - DataType:String - Value:13.0.1601.5; System::Server
+ExecutionID - DataType:Int64 - Value:0; System::StartTime - DataType:DateTime -
+Value:30/08/2016 11:20:25; User::tableList1 - DataType:String - Value:; User::ta
+bleList2 - DataType:String - Value:; User::tableList3 - DataType:Object - Value:
+System.Object; User::tableList4 - DataType:String - Value:; System::UserName - D
+ataType:String - Value:SOFTCONSTRUCT\nshan.barseghyan; System::VersionBuild - Da
+taType:Int32 - Value:57; System::VersionComments - DataType:String - Value:; Sys
+tem::VersionGUID - DataType:String - Value:{9AC40E67-094C-4A2E-8A88-FC5F71EEB884
+}; System::VersionMajor - DataType:Int32 - Value:1; System::VersionMinor - DataT
+ype:Int32 - Value:0; $Project::MainServerName - DataType:String - Value:TOSHIBA\
+SQLEXPRESS; $Project::DefaultPath - DataType:String - Value:D:\Nshan\nsbTests\SS
+IS\testData\; $Project::ParamPGproj - DataType:String - Value:Value0nsb; $Projec
+t::cConnString - DataType:String - Value:Data Source=PC-0609;Initial Catalog=For
+SSISTests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;; $
+Project::sConnString - DataType:String - Value:Data Source=PC-0609;Initial Catal
+og=SSIS1;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;; $P
+roject::dConnString - DataType:String - Value:Data Source=PC-0609;Initial Catalo
+g=SSIS2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;; $Pr
+oject::sSMOconnstring - DataType:String - Value:SqlServerName=PC-0609;UseWindows
+Authentication=True;UserName=;; $Project::dSMOconnstring - DataType:String - Val
+ue:SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;;
+Properties:
+Other - CertificateContext; Other - CertificateObject; Other - CheckpointFileNam
+e; Other - CheckpointUsage; Other - CheckSignatureOnLoad; Other - Configurations
+; Other - Connections; Other - CreationDate; Other - CreationName; Other - Creat
+orComputerName; Other - CreatorName; Other - DelayValidation; Other - Descriptio
+n; Other - DesignEvents; Other - DesignTimeProperties; Other - Disable; Other -
+DisableEventHandlers; Other - DumpDescriptor; Other - DumpOnAnyError; Other - En
+ableConfigurations; Other - EnableDump; Other - EncryptCheckpoints; Other - Erro
+rs; Other - EventHandlers; Other - EventInfos; Other - Executables; Other - Exec
+utionDuration; Other - ExecutionResult; Other - ExecutionStatus; Other - Extende
+dProperties; Other - FailPackageOnFailure; Other - FailParentOnFailure; Other -
+ForcedExecutionValue; Other - ForceExecutionResult; Other - ForceExecutionValue;
+ Other - ID; Other - IgnoreConfigurationsOnLoad; Other - InteractiveMode; Other
+- IsDefaultLocaleID; Other - IsolationLevel; Other - LastModifiedProductVersion;
+ Other - LocaleID; Other - LogEntryInfos; Other - LoggingMode; Other - LoggingOp
+tions; Other - LogProviders; Other - MaxConcurrentExecutables; Other - MaximumEr
+rorCount; Other - Name; Other - OfflineMode; Other - PackageFormatVersion; Other
+ - PackageLocation; Other - PackagePassword; Other - PackagePriorityClass; Other
+ - PackageType; Other - PackageUpgradeOptions; Other - Parent; Other - Precedenc
+eConstraints; Other - ProtectionLevel; Other - SafeRecursiveProjectPackageExecut
+ion; Other - SaveCheckpoints; Other - SQLFolder; Other - StartTime; Other - Stop
+Time; Other - SuppressConfigurationWarnings; Other - TransactionOption; Other -
+UpdateObjects; Other - UpdatePackage; Other - VariableDispenser; Other - Variabl
+es; Other - VersionBuild; Other - VersionComments; Other - VersionGUID; Other -
+VersionMajor; Other - VersionMinor; Other - Warnings;
+Connections:
+destSMO; sourceSMO; controllConnmgr; destConnmgr; FlatFile ConnManager; sourceCo
+nnmgr;
+ExtendedProperties:
+
+Configurations:
+
+Executables:
+Microsoft.SqlServer.Dts.Runtime.TaskHost
+Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer
+.SQLTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91 - [
+GetTables FullResultSet]
+Microsoft.SqlServer.Dts.Runtime.TaskHost
+Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer
+.SQLTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91 - [
+GetTables None]
+Microsoft.SqlServer.Dts.Runtime.TaskHost
+Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer
+.SQLTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91 - [
+GetTables SingleRow]
+Microsoft.SqlServer.Dts.Runtime.TaskHost
+Microsoft.SqlServer.Dts.Tasks.TransferSqlServerObjectsTask.TransferSqlServerObje
+ctsTask, Microsoft.SqlServer.TransferSqlServerObjectsTask, Version=13.0.0.0, Cul
+ture=neutral, PublicKeyToken=89845dcd8080cc91 - [TransferTables]
+
+Errors:
+
+Warnings:
+
+Configurations:

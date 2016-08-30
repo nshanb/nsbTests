@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FillSamples"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{94DF957C-F028-4FC1-A895-6DBB486FDD85}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{EDDB2479-59D7-484C-B130-8D128B4E235F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -33,7 +33,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testData\fillsamples1.csv">
+          DTS:ConnectionString="D:\Nshan\nsbTests\SSIS\testData\fillsamples1.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +75,6 @@
       DTS:refId="Package\FillTabel2"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{E3754048-9111-4BF5-8CE9-9F7D6F7DBE96}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"

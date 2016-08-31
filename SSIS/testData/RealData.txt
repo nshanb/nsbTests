@@ -1,0 +1,165 @@
+﻿tableName	ToCopy	OnlyInsert	Other	f1	f5	f2	f3	f4
+Document	1	?		Modified	SessionId	ClientSessionId		
+MatchResult	1	0		Modified	SessionId		CreatedSessionId	
+CashDeskSportLimit	0	0		Modified	SessionId			
+Client	1	0		Modified	SessionId			
+ClientNote	1	1		Modified	SessionId			
+Competition	1	0		Modified	SessionId			
+Export	0	0		Modified	SessionId			
+GeneralQueue	0	0		Modified	SessionId			
+Job	0	0		Modified	SessionId			
+LoyaltyGameGroup	1	0		Modified	SessionId			
+Market	1	0		Modified	SessionId			
+MarketTypeGroup	0	0		Modified	SessionId			
+Match	1	0		Modified	SessionId			
+MatchState	1	0		Modified	SessionId			
+Partner	1	0		Modified	SessionId			
+PartnerBooking	0	0		Modified	SessionId			
+PartnerMarketTypeGroup	0	0		Modified	SessionId			
+Region	1	0		Modified	SessionId			
+Role	0	0		Modified	SessionId			
+Season	1	0		Modified	SessionId			
+SeasonGroup	1	0		Modified	SessionId			
+SettlementQueue	0	0		Modified	SessionId			
+Sport	1	0		Modified	SessionId			
+SportOrder	0	0		Modified	SessionId			
+Team	1	0		Modified	SessionId			
+Transfer	0	0		Modified	SessionId			
+TranslationEntry	1	0		Modified	SessionId			
+UserNote	0	0		Modified	SessionId			
+Betshop	1	0		Modified				ModifiedSessionId
+CasinoFee	0	0		Modified				
+CommercialFee	0	0		Modified				
+MarketTypeDisplayGroup	0	0		Modified				
+MarketTypeOddGroup	0	0		Modified				
+ProfitShare	0	0		Modified				
+SportsBookFee	0	0		Modified				
+Translation	1	0		Modified				
+ChangeHistory	0	0			SessionId			
+LogicalLock	0	0			SessionId			
+PartnerSetting	0	0			SessionId			
+AccessObject	0	0						
+Account	1	0		?				
+Agent	0	0						
+AgentClientGroup	0	0						
+AgentGroup	0	0						
+AgentGroupItem	0	0						
+AgentRelationship	0	0						
+AgentSystem	0	0						
+AutoFeed	0	0						
+Balance	1	0		?				
+BalanceGroup	0	0						
+BalanceGroupItem	0	0						
+BalanceType	1	0						
+Bet	1	0		?				
+BetBook	0	0						
+BetDocument	1	1						
+BetSelection	1	1						
+BetshopGroup	1	0						
+Bonus	0	0						
+BonusDetail	0	0						
+BonusGame	0	0						
+Bookmark	0	0						
+Calendar	0	0						
+CashDesk	1	0		?				
+CashDeskKPI	1	0		?				
+CashDeskShift	1	0		?				
+CashDeskTransfers	0	0						
+Category	1	0						
+Chat	0	0						
+Classifier	1	0						
+ClientBetPrecalculation	0	0						
+ClientBonus	0	0						
+ClientImage	0	0						
+ClientKPI	1	0		?				
+ClientLimit	0	0						
+ClientMessage	0	0						
+ClientPaymentSystem	0	0						
+ClientProfile	0	0						
+ClientRequest	1	0		?				
+ClientRestriction	0	0						
+ClientSession	1	1						
+ClientSportsbookProfile	1	0						
+ClientVerificationStep	0	0						
+CompetitionMarketTypeGroup	0	0						
+Currency	1	0						
+CurrencyRate	1	1						
+DocumentType	1	1						
+EmailQueue	0	0						
+EmailTemplate	0	0						
+Error	0	0						
+ExternalObject	0	0						
+Game	1	1						
+GameKPI	1	0		?				
+GameNetworkGroup	0	0						
+JobLog	0	0						
+JobShedule	0	0						
+JobStep	0	0						
+Language	1	1						
+LoyaltyGameGroupItem	0	0						
+LoyaltyGroupMultiplier	0	0						
+LoyaltyLevel	0	0						
+LoyaltyPointHistory	0	0						
+LoyaltyRate	0	0						
+MainMarketCalc	0	0						
+MarketType	1	0		?				
+MarketTypeDisplayGroupItem	0	0						
+MarketTypeGroupItem	0	0						
+MarketTypeItem	0	0						
+MarketTypeOddGroupItem	0	0						
+MarketTypeResult	0	0						
+MatchDetails	0	0						
+MatchLog	0	0						
+MatchMarketType	0	0						
+MatchMarketTypeItem	0	0						
+MatchPackage	0	0						
+MatchPackageItem	0	0						
+MatchResultType	0	0						
+MatchResultTypeGroup	0	0						
+MatchTeam	1	0						
+NetworkGroupPartner	0	0						
+PackageCompetition	0	0						
+PairGroup	0	0						
+PartnerBonus	0	0						
+PartnerCategory	0	0						
+PartnerDeliveredLiveGame	0	0						
+PartnerGame	0	0						
+PartnerGameCategory	0	0						
+PartnerKYCStep	0	0						
+PartnerMatchPackage	0	0						
+PartnerPaymentSystem	0	0						
+PasswordRegularExpression	0	0						
+PaymentSystem	1	0						
+PaymentSystemCommision	0	0						
+PermissibleOdd	0	0						
+PermissiblePair	0	0						
+Permission	0	0						
+PermissionGroup	0	0						
+Player	0	0						
+PlayerSportLimit	0	0						
+Popular	0	0						
+Product	1	0						
+ProductCategory	1	0						
+ProductProvider	1	0						
+Report	0	0						
+ReportDetail	0	0						
+RolePermission	0	0						
+Schedule	0	0						
+Selection	1	1						
+SelectionLiability	0	0						
+SelectionPrice	0	0						
+SelectionType	1	1						
+Sequence	0	0						
+Setting	0	0						
+SportBonus	0	0						
+SportBonusRule	0	0						
+SportFreeBet	0	0						
+SportLimit	0	0						
+TeamMember	0	0						
+TradingSalary	0	0						
+Transaction	1	1						
+User	1	0		?				
+UserPermission	0	0						
+UserRole	0	0						
+UserSession	1	1						
+UserSetting	0	0						

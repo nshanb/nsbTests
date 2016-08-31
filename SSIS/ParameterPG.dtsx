@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ParameterPG"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{6E609DD1-C561-4494-9225-4D33B264B449}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{89A6E79E-BA0E-4D29-A968-CD323FB822EF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -51,7 +51,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <ExpressionTask
-          Expression="" />
+          Expression="1" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -91,6 +91,17 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Expression Task"
+          TopLeft="615,95" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,55"
+          Size="205,98"
+          Id="Package\Sequence Container"
+          TopLeft="330,57" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -102,20 +113,9 @@
           Text="You can use a parameter anywhere in an expression by referring it using the following syntax: @[$&lt;&lt;Project/Package&gt;&gt;::&lt;&lt;ParameterName&gt;&gt;]&#xA;The evaluation order is similar to using a variable in an expression and then executing a package. &#xA;Hence, the value gets evaluated and assigned to the property at Validation phase."
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="791,72"
+          Size="791,88"
           Id="82abdf0f-556a-4428-9926-8377317685e6"
           TopLeft="23,190" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="205,55"
-          Size="205,98"
-          Id="Package\Sequence Container"
-          TopLeft="330,57" />
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Expression Task"
-          TopLeft="615,95" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

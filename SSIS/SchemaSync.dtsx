@@ -11,18 +11,18 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SchemaSync"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{9AC40E67-094C-4A2E-8A88-FC5F71EEB884}">
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{083CA9FB-2876-45A9-BA58-5D575A90427B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[destSMO]"
+      DTS:refId="Package.ConnectionManagers[etalonSMO]"
       DTS:CreationName="SMOServer"
       DTS:DTSID="{D838D253-D5FC-4E12-A98A-A19D4E6D2BEA}"
-      DTS:ObjectName="destSMO">
+      DTS:ObjectName="etalonSMO">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::dSMOconnstring]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::eSMOconnstring]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SMOServerConnectionManager
           ConnectionString="SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;" />
@@ -44,6 +44,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:Description="to delete, playGround"
       DTS:DTSID="{A795A0A1-AD26-4EEF-A076-9CD256BBEEE6}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -54,6 +55,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:Description="to delete, playGround"
       DTS:DTSID="{0B1D5B6B-094B-41D2-B4AC-9B9818B8CCF6}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -64,6 +66,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:Description="to delete, playGround"
       DTS:DTSID="{07877834-71B0-405A-8B62-810AABA012BE}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -82,6 +85,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:Description="to delete, playGround"
       DTS:DTSID="{75FCC6DB-F26B-4683-A80D-A02FB5D008AE}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -177,12 +181,16 @@
       DTS:TaskContact="Transfer Objects Task; Microsoft Corporation; SQL Server 2016; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="1">
       <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="DestinationDatabase">@[$Project::eCatalogName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="SourceDatabase">@[$Project::sCatalogName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <TransferSqlServerObjectsTaskData
           SourceConnection="{1885E42D-FAC8-4AD9-BF8F-4CBED5FD760A}"
           DestinationConnection="{D838D253-D5FC-4E12-A98A-A19D4E6D2BEA}"
           SourceDatabase="SSIS1"
-          DestinationDatabase="SSIS2"
+          DestinationDatabase="SSIS1etalon"
           TablesList="3,14,[dbo].[Table1],14,[dbo].[Table2],23,[staging].[TestStaging],"
           SchemasList="1,7,staging,"
           DropObjectsFirst="True"
@@ -225,22 +233,22 @@
         <NodeLayout
           Size="160,42"
           Id="Package\GetTables FullResultSet"
-          TopLeft="586,122" />
+          TopLeft="580,349" />
         <NodeLayout
           Size="160,42"
           Id="Package\GetTables None"
-          TopLeft="351,124" />
+          TopLeft="345,351" />
         <NodeLayout
           Size="178,42"
           Id="Package\GetTables SingleRow"
-          TopLeft="118,123" />
+          TopLeft="112,350" />
         <NodeLayout
           Size="149,42"
           Id="Package\TransferTables"
           TopLeft="120,45" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="296,144.5">
+          TopLeft="290,371.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -262,7 +270,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="511,144">
+          TopLeft="505,371">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -283,12 +291,12 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="add check for a main table!!!&#xA;can not assign a variable to TablesList property&#xA;can not access TransferTables from Script Task (possibly throw system variables?)"
+          Text="TablesList property of TransgerLists is set up from c# project&#xA;can not access TransferTables from Script Task (possibly throw system variables?)"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="453,88"
+          Size="456,56"
           Id="58c98d83-4494-4890-bfb6-c5437273d9ab"
-          TopLeft="319,41" />
+          TopLeft="116,139" />
         <AnnotationLayout
           Text="select Name from table =&gt; returns string&#xA;declare @S NVARCHAR(max); SET @S = 'k' select @s as Name =&gt; returns __ComObject"
           ParentId="Package"
@@ -302,14 +310,7 @@
           FontInfo="{assembly:Null}"
           Size="273,40"
           Id="93b2909f-bf72-4715-a1bf-5fbb56fb787c"
-          TopLeft="150,256" />
-        <AnnotationLayout
-          Text="Script task runs forever"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="150,40"
-          Id="b7cc279e-1b17-41ef-bf83-67122a8496a5"
-          TopLeft="173,301" />
+          TopLeft="117,256" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

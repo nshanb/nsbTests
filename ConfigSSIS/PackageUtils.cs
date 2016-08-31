@@ -30,7 +30,7 @@ namespace ConfigSSIS
         }
         public static Package LoadPackage(string packageName, Application app)
         {
-            if(app == null )
+            if (app == null)
             {
                 app = new Application();
             }
@@ -38,12 +38,12 @@ namespace ConfigSSIS
         }
         public static Package LoadPackage(string packageName, Project project)
         {
-            if( project == null )
+            if (project == null)
             {
                 project = Project.OpenProject(projectPath);
             }
             var pi = project.PackageItems.SingleOrDefault(x => x.Package.Name == packageName);
-            if( pi == null ) return null;
+            if (pi == null) return null;
             return pi.Package;
         }
         public static void ScanPackage(Package package)
@@ -55,21 +55,30 @@ namespace ConfigSSIS
             Console.WriteLine("Parameters:");
             foreach (Parameter par in package.Parameters)
             {
-                Console.Write(par.CreationName + " - " + par.Name + "; ");
+                Console.WriteLine("CreationName:{0} - Name:{1} - DataType:{2} - Value:{3}", par.CreationName, par.Name, par.DataType, par.Value);
             }
 
             Console.WriteLine();
             Console.WriteLine("Variables:");
             foreach (Variable par in package.Variables.Cast<Variable>().OrderBy(x => x.QualifiedName))
             {
-                Console.Write("{0} - DataType:{1} - Value:{2}; ", par.QualifiedName, par.DataType, par.Value);
+                Console.WriteLine("{0} - DataType:{1} - Value:{2}; ", par.QualifiedName, par.DataType, par.Value);
             }
 
             Console.WriteLine();
             Console.WriteLine("Properties:");
             foreach (DtsProperty par in package.Properties)
             {
-                Console.Write(par.PropertyKind.ToString() + " - " + par.Name + "; ");
+                object val;
+                try
+                {
+                    val = par.GetValue(package);
+                }
+                catch (Exception ex)
+                {
+                    val = "Exception:" + ex.Message;
+                }
+                Console.WriteLine("Name:{0} - PropertyKind:{1}", par.Name, par.PropertyKind, val);
             }
 
             Console.WriteLine();
@@ -128,7 +137,7 @@ namespace ConfigSSIS
         {
             Console.WriteLine("Scanning taskHost:{0}/{1}", package.Name, taskHostName);
             TaskHost th = package.Executables.Cast<TaskHost>().Where(t => t.Name == taskHostName).SingleOrDefault();
-            if( th == null )
+            if (th == null)
             {
                 Console.WriteLine("No such component!");
                 return null;
@@ -138,14 +147,22 @@ namespace ConfigSSIS
             Console.WriteLine("Parameters:");
             foreach (DtsProperty par in th.Properties)
             {
-                Console.WriteLine(par.Name + ":" + par.Type + " - " + par.GetValue(th) + "; ");
-
+                object val;
+                try
+                {
+                    val = par.GetValue(package);
+                }
+                catch (Exception ex)
+                {
+                    val = "Exception:" + ex.Message;
+                }
+                Console.WriteLine("{0} - Type:{1} - GetValue:{2}", par.Name, par.Type, val);
             }
 
             Console.WriteLine("Variables:");
             foreach (Variable par in th.Variables)
             {
-                Console.Write(par.Name+"; ");
+                Console.Write(par.Name + "; ");
             }
 
             return th;

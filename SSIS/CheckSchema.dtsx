@@ -11,10 +11,21 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="CheckSchema"
   DTS:PackageType="5"
-  DTS:VersionBuild="68"
-  DTS:VersionGUID="{99AA41D7-41DD-4186-80F7-D71FADDD8395}">
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{C9690219-522F-46B5-9A50-3C78EB2D11A4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{4B910A5F-CF38-4ED9-BC6D-CA7AED175D8E}"
+      DTS:ObjectName="PartnerId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">-2</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -8142,13 +8153,44 @@ order by Name</property>
           Id="Package\CheckTableDetails"
           TopLeft="218,341" />
         <NodeLayout
+          Size="203,42"
+          Id="Package\CheckTableDetails Staging"
+          TopLeft="200,513" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\CheckTableDetails Staging Again"
+          TopLeft="517,717" />
+        <NodeLayout
           Size="200,42"
           Id="Package\Clear SchemaChekResults"
           TopLeft="166,35" />
         <NodeLayout
+          Size="213,42"
+          Id="Package\Clear SchemaChekResults 1"
+          TopLeft="521,642" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Create staging tables\Prep staging table"
+          TopLeft="22,17" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="202,86"
+          Size="202,129"
+          Id="Package\Create staging tables"
+          TopLeft="199,641" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="513,513" />
+        <NodeLayout
           Size="205,42"
           Id="Package\RaiseErrorIfNeeded Deatils"
           TopLeft="195,432" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\RaiseErrorIfNeeded Staging Tables"
+          TopLeft="910,718" />
         <NodeLayout
           Size="204,42"
           Id="Package\RaiseErrorIfNeeded Tables"
@@ -8213,6 +8255,62 @@ order by Name</property>
                     Point3="105.333333333333,33.1712062256809" />
                   <mssgle:LineSegment
                     End="105.333333333333,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="750,738.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="160,0"
+              Start="0,0"
+              End="152.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="152.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="594.5,555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-294.5,86"
+              Start="0,0"
+              End="-294.5,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39"
+                    Point2="0,43"
+                    Point3="-4,43" />
+                  <mssgle:LineSegment
+                    End="-290.5,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-290.5,43"
+                    Point2="-294.5,43"
+                    Point3="-294.5,47" />
+                  <mssgle:LineSegment
+                    End="-294.5,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8312,6 +8410,28 @@ order by Name</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="299.5,474">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="299,383">
           <EdgeLayout.Curve>
@@ -8333,56 +8453,28 @@ order by Name</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="try foreach with Recordset Destination"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="231,40"
-          Id="516f3e1e-095f-4a84-9630-25a6b5e719f1"
-          TopLeft="644,73" />
-        <NodeLayout
-          Size="164,42"
-          Id="Package\Create staging tables\Prep staging table"
-          TopLeft="22,17" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="202,86"
-          Size="202,129"
-          Id="Package\Create staging tables"
-          TopLeft="199,641" />
-        <NodeLayout
-          Size="243,42"
-          Id="Package\RaiseErrorIfNeeded Staging Tables"
-          TopLeft="910,718" />
-        <NodeLayout
-          Size="203,42"
-          Id="Package\CheckTableDetails Staging"
-          TopLeft="200,513" />
-        <NodeLayout
-          Size="213,42"
-          Id="Package\Clear SchemaChekResults 1"
-          TopLeft="521,642" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="299.5,474">
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="403,534">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39"
+              EndConnector="110,0"
               Start="0,0"
-              End="0,31.5">
+              End="102.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5" />
+                    End="102.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="43.25,5,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8419,72 +8511,6 @@ order by Name</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="513,513" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="403,534">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="110,0"
-              Start="0,0"
-              End="102.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="102.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="43.25,5,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="594.5,555">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-294.5,86"
-              Start="0,0"
-              End="-294.5,78.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39"
-                    Point2="0,43"
-                    Point3="-4,43" />
-                  <mssgle:LineSegment
-                    End="-290.5,43" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-290.5,43"
-                    Point2="-294.5,43"
-                    Point3="-294.5,47" />
-                  <mssgle:LineSegment
-                    End="-294.5,78.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="233,42"
-          Id="Package\CheckTableDetails Staging Again"
-          TopLeft="517,717" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
           TopLeft="630.5,684">
@@ -8507,28 +8533,13 @@ order by Name</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="750,738.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="160,0"
-              Start="0,0"
-              End="152.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="152.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <AnnotationLayout
+          Text="try foreach with Recordset Destination"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="231,40"
+          Id="516f3e1e-095f-4a84-9630-25a6b5e719f1"
+          TopLeft="644,73" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -8538,29 +8549,29 @@ order by Name</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="171,42"
-          Id="Package\CheckDestTables\OLE DB Destination"
-          TopLeft="716,222" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\CheckDestTables\Merge Join"
-          TopLeft="147,155" />
-        <NodeLayout
-          Size="210,42"
-          Id="Package\CheckDestTables\GenerateErrorString"
-          TopLeft="401,225" />
+          Size="131,42"
+          Id="Package\CheckDestTables\DestTables"
+          TopLeft="233,36" />
         <NodeLayout
           Size="127,42"
           Id="Package\CheckDestTables\SyncTable"
           TopLeft="77,35" />
         <NodeLayout
-          Size="131,42"
-          Id="Package\CheckDestTables\DestTables"
-          TopLeft="233,36" />
+          Size="130,42"
+          Id="Package\CheckDestTables\Merge Join"
+          TopLeft="147,155" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\CheckDestTables\OLE DB Destination"
+          TopLeft="716,222" />
         <NodeLayout
           Size="155,42"
           Id="Package\CheckDestTables\Conditional Split"
           TopLeft="135,230" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\CheckDestTables\GenerateErrorString"
+          TopLeft="401,225" />
         <EdgeLayout
           Id="Package\CheckDestTables.Paths[OLE DB Source Output1]"
           TopLeft="298.5,78">
@@ -8654,28 +8665,6 @@ order by Name</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\CheckDestTables.Paths[Derived Column Output]"
-          TopLeft="611,244.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="105,0"
-              Start="0,0"
-              End="97.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="97.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\CheckDestTables.Paths[Merge Join Output]"
           TopLeft="212.25,197">
           <EdgeLayout.Curve>
@@ -8697,19 +8686,36 @@ order by Name</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckDestTables.Paths[Derived Column Output]"
+          TopLeft="611,244.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105,0"
+              Start="0,0"
+              End="97.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="97.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\CheckDestTables\OLE DB Destination">
+    design-time-name="Package\CheckDestTables\DestTables">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -8722,10 +8728,15 @@ order by Name</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\CheckDestTables\DestTables">
+    design-time-name="Package\CheckDestTables\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -9538,9 +9549,21 @@ order by Name</property>
           Id="Package\CheckTableDetails Staging\Sort"
           TopLeft="180,256" />
         <NodeLayout
+          Size="130,42"
+          Id="Package\CheckTableDetails Staging\Row Count"
+          TopLeft="864,437" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\CheckTableDetails Staging\SyncTable 1"
+          TopLeft="491,54" />
+        <NodeLayout
           Size="149,42"
           Id="Package\CheckTableDetails Staging\DerCol missing"
           TopLeft="463,385" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\CheckTableDetails Staging\SyncTable"
+          TopLeft="76,48" />
         <NodeLayout
           Size="130,42"
           Id="Package\CheckTableDetails Staging\Merge Join"
@@ -9550,13 +9573,17 @@ order by Name</property>
           Id="Package\CheckTableDetails Staging\Merge Join 2"
           TopLeft="279,343" />
         <NodeLayout
+          Size="98,42"
+          Id="Package\CheckTableDetails Staging\Sort 1"
+          TopLeft="453,255" />
+        <NodeLayout
           Size="131,42"
           Id="Package\CheckTableDetails Staging\DestTables"
           TopLeft="673,53" />
         <NodeLayout
-          Size="98,42"
-          Id="Package\CheckTableDetails Staging\Sort 1"
-          TopLeft="453,255" />
+          Size="121,42"
+          Id="Package\CheckTableDetails Staging\Union All"
+          TopLeft="674,439" />
         <NodeLayout
           Size="155,42"
           Id="Package\CheckTableDetails Staging\Conditional Split"
@@ -9565,10 +9592,30 @@ order by Name</property>
           Size="180,42"
           Id="Package\CheckTableDetails Staging\OLE DB Destination 1"
           TopLeft="1042,434" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\CheckTableDetails Staging\Union All"
-          TopLeft="674,439" />
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging.Paths[Union All Output 1]"
+          TopLeft="795,459">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="69,0"
+              Start="0,0"
+              End="61.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="61.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\CheckTableDetails Staging.Paths[Sort Output1]"
           TopLeft="502,297">
@@ -9600,7 +9647,9 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9634,7 +9683,33 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging.Paths[Row Count Output 1]"
+          TopLeft="994,456.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48,0"
+              Start="0,0"
+              End="40.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="40.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9674,6 +9749,114 @@ order by Name</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\CheckTableDetails Staging.Paths[OLE DB Source Output3]"
+          TopLeft="139.5,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77.1666666666667,86"
+              Start="0,0"
+              End="77.1666666666667,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.9726443768997" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.9726443768997"
+                    Point2="0,50.9726443768997"
+                    Point3="4,50.9726443768997" />
+                  <mssgle:LineSegment
+                    End="73.1666666666667,50.9726443768997" />
+                  <mssgle:CubicBezierSegment
+                    Point1="73.1666666666667,50.9726443768997"
+                    Point2="77.1666666666667,50.9726443768997"
+                    Point3="77.1666666666667,54.9726443768997" />
+                  <mssgle:LineSegment
+                    End="77.1666666666667,78.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging.Paths[OLE DB Source Output2]"
+          TopLeft="559,96">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74.6666666666666,86"
+              Start="0,0"
+              End="74.6666666666666,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.0128022759602" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.0128022759602"
+                    Point2="0,51.0128022759602"
+                    Point3="4,51.0128022759602" />
+                  <mssgle:LineSegment
+                    End="70.6666666666666,51.0128022759602" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70.6666666666666,51.0128022759602"
+                    Point2="74.6666666666666,51.0128022759602"
+                    Point3="74.6666666666666,55.0128022759602" />
+                  <mssgle:LineSegment
+                    End="74.6666666666666,78.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging.Paths[OLE DB Source Output1]"
+          TopLeft="339,94">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-81.6666666666667,82"
+              Start="0,0"
+              End="-81.6666666666667,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.6018237082067" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.6018237082067"
+                    Point2="0,48.6018237082067"
+                    Point3="-4,48.6018237082067" />
+                  <mssgle:LineSegment
+                    End="-77.6666666666667,48.6018237082067" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-77.6666666666667,48.6018237082067"
+                    Point2="-81.6666666666667,48.6018237082067"
+                    Point3="-81.6666666666667,52.6018237082067" />
+                  <mssgle:LineSegment
+                    End="-81.6666666666667,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\CheckTableDetails Staging.Paths[OLE DB Source Output]"
           TopLeft="738.5,95">
           <EdgeLayout.Curve>
@@ -9704,7 +9887,9 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9774,7 +9959,9 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9808,7 +9995,9 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9842,199 +10031,9 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging.Paths[OLE DB Source Output1]"
-          TopLeft="339,94">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-81.6666666666667,82"
-              Start="0,0"
-              End="-81.6666666666667,74.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.6018237082067" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,44.6018237082067"
-                    Point2="0,48.6018237082067"
-                    Point3="-4,48.6018237082067" />
-                  <mssgle:LineSegment
-                    End="-77.6666666666667,48.6018237082067" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-77.6666666666667,48.6018237082067"
-                    Point2="-81.6666666666667,48.6018237082067"
-                    Point3="-81.6666666666667,52.6018237082067" />
-                  <mssgle:LineSegment
-                    End="-81.6666666666667,74.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="136,42"
-          Id="Package\CheckTableDetails Staging\SyncTable 1"
-          TopLeft="491,54" />
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging.Paths[OLE DB Source Output2]"
-          TopLeft="559,96">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="74.6666666666666,86"
-              Start="0,0"
-              End="74.6666666666666,78.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.0128022759602" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47.0128022759602"
-                    Point2="0,51.0128022759602"
-                    Point3="4,51.0128022759602" />
-                  <mssgle:LineSegment
-                    End="70.6666666666666,51.0128022759602" />
-                  <mssgle:CubicBezierSegment
-                    Point1="70.6666666666666,51.0128022759602"
-                    Point2="74.6666666666666,51.0128022759602"
-                    Point3="74.6666666666666,55.0128022759602" />
-                  <mssgle:LineSegment
-                    End="74.6666666666666,78.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="127,42"
-          Id="Package\CheckTableDetails Staging\SyncTable"
-          TopLeft="76,48" />
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging.Paths[OLE DB Source Output3]"
-          TopLeft="139.5,90">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="77.1666666666667,86"
-              Start="0,0"
-              End="77.1666666666667,78.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.9726443768997" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,46.9726443768997"
-                    Point2="0,50.9726443768997"
-                    Point3="4,50.9726443768997" />
-                  <mssgle:LineSegment
-                    End="73.1666666666667,50.9726443768997" />
-                  <mssgle:CubicBezierSegment
-                    Point1="73.1666666666667,50.9726443768997"
-                    Point2="77.1666666666667,50.9726443768997"
-                    Point3="77.1666666666667,54.9726443768997" />
-                  <mssgle:LineSegment
-                    End="77.1666666666667,78.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="130,42"
-          Id="Package\CheckTableDetails Staging\Row Count"
-          TopLeft="864,437" />
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging.Paths[Union All Output 1]"
-          TopLeft="795,459">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="69,0"
-              Start="0,0"
-              End="61.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="61.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging.Paths[Row Count Output 1]"
-          TopLeft="994,456.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="48,0"
-              Start="0,0"
-              End="40.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="40.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging.Paths[Derived Column Output]"
-          TopLeft="547,507">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="187.5,-26"
-              Start="0,0"
-              End="187.5,-18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-9" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-9"
-                    Point2="0,-13"
-                    Point3="4,-13" />
-                  <mssgle:LineSegment
-                    End="183.5,-13" />
-                  <mssgle:CubicBezierSegment
-                    Point1="183.5,-13"
-                    Point2="187.5,-13"
-                    Point3="187.5,-17" />
-                  <mssgle:LineSegment
-                    End="187.5,-18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10068,7 +10067,45 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging.Paths[Derived Column Output]"
+          TopLeft="547,507">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="187.5,-26"
+              Start="0,0"
+              End="187.5,-18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-9"
+                    Point2="0,-13"
+                    Point3="4,-13" />
+                  <mssgle:LineSegment
+                    End="183.5,-13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="183.5,-13"
+                    Point2="187.5,-13"
+                    Point3="187.5,-17" />
+                  <mssgle:LineSegment
+                    End="187.5,-18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10097,21 +10134,9 @@ order by Name</property>
           Id="Package\CheckTableDetails Staging Again\Merge Join 1"
           TopLeft="586,182" />
         <NodeLayout
-          Size="127,42"
-          Id="Package\CheckTableDetails Staging Again\SyncTable"
-          TopLeft="76,48" />
-        <NodeLayout
           Size="160,42"
           Id="Package\CheckTableDetails Staging Again\DerCol reduntent"
           TopLeft="467,507" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\CheckTableDetails Staging Again\Row Count"
-          TopLeft="864,437" />
-        <NodeLayout
-          Size="136,42"
-          Id="Package\CheckTableDetails Staging Again\SyncTable 1"
-          TopLeft="491,54" />
         <NodeLayout
           Size="142,42"
           Id="Package\CheckTableDetails Staging Again\SourceTables"
@@ -10121,9 +10146,21 @@ order by Name</property>
           Id="Package\CheckTableDetails Staging Again\Sort"
           TopLeft="180,256" />
         <NodeLayout
+          Size="130,42"
+          Id="Package\CheckTableDetails Staging Again\Row Count"
+          TopLeft="864,437" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\CheckTableDetails Staging Again\SyncTable 1"
+          TopLeft="491,54" />
+        <NodeLayout
           Size="149,42"
           Id="Package\CheckTableDetails Staging Again\DerCol missing"
           TopLeft="463,385" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\CheckTableDetails Staging Again\SyncTable"
+          TopLeft="76,48" />
         <NodeLayout
           Size="130,42"
           Id="Package\CheckTableDetails Staging Again\Merge Join"
@@ -10133,13 +10170,17 @@ order by Name</property>
           Id="Package\CheckTableDetails Staging Again\Merge Join 2"
           TopLeft="279,343" />
         <NodeLayout
+          Size="98,42"
+          Id="Package\CheckTableDetails Staging Again\Sort 1"
+          TopLeft="453,255" />
+        <NodeLayout
           Size="131,42"
           Id="Package\CheckTableDetails Staging Again\DestTables"
           TopLeft="673,53" />
         <NodeLayout
-          Size="98,42"
-          Id="Package\CheckTableDetails Staging Again\Sort 1"
-          TopLeft="453,255" />
+          Size="121,42"
+          Id="Package\CheckTableDetails Staging Again\Union All"
+          TopLeft="674,439" />
         <NodeLayout
           Size="155,42"
           Id="Package\CheckTableDetails Staging Again\Conditional Split"
@@ -10148,10 +10189,6 @@ order by Name</property>
           Size="180,42"
           Id="Package\CheckTableDetails Staging Again\OLE DB Destination 1"
           TopLeft="1042,434" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\CheckTableDetails Staging Again\Union All"
-          TopLeft="674,439" />
         <EdgeLayout
           Id="Package\CheckTableDetails Staging Again.Paths[Union All Output 1]"
           TopLeft="795,459">
@@ -10166,42 +10203,6 @@ order by Name</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="61.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging Again.Paths[Derived Column Output1]"
-          TopLeft="612,406">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="62,54"
-              Start="0,0"
-              End="54.5,54">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="27,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="27,0"
-                    Point2="31,0"
-                    Point3="31,4" />
-                  <mssgle:LineSegment
-                    End="31,50" />
-                  <mssgle:CubicBezierSegment
-                    Point1="31,50"
-                    Point2="31,54"
-                    Point3="35,54" />
-                  <mssgle:LineSegment
-                    End="54.5,54" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10285,6 +10286,30 @@ order by Name</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\CheckTableDetails Staging Again.Paths[Row Count Output 1]"
+          TopLeft="994,456.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48,0"
+              Start="0,0"
+              End="40.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="40.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\CheckTableDetails Staging Again.Paths[ReduntentCol]"
           TopLeft="407,473.666666666667">
           <EdgeLayout.Curve>
@@ -10321,31 +10346,31 @@ order by Name</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\CheckTableDetails Staging Again.Paths[OLE DB Source Output]"
-          TopLeft="738.5,95">
+          Id="Package\CheckTableDetails Staging Again.Paths[OLE DB Source Output3]"
+          TopLeft="139.5,90">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-61.1666666666666,87"
+              EndConnector="77.1666666666667,86"
               Start="0,0"
-              End="-61.1666666666666,79.5">
+              End="77.1666666666667,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.6059743954481" />
+                    End="0,46.9726443768997" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,47.6059743954481"
-                    Point2="0,51.6059743954481"
-                    Point3="-4,51.6059743954481" />
+                    Point1="0,46.9726443768997"
+                    Point2="0,50.9726443768997"
+                    Point3="4,50.9726443768997" />
                   <mssgle:LineSegment
-                    End="-57.1666666666666,51.6059743954481" />
+                    End="73.1666666666667,50.9726443768997" />
                   <mssgle:CubicBezierSegment
-                    Point1="-57.1666666666666,51.6059743954481"
-                    Point2="-61.1666666666666,51.6059743954481"
-                    Point3="-61.1666666666666,55.6059743954481" />
+                    Point1="73.1666666666667,50.9726443768997"
+                    Point2="77.1666666666667,50.9726443768997"
+                    Point3="77.1666666666667,54.9726443768997" />
                   <mssgle:LineSegment
-                    End="-61.1666666666666,79.5" />
+                    End="77.1666666666667,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10429,31 +10454,31 @@ order by Name</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\CheckTableDetails Staging Again.Paths[OLE DB Source Output3]"
-          TopLeft="139.5,90">
+          Id="Package\CheckTableDetails Staging Again.Paths[OLE DB Source Output]"
+          TopLeft="738.5,95">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="77.1666666666667,86"
+              EndConnector="-61.1666666666666,87"
               Start="0,0"
-              End="77.1666666666667,78.5">
+              End="-61.1666666666666,79.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.9726443768997" />
+                    End="0,47.6059743954481" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,46.9726443768997"
-                    Point2="0,50.9726443768997"
-                    Point3="4,50.9726443768997" />
+                    Point1="0,47.6059743954481"
+                    Point2="0,51.6059743954481"
+                    Point3="-4,51.6059743954481" />
                   <mssgle:LineSegment
-                    End="73.1666666666667,50.9726443768997" />
+                    End="-57.1666666666666,51.6059743954481" />
                   <mssgle:CubicBezierSegment
-                    Point1="73.1666666666667,50.9726443768997"
-                    Point2="77.1666666666667,50.9726443768997"
-                    Point3="77.1666666666667,54.9726443768997" />
+                    Point1="-57.1666666666666,51.6059743954481"
+                    Point2="-61.1666666666666,51.6059743954481"
+                    Point3="-61.1666666666666,55.6059743954481" />
                   <mssgle:LineSegment
-                    End="77.1666666666667,78.5" />
+                    End="-61.1666666666666,79.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10609,6 +10634,42 @@ order by Name</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\CheckTableDetails Staging Again.Paths[Derived Column Output1]"
+          TopLeft="612,406">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62,54"
+              Start="0,0"
+              End="54.5,54">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27,0"
+                    Point2="31,0"
+                    Point3="31,4" />
+                  <mssgle:LineSegment
+                    End="31,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31,50"
+                    Point2="31,54"
+                    Point3="35,54" />
+                  <mssgle:LineSegment
+                    End="54.5,54" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\CheckTableDetails Staging Again.Paths[Derived Column Output]"
           TopLeft="547,507">
           <EdgeLayout.Curve>
@@ -10634,30 +10695,6 @@ order by Name</property>
                     Point3="187.5,-17" />
                   <mssgle:LineSegment
                     End="187.5,-18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging Again.Paths[Row Count Output 1]"
-          TopLeft="994,456.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="48,0"
-              Start="0,0"
-              End="40.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="40.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

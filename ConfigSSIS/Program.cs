@@ -24,9 +24,9 @@ namespace ConfigSSIS
         static void myPackageWork()
         {
             Package package;
-            package = PackageUtils.LoadPackage("SchemaSync");
+            package = PackageUtils.LoadPackage("CopyByFullJoin");
             PackageUtils.ScanPackage(package);
-            PackageUtils.ScanMyTaskHostPackage(package, "TransferTables");
+            PackageUtils.ScanMyTaskHostPackage(package, "Data Flow Task");
         }
         static void myPackageChange()
         {

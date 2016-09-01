@@ -1,6 +1,7 @@
 ﻿using Microsoft.SqlServer.Dts.Runtime;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace ConfigSSIS
 {
     class PackageUtils
     {
-        static string projectRoot = @"D:\Nshan\nsbTests\SSIS\";
+        static string projectRoot = ConfigurationManager.AppSettings["ProjectRoot"];
 
         static string projectPath
         {
@@ -97,7 +98,7 @@ namespace ConfigSSIS
 
             Console.WriteLine();
             Console.WriteLine("Configurations:");
-            foreach (Configuration par in package.Configurations)
+            foreach (Microsoft.SqlServer.Dts.Runtime.Configuration par in package.Configurations)
             {
                 Console.Write(par.Name + "; ");
             }
@@ -128,7 +129,7 @@ namespace ConfigSSIS
 
             Console.WriteLine();
             Console.WriteLine("Configurations:");
-            foreach (Configuration par in package.Configurations)
+            foreach (Microsoft.SqlServer.Dts.Runtime.Configuration par in package.Configurations)
             {
                 Console.Write(par.Name + "; ");
             }
@@ -147,10 +148,10 @@ namespace ConfigSSIS
             Console.WriteLine("Parameters:");
             foreach (DtsProperty par in th.Properties)
             {
-                object val;
+                string val;
                 try
                 {
-                    val = par.GetValue(package);
+                    val = string.Format("{0}", par.GetValue(package);
                 }
                 catch (Exception ex)
                 {
@@ -160,10 +161,12 @@ namespace ConfigSSIS
             }
 
             Console.WriteLine("Variables:");
-            foreach (Variable par in th.Variables)
+            foreach (Variable par in th.Variables.Cast<Variable>().OrderBy(x => x.QualifiedName))
             {
-                Console.Write(par.Name + "; ");
+                Console.WriteLine("{0} - DataType:{1} - Value:{2}; ", par.QualifiedName, par.DataType, par.Value);
             }
+
+            // https://msdn.microsoft.com/en-us/library/ms135932.aspx
 
             return th;
         }

@@ -29,6 +29,7 @@ namespace ConfigSSIS
             DataTable table = new DataTable();
             comm.Connection.Open();
             table.Load(comm.ExecuteReader());
+            conn.Close();
             //  x => new SyncTable() { Name = x[""], ToCopy = x["ToCopy"], ToStage = x["ToStage"] }
             List<SyncTable> lst = new List<SyncTable>(table.Rows.Count);
             SyncTable aST;

@@ -5,31 +5,58 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="PC-0609"
   DTS:CreatorName="SOFTCONSTRUCT\nshan.barseghyan"
-  DTS:DTSID="{C61C685C-456D-4562-8720-CFB6B54D388A}"
+  DTS:DTSID="{95D449BB-2D49-4BEF-9437-EFBCDC2E9C41}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
   DTS:ObjectName="CopyByFullJoinP"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{804E32F5-79F1-4DAB-9775-D0D03095F17D}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{0BC3C096-54AF-4ED8-A05C-CE2B8E3208EB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{518352A3-2EC3-4794-9064-9878B53C54B8}"
+      DTS:DTSID="{D486243C-B77C-4233-8620-91E86BB81BFA}"
+      DTS:ObjectName="DataFlowTask_ConditionalSplit1ToUpdateFriendlyExpression">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">(ISNULL(Table1Id) ? !ISNULL([Table1Id (1)]) : [Table1Id (1)] != Table1Id) || (ISNULL(text2) ? !ISNULL([text2 (1)]) : [text2 (1)] != text2)</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{1D421ADA-FC43-4FA0-9BBA-DE35217C6A48}"
+      DTS:ObjectName="DataFlowTask_ConditionalSplitToDeleteFriendlyExpression">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">ISNULL(Id)</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{0FEEF07B-123B-4CD8-9D64-6EB0A5B62E20}"
+      DTS:ObjectName="DataFlowTask_ConditionalSplitToInsertFriendlyExpression">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">ISNULL(Id_nullable)</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{ADE5D0A1-2907-466B-AE69-9C1DD76DC850}"
       DTS:ObjectName="SyncTableName">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">Table1</DTS:Property>
+        DTS:Name="ParameterValue">Table2</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3D080423-42C8-4ACF-8288-49056423D53B}"
+      DTS:DTSID="{ECCB2552-B977-4E10-809A-DF7652B34335}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="currentLogId">
@@ -38,7 +65,25 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A8177A9F-926D-4CAB-ACC0-D44A2845DD77}"
+      DTS:DTSID="{0A715FB4-8F63-4102-B38E-D9EDB22CCD20}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="del">
+      <DTS:VariableValue
+        DTS:DataType="8">True</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1C97B9A1-1D83-418E-865C-57476755AE24}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ins">
+      <DTS:VariableValue
+        DTS:DataType="8">False</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7B8504A1-B6C2-4829-928D-DE0E9E81F020}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="rowCountDelete">
@@ -47,7 +92,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B908501C-8959-406E-B5FF-63D429883288}"
+      DTS:DTSID="{B009DCB6-F1C4-47DA-9BE0-1FFE8A944DD9}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="rowCountInsert">
@@ -56,7 +101,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{16632880-42B3-475F-8D96-E583E10ABC6B}"
+      DTS:DTSID="{AA411440-BE19-4C5A-B809-35F8466ACE9C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="rowCountUpdate">
@@ -65,7 +110,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{F85EF6F1-E9BF-4AB1-854A-6BD5FD8D8A7D}"
+      DTS:DTSID="{511067C4-4441-404A-869E-284342B114B8}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="syncLogName">
@@ -78,35 +123,18 @@
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{0F45AA2C-EF11-48C2-A060-93404D52A37B}"
+      DTS:DTSID="{A640C64B-DECB-4DC0-8DDE-2336842ECBE5}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{6AAEE496-7F0C-490D-87D3-39E64D968779}"
-          DTS:EvaluateAsExpression="True"
-          DTS:Expression="&quot;Select * from &quot; + @[$Package::SyncTableName] + &quot; order by Id&quot;"
-          DTS:IncludeInDebugDump="2345"
-          DTS:Namespace="UserD"
-          DTS:ObjectName="DestSelect">
-          <DTS:VariableValue
-            DTS:DataType="8">Select * from Table1 order by Id</DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{8B915819-6C50-477F-870E-36648F6ED79D}"
-          DTS:EvaluateAsExpression="True"
-          DTS:Expression="&quot;Select * from &quot; + @[$Package::SyncTableName] + &quot; order by Id&quot;"
-          DTS:IncludeInDebugDump="2345"
-          DTS:Namespace="UserD"
-          DTS:ObjectName="SourceSelect">
-          <DTS:VariableValue
-            DTS:DataType="8">Select * from Table1 order by Id</DTS:VariableValue>
-        </DTS:Variable>
-      </DTS:Variables>
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="[Conditional Split 1].[ToUpdate].[FriendlyExpression]">@[$Package::DataFlowTask_ConditionalSplit1ToUpdateFriendlyExpression]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="[Conditional Split].[ToInsert].[FriendlyExpression]">@[$Package::DataFlowTask_ConditionalSplitToInsertFriendlyExpression]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="[Conditional Split].[ToDelete].[FriendlyExpression]">@[$Package::DataFlowTask_ConditionalSplitToDeleteFriendlyExpression]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -128,13 +156,7 @@
                       refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[Id_nullable]"
                       cachedDataType="i4"
                       cachedName="Id_nullable"
-                      lineageId="Package\Data Flow Task\54:invalid" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[Id]"
-                      cachedDataType="i4"
-                      cachedName="Id"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id]" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id_nullable]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -154,7 +176,7 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\Data Flow Task\54:invalid})</property>
+                      name="Expression">[ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id_nullable]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -182,13 +204,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id]})</property>
+                      name="Expression"> FALSE </property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(Id)</property>
+                      name="FriendlyExpression"> FALSE </property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -252,23 +274,23 @@
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="text2"
-                      lineageId="Package\Data Flow Task\50:invalid" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text2]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[Table1Id]"
                       cachedDataType="i4"
                       cachedName="Table1Id"
-                      lineageId="Package\Data Flow Task\52:invalid" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Table1Id]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[text2 (1)]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="text2 (1)"
-                      lineageId="Package\Data Flow Task\56:invalid" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text2 (1)]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[Table1Id (1)]"
                       cachedDataType="i4"
                       cachedName="Table1Id (1)"
-                      lineageId="Package\Data Flow Task\58:invalid" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Table1Id (1)]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -288,7 +310,7 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">([ISNULL](#{Package\Data Flow Task\52:invalid}) ? ![ISNULL](#{Package\Data Flow Task\58:invalid}) : #{Package\Data Flow Task\58:invalid} != #{Package\Data Flow Task\52:invalid}) || ([ISNULL](#{Package\Data Flow Task\50:invalid}) ? ![ISNULL](#{Package\Data Flow Task\56:invalid}) : #{Package\Data Flow Task\56:invalid} != #{Package\Data Flow Task\50:invalid})</property>
+                      name="Expression">([ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Table1Id]}) ? ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Table1Id (1)]}) : #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Table1Id (1)]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Table1Id]}) || ([ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text2]}) ? ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text2 (1)]}) : #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text2 (1)]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text2]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -352,7 +374,7 @@
                   dataType="System.Int32"
                   description="Specifies the type of join to perform."
                   name="JoinType"
-                  typeConverter="JoinType">2</property>
+                  typeConverter="JoinType">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of columns in the ordering key."
@@ -379,11 +401,16 @@
                       cachedSortKeyPosition="1"
                       lineageId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].Columns[Id]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[text1]"
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[text2]"
                       cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="text1"
-                      lineageId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].Columns[text1]" />
+                      cachedLength="50"
+                      cachedName="text2"
+                      lineageId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].Columns[text2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Table1Id]"
+                      cachedDataType="i4"
+                      cachedName="Table1Id"
+                      lineageId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].Columns[Table1Id]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -399,11 +426,16 @@
                       cachedSortKeyPosition="1"
                       lineageId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].Columns[Id]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[text1]"
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[text2]"
                       cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="text1"
-                      lineageId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].Columns[text1]" />
+                      cachedLength="50"
+                      cachedName="text2"
+                      lineageId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].Columns[text2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Table1Id]"
+                      cachedDataType="i4"
+                      cachedName="Table1Id"
+                      lineageId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].Columns[Table1Id]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -429,24 +461,37 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1]"
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text2]"
                       dataType="wstr"
-                      length="10"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1]"
-                      name="text1">
+                      length="50"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text2]"
+                      name="text2">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[text1]}</property>
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[text2]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id (1)]"
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Table1Id]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id (1)]"
-                      name="Id (1)">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Table1Id]"
+                      name="Table1Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Table1Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id_nullable]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id_nullable]"
+                      name="Id_nullable">
                       <properties>
                         <property
                           containsID="true"
@@ -456,388 +501,32 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1 (1)]"
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text2 (1)]"
                       dataType="wstr"
-                      length="10"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1 (1)]"
-                      name="text1 (1)">
+                      length="50"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text2 (1)]"
+                      name="text2 (1)">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[text1]}</property>
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[text2]}</property>
                       </properties>
                     </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\OLE DB Command"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">delete Table2  
-where  [Id]=?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="{6689105D-9793-4E15-9919-1A7980EC8203}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[destConnmgr]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Id]"
-                      cachedDataType="i4"
-                      cachedName="Id"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Table1Id (1)]"
                       dataType="i4"
-                      name="Param_0">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Table1Id (1)]"
+                      name="Table1Id (1)">
                       <properties>
                         <property
+                          containsID="true"
                           dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Table1Id]}</property>
                       </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\OLE DB Command 1"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 1"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update Table2  
-set
- [text2]=?,
- [Table1Id]=?
-where  [Id]=?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\OLE DB Command 1.Connections[OleDbConnection]"
-                  connectionManagerID="{6689105D-9793-4E15-9919-1A7980EC8203}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[destConnmgr]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[text2]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="text2"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Data Flow Task\50:invalid" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Table1Id]"
-                      cachedDataType="i4"
-                      cachedName="Table1Id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Data Flow Task\52:invalid" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Id]"
-                      cachedDataType="i4"
-                      cachedName="Id"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="wstr"
-                      length="50"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="i4"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="i4"
-                      name="Param_2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Table2]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">true</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{6689105D-9793-4E15-9919-1A7980EC8203}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[destConnmgr]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
-                      cachedDataType="i4"
-                      cachedName="Id"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[text2]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="text2"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[text2]"
-                      lineageId="Package\Data Flow Task\50:invalid" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Table1Id]"
-                      cachedDataType="i4"
-                      cachedName="Table1Id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Table1Id]"
-                      lineageId="Package\Data Flow Task\52:invalid" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      dataType="i4"
-                      name="Id" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[text2]"
-                      dataType="wstr"
-                      length="50"
-                      name="text2" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Table1Id]"
-                      dataType="i4"
-                      name="Table1Id" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -872,7 +561,7 @@ where  [Id]=?</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable">UserD::DestSelect</property>
+                  name="SqlCommandVariable"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -885,7 +574,7 @@ where  [Id]=?</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">3</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
@@ -916,14 +605,23 @@ where  [Id]=?</property>
                       sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].Columns[text1]"
+                      refId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].Columns[text2]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].ExternalColumns[text1]"
-                      length="10"
-                      lineageId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].Columns[text1]"
-                      name="text1"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].ExternalColumns[text2]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].Columns[text2]"
+                      name="text2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].Columns[Table1Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].ExternalColumns[Table1Id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].Columns[Table1Id]"
+                      name="Table1Id"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -933,10 +631,14 @@ where  [Id]=?</property>
                       dataType="i4"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].ExternalColumns[text1]"
+                      refId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].ExternalColumns[text2]"
                       dataType="wstr"
-                      length="10"
-                      name="text1" />
+                      length="50"
+                      name="text2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output].ExternalColumns[Table1Id]"
+                      dataType="i4"
+                      name="Table1Id" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -950,11 +652,16 @@ where  [Id]=?</property>
                       lineageId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Error Output].Columns[Id]"
                       name="Id" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Error Output].Columns[text1]"
+                      refId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Error Output].Columns[text2]"
                       dataType="wstr"
-                      length="10"
-                      lineageId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Error Output].Columns[text1]"
-                      name="text1" />
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Error Output].Columns[text2]"
+                      name="text2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Error Output].Columns[Table1Id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Error Output].Columns[Table1Id]"
+                      name="Table1Id" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -1001,7 +708,7 @@ where  [Id]=?</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable">UserD::SourceSelect</property>
+                  name="SqlCommandVariable"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1014,7 +721,7 @@ where  [Id]=?</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">3</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
@@ -1045,14 +752,23 @@ where  [Id]=?</property>
                       sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].Columns[text1]"
+                      refId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].Columns[text2]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].ExternalColumns[text1]"
-                      length="10"
-                      lineageId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].Columns[text1]"
-                      name="text1"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].ExternalColumns[text2]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].Columns[text2]"
+                      name="text2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].Columns[Table1Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].ExternalColumns[Table1Id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].Columns[Table1Id]"
+                      name="Table1Id"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1062,10 +778,14 @@ where  [Id]=?</property>
                       dataType="i4"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].ExternalColumns[text1]"
+                      refId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].ExternalColumns[text2]"
                       dataType="wstr"
-                      length="10"
-                      name="text1" />
+                      length="50"
+                      name="text2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Output].ExternalColumns[Table1Id]"
+                      dataType="i4"
+                      name="Table1Id" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1079,11 +799,16 @@ where  [Id]=?</property>
                       lineageId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Error Output].Columns[Id]"
                       name="Id" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Error Output].Columns[text1]"
+                      refId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Error Output].Columns[text2]"
                       dataType="wstr"
-                      length="10"
-                      lineageId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Error Output].Columns[text1]"
-                      name="text1" />
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Error Output].Columns[text2]"
+                      name="text2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Error Output].Columns[Table1Id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Error Output].Columns[Table1Id]"
+                      name="Table1Id" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source S.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -1211,32 +936,17 @@ where  [Id]=?</property>
               name="OLE DB Source Output"
               startId="Package\Data Flow Task\OLE DB Source D.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Row Count Output 1]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Row Count Output 1"
-              startId="Package\Data Flow Task\Row Count.Outputs[Row Count Output 1]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Row Count Output 11]"
-              endId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
-              name="Row Count Output 1"
-              startId="Package\Data Flow Task\Row Count 1.Outputs[Row Count Output 1]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Row Count Output 12]"
-              endId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input]"
-              name="Row Count Output 1"
-              startId="Package\Data Flow Task\Row Count 2.Outputs[Row Count Output 1]" />
-            <path
-              refId="Package\Data Flow Task.Paths[ToDelete]"
-              endId="Package\Data Flow Task\Row Count 1.Inputs[Row Count Input 1]"
-              name="ToDelete"
-              startId="Package\Data Flow Task\Conditional Split.Outputs[ToDelete]" />
-            <path
               refId="Package\Data Flow Task.Paths[ToInsert]"
               endId="Package\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
               name="ToInsert"
               startId="Package\Data Flow Task\Conditional Split.Outputs[ToInsert]" />
             <path
               refId="Package\Data Flow Task.Paths[ToUpdate]"
+              endId="Package\Data Flow Task\Row Count 1.Inputs[Row Count Input 1]"
+              name="ToUpdate"
+              startId="Package\Data Flow Task\Conditional Split.Outputs[ToDelete]" />
+            <path
+              refId="Package\Data Flow Task.Paths[ToUpdate1]"
               endId="Package\Data Flow Task\Row Count 2.Inputs[Row Count Input 1]"
               name="ToUpdate"
               startId="Package\Data Flow Task\Conditional Split 1.Outputs[ToUpdate]" />
@@ -1248,7 +958,7 @@ where  [Id]=?</property>
       DTS:refId="Package\Expression Task"
       DTS:CreationName="Microsoft.ExpressionTask"
       DTS:Description="Expression Task"
-      DTS:DTSID="{2F949936-23D9-4E23-97CB-D6D589997C4E}"
+      DTS:DTSID="{AF164272-3859-4384-A3FE-B7D1C8C4F7B2}"
       DTS:ExecutableType="Microsoft.ExpressionTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Expression Task"
@@ -1264,7 +974,7 @@ where  [Id]=?</property>
       DTS:refId="Package\LogFailure"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{8682D02C-1547-453E-9372-49150592FA34}"
+      DTS:DTSID="{F4D2E0FF-FA5F-459B-8B9E-1FF8BAA36283}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure"
@@ -1306,7 +1016,7 @@ where  [Id]=?</property>
       DTS:refId="Package\LogStart"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{74870278-D9DC-4D82-B1B5-2370C636F929}"
+      DTS:DTSID="{F810EC63-7DE5-4EC1-BB79-8906175F5099}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogStart"
@@ -1334,7 +1044,7 @@ where  [Id]=?</property>
       DTS:refId="Package\LogSuccess"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{7A8B74DC-BDF5-4719-AE2C-CEF4ACF6CB1E}"
+      DTS:DTSID="{EC9FE873-8EB0-4936-9649-B2F160E9BF8E}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogSuccess"
@@ -1377,7 +1087,7 @@ where  [Id]=?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{1F578091-87DF-4EA5-8ACA-016BE3CE1E77}"
+      DTS:DTSID="{B17ED2A3-B0CA-4EDC-A6AE-2524AADDCD1F}"
       DTS:From="Package\LogStart"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -1385,7 +1095,7 @@ where  [Id]=?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{F701D4BF-0115-4359-A304-16B9798DAE11}"
+      DTS:DTSID="{B15F3F6E-133D-49C2-867F-98BD60E94FF1}"
       DTS:From="Package\Data Flow Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -1393,7 +1103,7 @@ where  [Id]=?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{BE688541-8603-4BCF-A1CF-E242BB585AA5}"
+      DTS:DTSID="{894BFC63-4845-4923-B675-E994D8A1698F}"
       DTS:From="Package\Data Flow Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -1402,7 +1112,7 @@ where  [Id]=?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{E1C1F417-B99E-41FF-B542-1AB176B7EC25}"
+      DTS:DTSID="{7E0A5EB4-A288-427B-B11B-CAA7898C8933}"
       DTS:From="Package\Expression Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -1537,7 +1247,15 @@ where  [Id]=?</property>
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Data Flow Task\Row Count 2"
+          TopLeft="644,295" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Data Flow Task\Merge Join"
+          TopLeft="225,151" />
         <NodeLayout
           Size="139,42"
           Id="Package\Data Flow Task\Row Count 1"
@@ -1551,35 +1269,19 @@ where  [Id]=?</property>
           Id="Package\Data Flow Task\Row Count"
           TopLeft="98,291" />
         <NodeLayout
-          Size="166,42"
-          Id="Package\Data Flow Task\OLE DB Command"
-          TopLeft="295,371" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Data Flow Task\Row Count 2"
-          TopLeft="644,295" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="75,371" />
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Data Flow Task\OLE DB Command 1"
-          TopLeft="634,375" />
+          Size="155,42"
+          Id="Package\Data Flow Task\Conditional Split"
+          TopLeft="210,227" />
         <NodeLayout
           Size="159,42"
           Id="Package\Data Flow Task\OLE DB Source S"
           TopLeft="43,48" />
         <NodeLayout
-          Size="155,42"
-          Id="Package\Data Flow Task\Conditional Split"
-          TopLeft="210,227" />
-        <NodeLayout
           Size="164,42"
           Id="Package\Data Flow Task\Conditional Split 1"
           TopLeft="635,227" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[ToUpdate]"
+          Id="Package\Data Flow Task.Paths[ToUpdate1]"
           TopLeft="715.25,269">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1603,187 +1305,32 @@ where  [Id]=?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Row Count Output 12]"
-          TopLeft="715.25,337">
+          Id="Package\Data Flow Task.Paths[ToUpdate]"
+          TopLeft="365,248">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38"
+              EndConnector="15.5,40"
               Start="0,0"
-              End="0,30.5">
+              End="15.5,32.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.5" />
+                    End="11.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.5,0"
+                    Point2="15.5,0"
+                    Point3="15.5,4" />
+                  <mssgle:LineSegment
+                    End="15.5,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-8,7.25,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Row Count Output 11]"
-          TopLeft="379.25,330">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41"
-              Start="0,0"
-              End="0,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Row Count Output 1]"
-          TopLeft="161.75,333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38"
-              Start="0,0"
-              End="0,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,7.25,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <AnnotationLayout
-          Text="Apply changes through staging table ?"
-          ParentId="Package\Data Flow Task"
-          FontInfo="{assembly:Null}"
-          Size="233,40"
-          Id="91f36257-1aae-422f-9285-a9c4654ca577"
-          TopLeft="643,48" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Data Flow Task\Merge Join"
-          TopLeft="212,134" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="122.5,90">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="154.5,44"
-              Start="0,0"
-              End="154.5,36.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18"
-                    Point2="0,22"
-                    Point3="4,22" />
-                  <mssgle:LineSegment
-                    End="150.5,22" />
-                  <mssgle:CubicBezierSegment
-                    Point1="150.5,22"
-                    Point2="154.5,22"
-                    Point3="154.5,26" />
-                  <mssgle:LineSegment
-                    End="154.5,36.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
-          TopLeft="414.5,88">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-117.166666666667,46"
-              Start="0,0"
-              End="-117.166666666667,38.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.2644376899696" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.2644376899696"
-                    Point2="0,27.2644376899696"
-                    Point3="-4,27.2644376899696" />
-                  <mssgle:LineSegment
-                    End="-113.166666666667,27.2644376899696" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-113.166666666667,27.2644376899696"
-                    Point2="-117.166666666667,27.2644376899696"
-                    Point3="-117.166666666667,31.2644376899696" />
-                  <mssgle:LineSegment
-                    End="-117.166666666667,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Merge Join Output]"
-          TopLeft="277,176">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.5,51"
-              Start="0,0"
-              End="10.5,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.5"
-                    Point2="0,25.5"
-                    Point3="4,25.5" />
-                  <mssgle:LineSegment
-                    End="6.5,25.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.5,25.5"
-                    Point2="10.5,25.5"
-                    Point3="10.5,29.5" />
-                  <mssgle:LineSegment
-                    End="10.5,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-2.75,30.5,16,16"
+              BoundingBox="-5.10244140625,-15.7490234375,41.2048828125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1818,33 +1365,93 @@ where  [Id]=?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[ToDelete]"
-          TopLeft="365,248">
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="414.5,88">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15.5,40"
+              EndConnector="-104.166666666667,63"
               Start="0,0"
-              End="15.5,32.5">
+              End="-104.166666666667,55.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="11.5,0" />
+                    End="0,33.3404255319149" />
                   <mssgle:CubicBezierSegment
-                    Point1="11.5,0"
-                    Point2="15.5,0"
-                    Point3="15.5,4" />
+                    Point1="0,33.3404255319149"
+                    Point2="0,37.3404255319149"
+                    Point3="-4,37.3404255319149" />
                   <mssgle:LineSegment
-                    End="15.5,32.5" />
+                    End="-100.166666666667,37.3404255319149" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-100.166666666667,37.3404255319149"
+                    Point2="-104.166666666667,37.3404255319149"
+                    Point3="-104.166666666667,41.3404255319149" />
+                  <mssgle:LineSegment
+                    End="-104.166666666667,55.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-5.10244140625,-15.7490234375,41.2048828125,9.7490234375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="122.5,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="147.166666666667,61"
+              Start="0,0"
+              End="147.166666666667,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.1550151975684" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.1550151975684"
+                    Point2="0,36.1550151975684"
+                    Point3="4,36.1550151975684" />
+                  <mssgle:LineSegment
+                    End="143.166666666667,36.1550151975684" />
+                  <mssgle:CubicBezierSegment
+                    Point1="143.166666666667,36.1550151975684"
+                    Point2="147.166666666667,36.1550151975684"
+                    Point3="147.166666666667,40.1550151975684" />
+                  <mssgle:LineSegment
+                    End="147.166666666667,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="288.75,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1867,28 +1474,19 @@ where  [Id]=?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="51.9749609375,5,158.550078125,16"
+              BoundingBox="60.63609375,5,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Apply changes through staging table ?"
+          ParentId="Package\Data Flow Task"
+          FontInfo="{assembly:Null}"
+          Size="233,40"
+          Id="91f36257-1aae-422f-9285-a9c4654ca577"
+          TopLeft="643,48" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source D">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source S">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

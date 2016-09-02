@@ -43,7 +43,7 @@ namespace ConfigSSIS
                 }
                 qualifiedList.Add(s1);
             }
-            if(!stagingfound) qualifiedList.Add("[staging].[teststaging]");
+            if(!stagingfound) qualifiedList.Add("[staging].[TestStaging]");
             tl.SetValue(th, qualifiedList);
 
             return true;

@@ -151,7 +151,7 @@ namespace ConfigSSIS
                 string val;
                 try
                 {
-                    val = string.Format("{0}", par.GetValue(package);
+                    val = string.Format("{0}", par.GetValue(th) );
                 }
                 catch (Exception ex)
                 {
@@ -166,10 +166,29 @@ namespace ConfigSSIS
                 Console.WriteLine("{0} - DataType:{1} - Value:{2}; ", par.QualifiedName, par.DataType, par.Value);
             }
 
-            // https://msdn.microsoft.com/en-us/library/ms135932.aspx
-
             return th;
         }
 
+        public static void ScanApplication()
+        {
+            Application application = new Application();
+
+            Console.WriteLine("PipelineComponentInfos:");
+            foreach (PipelineComponentInfo componentInfo in application.PipelineComponentInfos)
+            {
+                Console.WriteLine("Name:{0} - CreationName:{1}", componentInfo.Name, componentInfo.CreationName);
+            }
+            Console.WriteLine("ConnectionInfos:");
+            foreach (ConnectionInfo p in application.ConnectionInfos)
+            {
+                Console.WriteLine("Name:{0} - CreationName:{1}", p.Name, p.CreationName);
+            }
+            Console.WriteLine("TaskInfos:");
+            foreach (Microsoft.SqlServer.Dts.Runtime.TaskInfo p in application.TaskInfos)
+            {
+                Console.WriteLine("Name:{0} - CreationName:{1}", p.Name, p.CreationName);
+            }
+        }
     }
 }
+// https://msdn.microsoft.com/en-us/library/ms135932.aspx

@@ -16,8 +16,9 @@ namespace ConfigSSIS
 
         static void Main(string[] args)
         {
-            //myPackageChange();
-            myPackageWork();
+            myPackageChange();
+            //myPackageWork();
+            //PackageUtils.ScanApplication();
             Console.ReadLine();
         }
 

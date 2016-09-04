@@ -11,7 +11,7 @@ Post-Deployment Script Template
 */
 
 if(not exists (select top 1 * from sync4partner.mainconfig))
-insert sync4partner.mainconfig VALUES('1879-03-19')
+insert sync4partner.mainconfig ([LastSchemaConfig])VALUES('1879-03-19')
 if(not exists (select top 1 * from sync4partner.taskconfig))
 insert sync4partner.taskconfig (Partnerid) VALUES(-1)
 

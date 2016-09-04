@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="FillSamples"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{EDDB2479-59D7-484C-B130-8D128B4E235F}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{B3A92954-95B9-4921-9296-D3E9A51F27E5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -33,7 +33,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\Nshan\nsbTests\SSIS\testData\fillsamples1.csv">
+          DTS:ConnectionString="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testData\fillsamples1.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SchemaSync"
   DTS:PackageType="5"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{083CA9FB-2876-45A9-BA58-5D575A90427B}">
+  DTS:VersionBuild="68"
+  DTS:VersionGUID="{D2A53C8F-3C15-4BB3-9CE4-89F342F4059E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         DTS:Name="ConnectionString">@[$Project::eSMOconnstring]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SMOServerConnectionManager
-          ConnectionString="SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;" />
+          ConnectionString="SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -37,11 +37,20 @@
         DTS:Name="ConnectionString">@[$Project::sSMOconnstring]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SMOServerConnectionManager
-          ConnectionString="SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;" />
+          ConnectionString="SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{857C38EA-75FE-4517-B6CE-0A8DA41C0C01}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="safeToCopy">
+      <DTS:VariableValue
+        DTS:DataType="11">0</DTS:VariableValue>
+    </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:Description="to delete, playGround"
@@ -97,6 +106,22 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\Expression Task"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{F75DCA56-4EB2-4367-B002-0E1FC5132CAF}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Expression Task"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[User::safeToCopy] = ( @[$Project::eCatalogName]  != @[$Project::sCatalogName] )" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\GetTables FullResultSet"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -106,7 +131,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GetTables FullResultSet"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -130,7 +155,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GetTables None"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -156,7 +181,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GetTables SingleRow"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -179,7 +204,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="TransferTables"
       DTS:TaskContact="Transfer Objects Task; Microsoft Corporation; SQL Server 2016; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:PropertyExpression
         DTS:Name="DestinationDatabase">@[$Project::eCatalogName]</DTS:PropertyExpression>
@@ -190,7 +215,7 @@
           SourceConnection="{1885E42D-FAC8-4AD9-BF8F-4CBED5FD760A}"
           DestinationConnection="{D838D253-D5FC-4E12-A98A-A19D4E6D2BEA}"
           SourceDatabase="SSIS1"
-          DestinationDatabase="SSIS1etalon"
+          DestinationDatabase="SSIS2"
           TablesList="3,14,[dbo].[Table1],14,[dbo].[Table2],23,[staging].[TestStaging],"
           SchemasList="1,7,staging,"
           DropObjectsFirst="True"
@@ -217,6 +242,16 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\GetTables FullResultSet" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A8366FEA-AB09-42BC-BD11-D6E159817017}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[User::safeToCopy]"
+      DTS:From="Package\Expression Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\TransferTables" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -229,7 +264,11 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Expression Task"
+          TopLeft="33,45" />
         <NodeLayout
           Size="160,42"
           Id="Package\GetTables FullResultSet"
@@ -245,7 +284,7 @@
         <NodeLayout
           Size="149,42"
           Id="Package\TransferTables"
-          TopLeft="120,45" />
+          TopLeft="290,51" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="290,371.5">
@@ -290,11 +329,35 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="188,69">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102,0"
+              Start="0,0"
+              End="94.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="94.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="39.25,5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <AnnotationLayout
-          Text="TablesList property of TransgerLists is set up from c# project&#xA;can not access TransferTables from Script Task (possibly throw system variables?)"
+          Text="TablesList property of TransgerLists is set up from c# project&#xA;can not access TransferTables from Script Task (possibly threw system variables?)"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="456,56"
+          Size="452,56"
           Id="58c98d83-4494-4890-bfb6-c5437273d9ab"
           TopLeft="116,139" />
         <AnnotationLayout

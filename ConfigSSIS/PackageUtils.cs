@@ -47,6 +47,7 @@ namespace ConfigSSIS
             if (pi == null) return null;
             return pi.Package;
         }
+        // Print package Propertes, Parameters, Tasks, Variables
         public static void ScanPackage(Package package)
         {
             Console.WriteLine("Scanning Package:{0}", package.Name);
@@ -134,6 +135,7 @@ namespace ConfigSSIS
                 Console.Write(par.Name + "; ");
             }
         }
+        // prints tasks properties, parameters, Variables
         public static TaskHost ScanMyTaskHostPackage(Package package, string taskHostName)
         {
             Console.WriteLine("Scanning taskHost:{0}/{1}", package.Name, taskHostName);
@@ -169,6 +171,7 @@ namespace ConfigSSIS
             return th;
         }
 
+        // prints available (installed?) componenets
         public static void ScanApplication()
         {
             Application application = new Application();

@@ -1,20 +1,33 @@
+1. update partner db schema
+2. monitor if delete happens
+3. Id, date
+4. SpB FK, bigint, staging
+5. Sync with nsbTests 
+6. look if table have been changed
+7. create table in staging to look index_usage_stats => do nothing if not changed besides first time after restart after
+
 vsdbcmd.exe
 sqlpackage.exe
 DacFx
 
+select sqlserver_start_time,* from sys.dm_os_sys_info
+
+select OBJECT_NAME(indexes.object_id),last_user_update,last_system_update,* from  sys.indexes 
+join sys.objects on indexes.object_id=objects.object_id 
+join sys.dm_db_index_usage_stats as dms on dms.object_id=objects.object_id
 ClickOnce manifest signing
 
+update staging
+schemasync!!! check before
 
-SELECT o.name AS OBJECT_NAME,
-o.type_desc,
-o.create_date,
-o.modify_date,
-s.name AS schema_name
-FROM sys.all_objects o
-LEFT OUTER JOIN sys.schemas s
-ON ( o.schema_id = s.schema_id)
---WHERE modify_date > ( GETDATE() - 7)
-ORDER BY o.modify_date descs
+update sync4partner.SyncTableOperational set 
+UpdateConditionForSplit='(ISNULL([Table1Id])?ISNULL([Table1Id (1)]):[Table1Id]!=[Table1Id (1)])',
+UpdateExpressonForOLECommand='update Table2 set [Text2]=s.[Text2],[Table1Id]=s.[Table1Id]  from staging.Table2 as s where s.id=table2.id; delete staging.Table2',
+PackageName='Table2_FullJoin.dtsx'
+where Name='table2'
+
+!((ISNULL([Table1Id])?ISNULL([Table1Id (1)]):[Table1Id]==[Table1Id (1)]) && (ISNULL([text2])?ISNULL([text2 (1)]):[text2]==[text2 (1)]))
+((ISNULL([text2])!=ISNULL([text2 (1)])) || ( (! ISNULL([text2]) && ! ISNULL([text2 (1)]) ) && ([text2] != [text2 (1)]) ))  || ((ISNULL([Table1Id])!=ISNULL([Table1Id (1)])) ||( ( ! ISNULL([Table1Id]) && ! ISNULL([Table1Id (1)])) && ([Table1Id] != [Table1Id (1)]) ))
 
 SELECT CHECKSUM_AGG(BINARY_CHECKSUM(*)) FROM sample_table WITH (NOLOCK);
 
@@ -30,11 +43,26 @@ ssismhash-98110
 
 
 
-SourceStatus
-LastSchemaChange
 
-TaskConfig
-PartnerID, LastSchemaChange, FirstTime, SchemaStatus
+EXEC sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all'
+
+EXEC sp_msforeachtable 'ALTER TABLE ? CHECK CONSTRAINT all'
+
+performance:
+http://sqlmag.com/sql-server-integration-services/designing-ssis-packages-high-performance
+BufferSizeTuning logging event
+
+raw file source?
+measure!
 
 
+
+USE msdb ;  
+GO  
+EXEC dbo.sp_add_notification   
+@alert_name = N'Test Alert',   
+@operator_name = N'François Ajenstat',   
+@notification_method = 1 ; 
+or
+http://www.databasejournal.com/features/mssql/setting-up-email-notification-for-ssis-package-failure.html
 

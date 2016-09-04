@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DoAll"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{0DDB2C7D-6C6E-4703-A483-96F2705E3D97}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{1F5A9BE4-96B1-49A4-A222-A886B1F046DB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -61,7 +61,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
-          SQLTask:SqlStatementSource="select [Name],PackageName from sync4partner.SyncTable"
+          SQLTask:SqlStatementSource="select SyncTable.[Name],PackageName from sync4partner.SyncTable &#xA;join sync4partner.SyncTableOperational on SyncTable.Name=SyncTableOperational.Name&#xA;where ToCopy=1&#xA;"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -200,7 +200,7 @@
         <NodeLayout
           Size="163,42"
           Id="Package\Execute SQL Task"
-          TopLeft="86,51" />
+          TopLeft="86,129" />
         <NodeLayout
           Size="183,42"
           Id="Package\Foreach Loop Container\Execute Package Task"
@@ -234,36 +234,24 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="699,380"
-          Size="699,423"
+          PanelSize="433,197"
+          Size="433,240"
           Id="Package\Foreach Loop Container"
-          TopLeft="307,56" />
+          TopLeft="310,25.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="249,72">
+          TopLeft="249,147.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58,195.5"
+              EndConnector="61,0"
               Start="0,0"
-              End="50.5,195.5">
+              End="53.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="25,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="25,0"
-                    Point2="29,0"
-                    Point3="29,4" />
-                  <mssgle:LineSegment
-                    End="29,191.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="29,191.5"
-                    Point2="29,195.5"
-                    Point3="33,195.5" />
-                  <mssgle:LineSegment
-                    End="50.5,195.5" />
+                    End="53.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

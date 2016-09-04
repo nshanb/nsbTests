@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="CheckSchema"
   DTS:PackageType="5"
-  DTS:VersionBuild="69"
-  DTS:VersionGUID="{C9690219-522F-46B5-9A50-3C78EB2D11A4}">
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{94946542-293B-4E46-BBAE-4AA1BF11D559}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -293,7 +293,7 @@ order by TABLE_NAME</property>
                       name="TABLE_NAME" />
                     <externalMetadataColumn
                       refId="Package\CheckDestTables\DestTables.Outputs[OLE DB Source Output].ExternalColumns[TABLE_TYPE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="10"
                       name="TABLE_TYPE" />
@@ -1316,7 +1316,7 @@ order by TABLE_NAME</property>
                       name="TABLE_NAME" />
                     <externalMetadataColumn
                       refId="Package\CheckSourceTables\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[TABLE_TYPE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="10"
                       name="TABLE_TYPE" />
@@ -1994,7 +1994,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails\DestTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -3053,7 +3053,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -4092,7 +4092,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails Staging\DestTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -5180,7 +5180,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails Staging\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -6225,7 +6225,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails Staging Again\DestTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -7313,7 +7313,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails Staging Again\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -7934,7 +7934,7 @@ order by Name</property>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{6689105D-9793-4E15-9919-1A7980EC8203}"
-              SQLTask:SqlStatementSource="declare @n sysname&#xA;select @n = ?&#xA;declare @com nvarchar(125)&#xA;if exists (select * from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA='staging' and TABLE_NAME=@n)&#xA;begin&#xA;select @com = 'drop table staging.'+@n&#xA;exec sp_executesql @com&#xA;end&#xA;select @com = 'select top 1 * into staging.'+@n+' from '+@n&#xA;exec sp_executesql @com&#xA;select @com = 'truncate table staging.'+@n&#xA;exec sp_executesql @com&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="declare @n sysname &#xA;select @n = ?&#xA;declare @com nvarchar(125)&#xA;if exists (select * from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA='staging' and TABLE_NAME=@n)&#xA;begin&#xA;select @com = 'drop table staging.'+@n&#xA;exec sp_executesql @com&#xA;end&#xA;select @com = 'select top 1 * into staging.'+@n+' from '+@n&#xA;exec sp_executesql @com&#xA;select @com = 'truncate table staging.'+@n&#xA;exec sp_executesql @com&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::currentTable"
@@ -8603,7 +8603,9 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-48.4734505208334,50.6382978723404,30.780234375,9.5732421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8637,7 +8639,9 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="10.1932161458334,51.2310030395137,30.780234375,9.5732421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8683,7 +8687,9 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-15.3901171875,7.96337890625,30.780234375,9.5732421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8801,7 +8807,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-75.2527473958335,50.0455927051672,30.838828125,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8837,7 +8843,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="47.6932161458335,49.4528875379939,30.780234375,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8885,7 +8891,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-15.3901171875,7.96337890625,30.780234375,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8908,9 +8914,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9030,9 +9034,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9067,7 +9069,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-49.1868294270834,29.3200568990043,30.7069921875,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9103,7 +9105,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="16.4798372395834,28.7268847795164,30.7069921875,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9139,7 +9141,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="25.6932161458334,55.3799392097265,30.780234375,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9175,7 +9177,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-41.9368294270833,51.8605974395448,30.7069921875,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9211,7 +9213,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="16.1932161458333,50.674253200569,30.780234375,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9247,7 +9249,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-52.2820442708334,54.7872340425532,30.897421875,9.55859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9307,7 +9309,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-15.35349609375,15.5390625,30.7069921875,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9343,7 +9345,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-140.10349609375,26.5,30.7069921875,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9367,7 +9369,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-15.35349609375,12.5390625,30.7069921875,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9402,9 +9404,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9438,9 +9438,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9612,7 +9610,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="15.3305859375,5,30.838828125,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9647,9 +9645,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9684,7 +9680,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="33.4139192708333,31.6927453769559,30.838828125,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9708,7 +9704,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="4.8305859375,5,30.838828125,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9780,7 +9776,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="23.4788606770834,55.9726443768997,30.2089453125,9.4462890625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9816,7 +9812,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="22.2288606770833,56.0128022759602,30.2089453125,9.4462890625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9852,7 +9848,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-56.2820442708334,53.6018237082067,30.897421875,9.55859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9887,9 +9883,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9924,7 +9918,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="4.68787109375,1,46.6242578125,11.6630859375"
+              BoundingBox="-15.53673828125,1,87.0734765625,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9960,7 +9954,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-37.1694140625,41.8199233716475,30.838828125,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9995,9 +9989,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10032,7 +10024,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-19.4194140625,24,30.838828125,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -10068,7 +10060,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="15.5805859375,-15.5732421875,30.838828125,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -10103,14 +10095,28 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CheckTableDetails Staging\SourceTables">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CheckTableDetails Staging\DestTables">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\CheckTableDetails Staging\OLE DB Destination 1">
     <Properties>
@@ -10208,9 +10214,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10244,9 +10248,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10280,9 +10282,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10304,9 +10304,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10376,9 +10374,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10412,9 +10408,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10448,9 +10442,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10484,9 +10476,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10556,9 +10546,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10592,9 +10580,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10628,9 +10614,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10664,9 +10648,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10700,13 +10682,27 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CheckTableDetails Staging Again\SourceTables">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CheckTableDetails Staging Again\DestTables">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

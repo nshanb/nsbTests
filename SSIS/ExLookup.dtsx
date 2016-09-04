@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="TOSHIBA"
   DTS:CreatorName="Toshiba\User"
-  DTS:DTSID="{96E5B87A-A22A-46B6-9078-433AA0096182}"
+  DTS:DTSID="{10B10DC1-0CA1-4980-AAD4-DB0E61C09B32}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Lesson 3"
+  DTS:ObjectName="ExLookup"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{8165A0C4-D9A7-4368-ABE0-1A5DA933E7E0}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{89361FFA-2D16-4399-8287-242275275FA7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -93,7 +93,7 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:FileUsageType="1"
-          DTS:ConnectionString="D:\Nshan\nsbTests\SSIS\testData\lesson3.log" />
+          DTS:ConnectionString="C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testData\lesson3.log" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>

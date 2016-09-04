@@ -1,0 +1,8 @@
+In small SSSI tasks code pages and text encodings are time eating. Ansi file to varchar brings a headake of datacoversions.
+UTF and nvarchar is much more seamless.
+--========================
+SSIS parameters can be mapped to Visual Studio Solution configurations - to work on different desktops. Changing default configuration 
+changes solution file, also reopening of solution is needed. 
+--========================
+
+delete Real.dtsx

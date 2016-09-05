@@ -25,7 +25,7 @@ namespace ConfigSSIS
         public static List<SyncTable> getSyncTables()
         {
             SqlConnection conn = new SqlConnection(connStr);
-            SqlCommand comm = new SqlCommand("select * from sync4partner.SyncTable", conn);
+            SqlCommand comm = new SqlCommand("select * from sync4partner.SyncTable where ToCopy=1", conn);
             DataTable table = new DataTable();
             comm.Connection.Open();
             table.Load(comm.ExecuteReader());

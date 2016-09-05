@@ -6,10 +6,6 @@
 );
 
 
-
-
-
-
 GO
 CREATE TRIGGER [sync4partner].LastTableChange_SyncTable
    ON  [sync4partner].[SyncTable]

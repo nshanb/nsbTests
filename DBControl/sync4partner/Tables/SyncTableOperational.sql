@@ -6,5 +6,3 @@
     CONSTRAINT [PK_SyncTableOperational] PRIMARY KEY CLUSTERED ([Name] ASC)
 );
 
-
-

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="CopyByPrimaryKey InsertOnly"
   DTS:PackageType="5"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{C9C1CDE4-C3E5-4F84-BDC1-4D96D0E85C13}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{0CBC5C74-A24C-4A03-B98B-9B7425C8ADE1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -400,102 +400,6 @@ ORDER BY Id DESC</property>
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:EventHandlers>
-        <DTS:EventHandler
-          DTS:refId="Package\GetLastKey.EventHandlers[OnError]"
-          DTS:CreationName="OnError"
-          DTS:DTSID="{AD7C01CE-9B55-4C74-B462-8F4CF4F842C8}"
-          DTS:EventID="244"
-          DTS:EventName="OnError"
-          DTS:LocaleID="-1">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:Description="The propagate property of the event"
-              DTS:DTSID="{FE3A7973-BE6C-48B2-87FE-8AD2EAF8B4D9}"
-              DTS:IncludeInDebugDump="6789"
-              DTS:Namespace="System"
-              DTS:ObjectName="Propagate">
-              <DTS:VariableValue
-                DTS:DataType="11">-1</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\GetLastKey.EventHandlers[OnError]\Execute SQL Task"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{57693f17-895c-42f9-a994-f84b11d9601b}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="Execute SQL Task"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-              <DTS:Variables />
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{6689105D-9793-4E15-9919-1A7980EC8203}"
-                  SQLTask:SqlStatementSource="select count(*) as Count from Table1&#xA;"
-                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-                  <SQLTask:ResultBinding
-                    SQLTask:ResultName="Count"
-                    SQLTask:DtsVariableName="User::count" />
-                </SQLTask:SqlTaskData>
-              </DTS:ObjectData>
-            </DTS:Executable>
-            <DTS:Executable
-              DTS:refId="Package\GetLastKey.EventHandlers[OnError]\Expression Task"
-              DTS:CreationName="Microsoft.ExpressionTask"
-              DTS:Description="Expression Task"
-              DTS:DTSID="{F143FF5C-A0F9-412D-833F-932D3A720897}"
-              DTS:ExecutableType="Microsoft.ExpressionTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="Expression Task"
-              DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-              <DTS:Variables />
-              <DTS:ObjectData>
-                <ExpressionTask
-                  Expression="@[User::count] = -1" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-            <DTS:Executable
-              DTS:refId="Package\GetLastKey.EventHandlers[OnError]\Expression Task 1"
-              DTS:CreationName="Microsoft.ExpressionTask"
-              DTS:Description="Expression Task"
-              DTS:Disabled="True"
-              DTS:DTSID="{4bceb61a-e10f-41a4-add4-6e1209dec84f}"
-              DTS:ExecutableType="Microsoft.ExpressionTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="Expression Task 1"
-              DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-              <DTS:Variables />
-              <DTS:ObjectData>
-                <ExpressionTask
-                  Expression="@[System::Propagate] = False" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-          <DTS:PrecedenceConstraints>
-            <DTS:PrecedenceConstraint
-              DTS:refId="Package\GetLastKey.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
-              DTS:CreationName=""
-              DTS:DTSID="{00005A75-18D9-4D22-AF49-044B02DDBB87}"
-              DTS:EvalOp="1"
-              DTS:Expression="@[System::ErrorCode] == -1073548535"
-              DTS:From="Package\GetLastKey.EventHandlers[OnError]\Expression Task"
-              DTS:LogicalAnd="True"
-              DTS:ObjectName="Constraint"
-              DTS:To="Package\GetLastKey.EventHandlers[OnError]\Execute SQL Task" />
-            <DTS:PrecedenceConstraint
-              DTS:refId="Package\GetLastKey.EventHandlers[OnError].PrecedenceConstraints[Constraint 1]"
-              DTS:CreationName=""
-              DTS:DTSID="{99E76731-79E4-4B15-893B-8696826FF331}"
-              DTS:From="Package\GetLastKey.EventHandlers[OnError]\Execute SQL Task"
-              DTS:LogicalAnd="True"
-              DTS:ObjectName="Constraint 1"
-              DTS:To="Package\GetLastKey.EventHandlers[OnError]\Expression Task 1" />
-          </DTS:PrecedenceConstraints>
-        </DTS:EventHandler>
-      </DTS:EventHandlers>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{6689105D-9793-4E15-9919-1A7980EC8203}"
@@ -524,7 +428,7 @@ ORDER BY Id DESC</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -612,7 +516,7 @@ ORDER BY Id DESC</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogSuccess"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -982,65 +886,5 @@ ORDER BY Id DESC</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package\GetLastKey.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="NaN,NaN"
-          Id="Package\GetLastKey.EventHandlers[OnError]\Execute SQL Task"
-          TopLeft="NaN,NaN" />
-        <NodeLayout
-          Size="NaN,NaN"
-          Id="Package\GetLastKey.EventHandlers[OnError]\Expression Task"
-          TopLeft="NaN,NaN" />
-        <NodeLayout
-          Size="NaN,NaN"
-          Id="Package\GetLastKey.EventHandlers[OnError]\Expression Task 1"
-          TopLeft="NaN,NaN" />
-        <EdgeLayout
-          Id="Package\GetLastKey.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
-          TopLeft="NaN,NaN">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="{assembly:Null}"
-              Start="0,0"
-              End="0,0">
-              <mssgle:Curve.Segments>
-                <assembly:Null />
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GetLastKey.EventHandlers[OnError].PrecedenceConstraints[Constraint 1]"
-          TopLeft="NaN,NaN">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="{assembly:Null}"
-              Start="0,0"
-              End="0,0">
-              <mssgle:Curve.Segments>
-                <assembly:Null />
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

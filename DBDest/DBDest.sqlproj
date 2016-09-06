@@ -59,9 +59,17 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="staging\" />
+    <Folder Include="staging\Tables\" />
+    <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Table2.sql" />
     <Build Include="dbo\Tables\Table1.sql" />
+    <Build Include="dbo\Tables\Table3.sql" />
+    <Build Include="staging\Tables\Table2.sql" />
+    <Build Include="staging\Tables\Table1.sql" />
+    <Build Include="staging\Tables\TestStaging.sql" />
+    <Build Include="Security\staging.sql" />
   </ItemGroup>
 </Project>

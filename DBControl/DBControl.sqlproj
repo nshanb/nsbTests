@@ -66,9 +66,6 @@
     <Folder Include="sync4partner\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Person.sql" />
-    <Build Include="dbo\Tables\Currency.sql" />
-    <Build Include="dbo\Tables\Agent.sql" />
     <Build Include="sync4partner\Tables\SyncTable.sql" />
     <Build Include="sync4partner\Tables\Log.sql" />
     <Build Include="Security\sync4partner.sql" />
@@ -81,8 +78,9 @@
     <Build Include="sync4partner\Tables\SyncTableOperational.sql" />
     <Build Include="sync4partner\Tables\ColumnList.sql" />
     <Build Include="dbo\Tables\SyncTableForWork.sql" />
-    <Build Include="sync4partner\Functions\fn_concat.sql" />
     <Build Include="sync4partner\Stored Procedures\FillSyncOperational.sql" />
+    <Build Include="sync4partner\Functions\fn_concatUpdateStr.sql" />
+    <Build Include="sync4partner\Functions\fn_concatCompareStr.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />

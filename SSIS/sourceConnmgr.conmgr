@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:ObjectName="sourceConnmgr"
-  DTS:DTSID="{89D0EF68-8C60-4A24-88A0-198540A814A6}"
+  DTS:DTSID="{5621CA13-24B8-4CCC-9A50-4A11A1C31F38}"
   DTS:CreationName="OLEDB">
   <DTS:PropertyExpression
-    DTS:Name="ConnectionString">@[$Project::sConnString]</DTS:PropertyExpression>
+    DTS:Name="InitialCatalog">@[$Project::sCatalogName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::ServerName]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=SSIS2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      DTS:ConnectionString="Data Source=PC-0609;Initial Catalog=SSIS1;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSISSync2Partner;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

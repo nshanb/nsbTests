@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="PC-0609"
   DTS:CreatorName="SOFTCONSTRUCT\nshan.barseghyan"
-  DTS:DTSID="{0B8D05D5-E312-45D0-963D-E04CD16D15EE}"
+  DTS:DTSID="{E4046A9B-0A10-4D4A-8B53-8BC879D231E0}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
   DTS:ObjectName="DoAll"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{1F5A9BE4-96B1-49A4-A222-A886B1F046DB}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{1555E85C-8560-496F-8EC4-556D85CB6BAB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{07A55929-8E6D-4081-AD43-926A42F77320}"
+      DTS:DTSID="{3A0249C6-F1B8-4855-862A-C201E7967C79}"
       DTS:ObjectName="PartnerId">
       <DTS:Property
         DTS:DataType="3"
@@ -29,7 +29,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E76B23DD-6F23-4F5D-8E59-352DED9AD039}"
+      DTS:DTSID="{5D91C944-A2C9-4824-AC71-1E27308B319D}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="syncTables">
@@ -51,7 +51,7 @@
       DTS:refId="Package\Execute SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{D84508B3-C6E7-4A13-AE9B-D6B9301C1505}"
+      DTS:DTSID="{06057848-5782-4A9D-B3FC-1CA18D3CB251}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SQL Task"
@@ -60,8 +60,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
-          SQLTask:SqlStatementSource="select SyncTable.[Name],PackageName from sync4partner.SyncTable &#xA;join sync4partner.SyncTableOperational on SyncTable.Name=SyncTableOperational.Name&#xA;where ToCopy=1&#xA;"
+          SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
+          SQLTask:SqlStatementSource="select SyncTable.[Name],PackageName,UpdateConditionForSplit,UpdateExpressonForOLECommand &#xA;from sync4partner.SyncTable join [sync4partner].[SyncTableOperational] on SyncTable.Name = SyncTableOperational.Name&#xA;where [ToCopy] = 1&#xA;order by Name"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -73,14 +73,14 @@
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{40F22F98-3E88-4C89-B6C2-BB12540EFBAE}"
+      DTS:DTSID="{4E5FF55A-95FD-412F-8965-98EED0BB8D24}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Foreach Loop Container">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachADOEnumerator"
-        DTS:DTSID="{241568D3-D7DB-455A-9223-E9230EEE00D2}"
-        DTS:ObjectName="{241568D3-D7DB-455A-9223-E9230EEE00D2}">
+        DTS:DTSID="{02DA7DF6-032B-4D9F-AE96-BF2C955A7468}"
+        DTS:ObjectName="{02DA7DF6-032B-4D9F-AE96-BF2C955A7468}">
         <DTS:ObjectData>
           <FEEADO
             EnumType="EnumerateRowsInFirstTable"
@@ -90,7 +90,7 @@
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{40D5AF20-5870-4E45-B089-762F499D27DE}"
+          DTS:DTSID="{71A13CA9-9F10-4D6C-84AE-B47277AAA7F5}"
           DTS:IncludeInDebugDump="2345"
           DTS:Namespace="User"
           DTS:ObjectName="packageName">
@@ -99,12 +99,32 @@
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{20E924E5-7830-4970-8107-938E955D0265}"
+          DTS:DTSID="{29FF9BAB-E1A8-44AF-AFFC-D601C57749C1}"
           DTS:IncludeInDebugDump="2345"
           DTS:Namespace="User"
           DTS:ObjectName="tableName">
           <DTS:VariableValue
             DTS:DataType="8">unknown</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{D171FCB0-8DB1-46FA-891B-5CB32A491C60}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="UpdateConditionForSplit">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{6018BE08-97C6-417E-A2A1-A08CCB1ED182}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="UpdateExpressonForOLECommand">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
         </DTS:Variable>
       </DTS:Variables>
       <DTS:Executables>
@@ -112,7 +132,7 @@
           DTS:refId="Package\Foreach Loop Container\Execute Package Task"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{AE4CC093-6E1A-4C0C-83C6-707797C02800}"
+          DTS:DTSID="{02B855AA-0C58-4667-8146-AEF1C7467329}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute Package Task"
@@ -128,6 +148,18 @@
                 <ParameterName>SyncTableName</ParameterName>
                 <BindedVariableOrParameterName>User::tableName</BindedVariableOrParameterName>
               </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>PartnerId</ParameterName>
+                <BindedVariableOrParameterName>$Package::PartnerId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>Update_FriendlyExpression</ParameterName>
+                <BindedVariableOrParameterName>User::UpdateConditionForSplit</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>Update_Statement</ParameterName>
+                <BindedVariableOrParameterName>User::UpdateExpressonForOLECommand</BindedVariableOrParameterName>
+              </ParameterAssignment>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -136,7 +168,7 @@
           DTS:CreationName="Microsoft.ExpressionTask"
           DTS:Description="Expression Task"
           DTS:Disabled="True"
-          DTS:DTSID="{A768B5F8-8381-410F-ACFB-D7FAC6E39A10}"
+          DTS:DTSID="{4F9FEF92-A8DF-4940-83FC-CBB7A3552547}"
           DTS:ExecutableType="Microsoft.ExpressionTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Expression Task"
@@ -153,7 +185,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{BC8FE7E9-AFCD-4C16-86A2-9B69B343074C}"
+          DTS:DTSID="{9347D996-7802-4CF6-81A4-B0D49BC78A08}"
           DTS:From="Package\Foreach Loop Container\Expression Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -162,16 +194,28 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{B4A15201-1244-4153-BCFB-987A1C1B7798}"
-          DTS:ObjectName="{B4A15201-1244-4153-BCFB-987A1C1B7798}"
+          DTS:DTSID="{02674C35-BCB7-4ED5-8E86-3D35462BCAA7}"
+          DTS:ObjectName="{02674C35-BCB7-4ED5-8E86-3D35462BCAA7}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::tableName" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{C5D55346-F2E9-4E9B-811C-0525486887F5}"
-          DTS:ObjectName="{C5D55346-F2E9-4E9B-811C-0525486887F5}"
+          DTS:DTSID="{8A847A46-9793-4313-B33E-0B5B32ECE377}"
+          DTS:ObjectName="{8A847A46-9793-4313-B33E-0B5B32ECE377}"
           DTS:ValueIndex="1"
           DTS:VariableName="User::packageName" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{C7208D55-ECD3-4AB2-89BD-EC5CDEC4D309}"
+          DTS:ObjectName="{C7208D55-ECD3-4AB2-89BD-EC5CDEC4D309}"
+          DTS:ValueIndex="2"
+          DTS:VariableName="User::UpdateConditionForSplit" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{F5604D61-BA9C-49BB-8CAF-55C71CC8DE19}"
+          DTS:ObjectName="{F5604D61-BA9C-49BB-8CAF-55C71CC8DE19}"
+          DTS:ValueIndex="3"
+          DTS:VariableName="User::UpdateExpressonForOLECommand" />
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
   </DTS:Executables>
@@ -179,7 +223,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{BB9CC4FF-C5FD-4634-8363-0E78F621CFF6}"
+      DTS:DTSID="{521E6A56-7CDB-4E17-884F-5B02C53497AF}"
       DTS:From="Package\Execute SQL Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -200,7 +244,7 @@
         <NodeLayout
           Size="163,42"
           Id="Package\Execute SQL Task"
-          TopLeft="86,129" />
+          TopLeft="86,51" />
         <NodeLayout
           Size="183,42"
           Id="Package\Foreach Loop Container\Execute Package Task"
@@ -234,24 +278,36 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="433,197"
-          Size="433,240"
+          PanelSize="699,380"
+          Size="699,423"
           Id="Package\Foreach Loop Container"
-          TopLeft="310,25.5" />
+          TopLeft="307,56" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="249,147.75">
+          TopLeft="249,72">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="61,0"
+              EndConnector="58,195.5"
               Start="0,0"
-              End="53.5,0">
+              End="50.5,195.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="53.5,0" />
+                    End="25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25,0"
+                    Point2="29,0"
+                    Point3="29,4" />
+                  <mssgle:LineSegment
+                    End="29,191.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29,191.5"
+                    Point2="29,195.5"
+                    Point3="33,195.5" />
+                  <mssgle:LineSegment
+                    End="50.5,195.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

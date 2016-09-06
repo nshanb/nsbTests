@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="TOSHIBA"
   DTS:CreatorName="Toshiba\User"
-  DTS:DTSID="{4F2A0F61-7BAF-441D-9651-07347D4CC642}"
+  DTS:DTSID="{0E0EDA5E-ADD1-460C-A049-36D3ED4BED7F}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
   DTS:ObjectName="CheckSchema"
   DTS:PackageType="5"
-  DTS:VersionBuild="71"
-  DTS:VersionGUID="{94946542-293B-4E46-BBAE-4AA1BF11D559}">
+  DTS:VersionBuild="86"
+  DTS:VersionGUID="{21DBB1CA-561A-47BB-B762-7C80C9A1BB67}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{4B910A5F-CF38-4ED9-BC6D-CA7AED175D8E}"
+      DTS:DTSID="{80C89F8D-0516-45D2-A526-1EEBCFDEDB89}"
       DTS:ObjectName="PartnerId">
       <DTS:Property
         DTS:DataType="3"
@@ -29,7 +29,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B3033034-707A-4257-BFF7-E4A07CB20EA7}"
+      DTS:DTSID="{71129C67-5754-40CB-B4EF-FE40DDCD7726}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="CheckRecordSet">
@@ -47,7 +47,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{BEC36038-8FD6-4ED5-87CF-965C41867ED2}"
+      DTS:DTSID="{C0D4390C-2B11-43FC-8B58-00196A9DE948}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="currentTable">
@@ -57,16 +57,18 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{09C4AAAC-FBC2-43AB-B175-BE11C362EDFD}"
+      DTS:DTSID="{073D791A-3C99-4093-AF5E-FCB0B38C8E0D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::dCatalogName]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="DestDBName">
+      DTS:ObjectName="dTABLE_CATALOG">
       <DTS:VariableValue
-        DTS:DataType="8">SSIS2</DTS:VariableValue>
+        DTS:DataType="8">SBdest</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{11FE26FF-345F-437E-A629-0F870CDF6CC5}"
+      DTS:DTSID="{27B68F0A-A439-4BA2-A09F-85B07A98FA35}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="errorMessage">
@@ -76,16 +78,18 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{01F6AADD-C917-45C6-ADAB-A178F6260C5A}"
+      DTS:DTSID="{DA29B2AA-3239-4F04-9965-FAC0F8325113}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::sCatalogName]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="SourceDBName">
+      DTS:ObjectName="sTABLE_CATALOG">
       <DTS:VariableValue
-        DTS:DataType="8">SSIS1</DTS:VariableValue>
+        DTS:DataType="8">SportsBookTest</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{BE2EA70F-A2A9-4B95-BC06-2C0018CDF7BF}"
+      DTS:DTSID="{8DEEE71B-2985-4AB6-8E37-A82F54C9031E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="stagingErrorRowCount">
@@ -98,7 +102,7 @@
       DTS:refId="Package\CheckDestTables"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{649e4eab-ce47-42ed-8bc3-7a90509507ac}"
+      DTS:DTSID="{D9BA7F6F-EB72-47DF-B132-1D3B4F207586}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="CheckDestTables"
@@ -246,12 +250,12 @@ order by TABLE_NAME</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{09C4AAAC-FBC2-43AB-B175-BE11C362EDFD};</property>
+                  name="ParameterMapping">"Parameter0:Input",{073D791A-3C99-4093-AF5E-FCB0B38C8E0D};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\CheckDestTables\DestTables.Connections[OleDbConnection]"
-                  connectionManagerID="{6689105D-9793-4E15-9919-1A7980EC8203}:external"
+                  connectionManagerID="{3337BC26-8662-4224-9CA6-774281EBE361}:external"
                   connectionManagerRefId="Project.ConnectionManagers[destConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -293,7 +297,7 @@ order by TABLE_NAME</property>
                       name="TABLE_NAME" />
                     <externalMetadataColumn
                       refId="Package\CheckDestTables\DestTables.Outputs[OLE DB Source Output].ExternalColumns[TABLE_TYPE]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="10"
                       name="TABLE_TYPE" />
@@ -567,7 +571,7 @@ order by TABLE_NAME</property>
               <connections>
                 <connection
                   refId="Package\CheckDestTables\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -671,7 +675,7 @@ order by TABLE_NAME</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from ForSSIStests.sync4partner.SyncTable 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from sync4partner.SyncTable 
 where ToCopy =1
 order by Name</property>
                 <property
@@ -699,7 +703,7 @@ order by Name</property>
               <connections>
                 <connection
                   refId="Package\CheckDestTables\SyncTable.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -721,6 +725,25 @@ order by Name</property>
                       name="Name"
                       sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      lineageId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      name="OnlyInsert"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="150"
+                      lineageId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -737,6 +760,15 @@ order by Name</property>
                       refId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[ToStage]"
                       dataType="bool"
                       name="ToStage" />
+                    <externalMetadataColumn
+                      refId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      dataType="bool"
+                      name="OnlyInsert" />
+                    <externalMetadataColumn
+                      refId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      name="Description" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -762,6 +794,17 @@ order by Name</property>
                       lineageId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -802,7 +845,7 @@ order by Name</property>
       DTS:refId="Package\CheckSourceTables"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{C012D5DD-468D-4BA8-A152-515D312EBCDA}"
+      DTS:DTSID="{EADAB03B-DE50-4E89-B485-4CF2DA2164FC}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="CheckSourceTables"
@@ -1142,7 +1185,7 @@ order by Name</property>
               <connections>
                 <connection
                   refId="Package\CheckSourceTables\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -1269,12 +1312,12 @@ order by TABLE_NAME</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{01F6AADD-C917-45C6-ADAB-A178F6260C5A};</property>
+                  name="ParameterMapping">"Parameter0:Input",{DA29B2AA-3239-4F04-9965-FAC0F8325113};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\CheckSourceTables\SourceTables.Connections[OleDbConnection]"
-                  connectionManagerID="{89D0EF68-8C60-4A24-88A0-198540A814A6}:external"
+                  connectionManagerID="{5621CA13-24B8-4CCC-9A50-4A11A1C31F38}:external"
                   connectionManagerRefId="Project.ConnectionManagers[sourceConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -1316,7 +1359,7 @@ order by TABLE_NAME</property>
                       name="TABLE_NAME" />
                     <externalMetadataColumn
                       refId="Package\CheckSourceTables\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[TABLE_TYPE]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="10"
                       name="TABLE_TYPE" />
@@ -1375,7 +1418,7 @@ order by TABLE_NAME</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from ForSSIStests.sync4partner.SyncTable 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from sync4partner.SyncTable 
 where ToCopy =1
 order by Name</property>
                 <property
@@ -1403,7 +1446,7 @@ order by Name</property>
               <connections>
                 <connection
                   refId="Package\CheckSourceTables\SyncTable.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -1425,6 +1468,25 @@ order by Name</property>
                       name="Name"
                       sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      lineageId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      name="OnlyInsert"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="150"
+                      lineageId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1441,6 +1503,15 @@ order by Name</property>
                       refId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[ToStage]"
                       dataType="bool"
                       name="ToStage" />
+                    <externalMetadataColumn
+                      refId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      dataType="bool"
+                      name="OnlyInsert" />
+                    <externalMetadataColumn
+                      refId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      name="Description" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1466,6 +1537,17 @@ order by Name</property>
                       lineageId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1506,7 +1588,7 @@ order by Name</property>
       DTS:refId="Package\CheckTableDetails"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{DEC08F10-4C28-4922-B335-52745C6CC40F}"
+      DTS:DTSID="{C8A304D7-7133-4EA1-A0D9-30FC8A7D769B}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="CheckTableDetails"
@@ -1913,12 +1995,12 @@ order by TABLE_NAME</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{09C4AAAC-FBC2-43AB-B175-BE11C362EDFD};</property>
+                  name="ParameterMapping">"Parameter0:Input",{073D791A-3C99-4093-AF5E-FCB0B38C8E0D};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails\DestTables.Connections[OleDbConnection]"
-                  connectionManagerID="{6689105D-9793-4E15-9919-1A7980EC8203}:external"
+                  connectionManagerID="{3337BC26-8662-4224-9CA6-774281EBE361}:external"
                   connectionManagerRefId="Project.ConnectionManagers[destConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -1994,7 +2076,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails\DestTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -2576,7 +2658,7 @@ order by TABLE_NAME</property>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -2972,12 +3054,12 @@ order by TABLE_NAME</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{01F6AADD-C917-45C6-ADAB-A178F6260C5A};</property>
+                  name="ParameterMapping">"Parameter0:Input",{DA29B2AA-3239-4F04-9965-FAC0F8325113};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails\SourceTables.Connections[OleDbConnection]"
-                  connectionManagerID="{89D0EF68-8C60-4A24-88A0-198540A814A6}:external"
+                  connectionManagerID="{5621CA13-24B8-4CCC-9A50-4A11A1C31F38}:external"
                   connectionManagerRefId="Project.ConnectionManagers[sourceConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -3053,7 +3135,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -3198,7 +3280,7 @@ order by TABLE_NAME</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from ForSSIStests.sync4partner.SyncTable 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from sync4partner.SyncTable 
 where ToCopy =1
 order by Name</property>
                 <property
@@ -3226,7 +3308,7 @@ order by Name</property>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails\SyncTable.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -3248,6 +3330,25 @@ order by Name</property>
                       name="Name"
                       sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      lineageId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      name="OnlyInsert"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="150"
+                      lineageId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3264,6 +3365,15 @@ order by Name</property>
                       refId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[ToStage]"
                       dataType="bool"
                       name="ToStage" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      dataType="bool"
+                      name="OnlyInsert" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      name="Description" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3289,6 +3399,17 @@ order by Name</property>
                       lineageId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -3319,7 +3440,7 @@ order by Name</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from ForSSIStests.sync4partner.SyncTable 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from sync4partner.SyncTable 
 where ToCopy =1
 order by Name</property>
                 <property
@@ -3347,7 +3468,7 @@ order by Name</property>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails\SyncTable 1.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -3369,6 +3490,25 @@ order by Name</property>
                       name="Name"
                       sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      lineageId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      name="OnlyInsert"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].Columns[Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="150"
+                      lineageId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3385,6 +3525,15 @@ order by Name</property>
                       refId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[ToStage]"
                       dataType="bool"
                       name="ToStage" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      dataType="bool"
+                      name="OnlyInsert" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      name="Description" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3410,6 +3559,17 @@ order by Name</property>
                       lineageId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -3604,7 +3764,7 @@ order by Name</property>
       DTS:refId="Package\CheckTableDetails Staging"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{8446461f-6932-4991-9bf0-e866a79802cb}"
+      DTS:DTSID="{D0FE25AE-CFEA-4131-903D-3C2A19A64579}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="CheckTableDetails Staging"
@@ -4011,12 +4171,12 @@ order by TABLE_NAME</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{09C4AAAC-FBC2-43AB-B175-BE11C362EDFD};</property>
+                  name="ParameterMapping">"Parameter0:Input",{073D791A-3C99-4093-AF5E-FCB0B38C8E0D};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails Staging\DestTables.Connections[OleDbConnection]"
-                  connectionManagerID="{6689105D-9793-4E15-9919-1A7980EC8203}:external"
+                  connectionManagerID="{3337BC26-8662-4224-9CA6-774281EBE361}:external"
                   connectionManagerRefId="Project.ConnectionManagers[destConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -4092,7 +4252,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails Staging\DestTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -4674,7 +4834,7 @@ order by TABLE_NAME</property>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails Staging\OLE DB Destination 1.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -5099,12 +5259,12 @@ order by TABLE_NAME</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{01F6AADD-C917-45C6-ADAB-A178F6260C5A};</property>
+                  name="ParameterMapping">"Parameter0:Input",{DA29B2AA-3239-4F04-9965-FAC0F8325113};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails Staging\SourceTables.Connections[OleDbConnection]"
-                  connectionManagerID="{89D0EF68-8C60-4A24-88A0-198540A814A6}:external"
+                  connectionManagerID="{5621CA13-24B8-4CCC-9A50-4A11A1C31F38}:external"
                   connectionManagerRefId="Project.ConnectionManagers[sourceConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -5180,7 +5340,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails Staging\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -5325,7 +5485,7 @@ order by TABLE_NAME</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from ForSSIStests.sync4partner.SyncTable 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from sync4partner.SyncTable 
 where ToCopy =1 and ToStage = 1
 order by Name</property>
                 <property
@@ -5353,7 +5513,7 @@ order by Name</property>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails Staging\SyncTable.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -5375,6 +5535,25 @@ order by Name</property>
                       name="Name"
                       sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      lineageId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      name="OnlyInsert"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="150"
+                      lineageId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5391,6 +5570,15 @@ order by Name</property>
                       refId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[ToStage]"
                       dataType="bool"
                       name="ToStage" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      dataType="bool"
+                      name="OnlyInsert" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      name="Description" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -5416,6 +5604,17 @@ order by Name</property>
                       lineageId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -5446,7 +5645,7 @@ order by Name</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from ForSSIStests.sync4partner.SyncTable 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from sync4partner.SyncTable 
 where ToCopy =1 and ToStage = 1
 order by Name</property>
                 <property
@@ -5474,7 +5673,7 @@ order by Name</property>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails Staging\SyncTable 1.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -5496,6 +5695,25 @@ order by Name</property>
                       name="Name"
                       sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      lineageId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      name="OnlyInsert"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].Columns[Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="150"
+                      lineageId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5512,6 +5730,15 @@ order by Name</property>
                       refId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[ToStage]"
                       dataType="bool"
                       name="ToStage" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      dataType="bool"
+                      name="OnlyInsert" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      name="Description" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -5537,6 +5764,17 @@ order by Name</property>
                       lineageId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -5737,7 +5975,7 @@ order by Name</property>
       DTS:refId="Package\CheckTableDetails Staging Again"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{7eed3cd9-4617-4d71-8e4a-3834a86e4e95}"
+      DTS:DTSID="{4E0399B0-B57B-416B-A90F-5D4B8AE464D1}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="CheckTableDetails Staging Again"
@@ -6144,12 +6382,12 @@ order by TABLE_NAME</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{09C4AAAC-FBC2-43AB-B175-BE11C362EDFD};</property>
+                  name="ParameterMapping">"Parameter0:Input",{073D791A-3C99-4093-AF5E-FCB0B38C8E0D};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails Staging Again\DestTables.Connections[OleDbConnection]"
-                  connectionManagerID="{6689105D-9793-4E15-9919-1A7980EC8203}:external"
+                  connectionManagerID="{3337BC26-8662-4224-9CA6-774281EBE361}:external"
                   connectionManagerRefId="Project.ConnectionManagers[destConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -6225,7 +6463,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails Staging Again\DestTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -6807,7 +7045,7 @@ order by TABLE_NAME</property>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails Staging Again\OLE DB Destination 1.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -7232,12 +7470,12 @@ order by TABLE_NAME</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{01F6AADD-C917-45C6-ADAB-A178F6260C5A};</property>
+                  name="ParameterMapping">"Parameter0:Input",{DA29B2AA-3239-4F04-9965-FAC0F8325113};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails Staging Again\SourceTables.Connections[OleDbConnection]"
-                  connectionManagerID="{89D0EF68-8C60-4A24-88A0-198540A814A6}:external"
+                  connectionManagerID="{5621CA13-24B8-4CCC-9A50-4A11A1C31F38}:external"
                   connectionManagerRefId="Project.ConnectionManagers[sourceConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -7313,7 +7551,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails Staging Again\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -7458,7 +7696,7 @@ order by TABLE_NAME</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from ForSSIStests.sync4partner.SyncTable 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from sync4partner.SyncTable 
 where ToCopy =1 and ToStage = 1
 order by Name</property>
                 <property
@@ -7486,7 +7724,7 @@ order by Name</property>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails Staging Again\SyncTable.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -7508,6 +7746,25 @@ order by Name</property>
                       name="Name"
                       sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      lineageId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      name="OnlyInsert"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="150"
+                      lineageId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7524,6 +7781,15 @@ order by Name</property>
                       refId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[ToStage]"
                       dataType="bool"
                       name="ToStage" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      dataType="bool"
+                      name="OnlyInsert" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      name="Description" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -7549,6 +7815,17 @@ order by Name</property>
                       lineageId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -7579,7 +7856,7 @@ order by Name</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from ForSSIStests.sync4partner.SyncTable 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from sync4partner.SyncTable 
 where ToCopy =1 and ToStage = 1
 order by Name</property>
                 <property
@@ -7607,7 +7884,7 @@ order by Name</property>
               <connections>
                 <connection
                   refId="Package\CheckTableDetails Staging Again\SyncTable 1.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -7629,6 +7906,25 @@ order by Name</property>
                       name="Name"
                       sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      lineageId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
+                      name="OnlyInsert"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].Columns[Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="150"
+                      lineageId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7645,6 +7941,15 @@ order by Name</property>
                       refId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[ToStage]"
                       dataType="bool"
                       name="ToStage" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      dataType="bool"
+                      name="OnlyInsert" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      name="Description" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -7670,6 +7975,17 @@ order by Name</property>
                       lineageId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
+                      name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -7870,7 +8186,7 @@ order by Name</property>
       DTS:refId="Package\Clear SchemaChekResults"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{4112DCB8-60F7-4FDB-B1D0-ACBA6A021A71}"
+      DTS:DTSID="{583440C2-C3E2-4F71-9386-2682850EB575}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear SchemaChekResults"
@@ -7879,7 +8195,7 @@ order by Name</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
+          SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
           SQLTask:SqlStatementSource="delete sync4partner.SchemaCheckResults" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -7887,7 +8203,7 @@ order by Name</property>
       DTS:refId="Package\Clear SchemaChekResults 1"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{ee61ae44-c9fd-493f-8cf4-ec5b2fa57adf}"
+      DTS:DTSID="{FC56DBDE-8786-426B-A225-81A1BFA4B0AF}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear SchemaChekResults 1"
@@ -7896,7 +8212,7 @@ order by Name</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
+          SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
           SQLTask:SqlStatementSource="delete sync4partner.SchemaCheckResults" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -7904,14 +8220,14 @@ order by Name</property>
       DTS:refId="Package\Create staging tables"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{738077C0-8315-4D6B-9B02-894E3DC247C8}"
+      DTS:DTSID="{3B8E358F-06DE-4C66-9D7B-AB4C59007AD3}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Create staging tables">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachADOEnumerator"
-        DTS:DTSID="{97949B59-64A5-4E8E-B334-425E7576E7E5}"
-        DTS:ObjectName="{97949B59-64A5-4E8E-B334-425E7576E7E5}">
+        DTS:DTSID="{3C4353FC-D729-490E-88CF-3D70A7D2EE1F}"
+        DTS:ObjectName="{3C4353FC-D729-490E-88CF-3D70A7D2EE1F}">
         <DTS:ObjectData>
           <FEEADO
             EnumType="EnumerateRowsInFirstTable"
@@ -7924,7 +8240,7 @@ order by Name</property>
           DTS:refId="Package\Create staging tables\Prep staging table"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{FD41280A-9B99-4910-B782-D7DA0B411BB8}"
+          DTS:DTSID="{361B7722-AEED-4EA2-B5DC-31F0E7CFEBE1}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Prep staging table"
@@ -7933,8 +8249,8 @@ order by Name</property>
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{6689105D-9793-4E15-9919-1A7980EC8203}"
-              SQLTask:SqlStatementSource="declare @n sysname &#xA;select @n = ?&#xA;declare @com nvarchar(125)&#xA;if exists (select * from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA='staging' and TABLE_NAME=@n)&#xA;begin&#xA;select @com = 'drop table staging.'+@n&#xA;exec sp_executesql @com&#xA;end&#xA;select @com = 'select top 1 * into staging.'+@n+' from '+@n&#xA;exec sp_executesql @com&#xA;select @com = 'truncate table staging.'+@n&#xA;exec sp_executesql @com&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:Connection="{3337BC26-8662-4224-9CA6-774281EBE361}"
+              SQLTask:SqlStatementSource="declare @n sysname&#xA;select @n = ?&#xA;declare @com nvarchar(125)&#xA;if exists (select * from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA='staging' and TABLE_NAME=@n)&#xA;begin&#xA;select @com = 'drop table staging.'+@n&#xA;exec sp_executesql @com&#xA;end&#xA;select @com = 'select top 1 * into staging.'+@n+' from '+@n&#xA;exec sp_executesql @com&#xA;select @com = 'truncate table staging.'+@n&#xA;exec sp_executesql @com&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::currentTable"
@@ -7948,8 +8264,8 @@ order by Name</property>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{DCA9E2F4-5E66-48A0-934C-16C60795F381}"
-          DTS:ObjectName="{DCA9E2F4-5E66-48A0-934C-16C60795F381}"
+          DTS:DTSID="{A15F16C3-2ED8-4836-AEB1-9D741FB7CB1F}"
+          DTS:ObjectName="{A15F16C3-2ED8-4836-AEB1-9D741FB7CB1F}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::currentTable" />
       </DTS:ForEachVariableMappings>
@@ -7958,7 +8274,7 @@ order by Name</property>
       DTS:refId="Package\Execute SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{64B96032-8159-40E5-820E-9128ADC7EEB3}"
+      DTS:DTSID="{3B48D250-C174-4812-9FE3-1A34FCDE73EA}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SQL Task"
@@ -7967,8 +8283,8 @@ order by Name</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
-          SQLTask:SqlStatementSource="select * from ForSSIStests.sync4partner.SyncTable &#xA;where ToCopy =1 and ToStage = 1&#xA;order by Name"
+          SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
+          SQLTask:SqlStatementSource="select * from sync4partner.SyncTable &#xA;where ToCopy =1 and ToStage = 1&#xA;order by Name"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -7980,7 +8296,7 @@ order by Name</property>
       DTS:refId="Package\RaiseErrorIfNeeded Deatils"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{06734592-d155-4de8-9831-143d4904a4bd}"
+      DTS:DTSID="{CB19C966-0ADC-4AAA-997E-9F10EF16215C}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="RaiseErrorIfNeeded Deatils"
@@ -7989,7 +8305,7 @@ order by Name</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
+          SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
           SQLTask:SqlStatementSource="declare @i int&#xA;select @i = count(*) from sync4partner.SchemaCheckResults&#xA;if @i &lt;&gt; 0&#xA;begin&#xA; declare @r nvarchar(255)&#xA; set @r='schema diff:'&#xA;  select @r = @r + DestError + ',' from sync4partner.SchemaCheckResults where DestError is not null&#xA;&#xA; RAISERROR(@r,11,0)&#xA;end&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -7997,7 +8313,7 @@ order by Name</property>
       DTS:refId="Package\RaiseErrorIfNeeded Staging Tables"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{67d19651-1370-4027-bd29-7233a794089e}"
+      DTS:DTSID="{C96AB6A8-5057-4C60-9914-4441D5429E7A}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="RaiseErrorIfNeeded Staging Tables"
@@ -8006,7 +8322,7 @@ order by Name</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
+          SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
           SQLTask:SqlStatementSource="declare @i int&#xA;select @i = count(*) from sync4partner.SchemaCheckResults&#xA;if @i &lt;&gt; 0&#xA;begin&#xA; declare @r nvarchar(255)&#xA; set @r='Missing tables in source:'&#xA; select @r = @r + SourceError + ',' from sync4partner.SchemaCheckResults where SourceError is not null&#xA; set @r=@r + ' Missing tables in dest:'&#xA; select @r = @r + DestError + ',' from sync4partner.SchemaCheckResults where DestError is not null&#xA;&#xA; RAISERROR(@r,11,0)&#xA;end&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -8014,7 +8330,7 @@ order by Name</property>
       DTS:refId="Package\RaiseErrorIfNeeded Tables"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{620F8A72-ACBE-4FAE-AA11-AA8898E5AFFC}"
+      DTS:DTSID="{C2B8A422-AE2C-42B5-938E-D0C0F68E42A6}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="RaiseErrorIfNeeded Tables"
@@ -8023,7 +8339,7 @@ order by Name</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
+          SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
           SQLTask:SqlStatementSource="declare @i int&#xA;select @i = count(*) from sync4partner.SchemaCheckResults&#xA;if @i &lt;&gt; 0&#xA;begin&#xA; declare @r nvarchar(255)&#xA; set @r='Missing tables in source:'&#xA; select @r = @r + SourceError + ',' from sync4partner.SchemaCheckResults where SourceError is not null&#xA; set @r=@r + ' Missing tables in dest:'&#xA; select @r = @r + DestError + ',' from sync4partner.SchemaCheckResults where DestError is not null&#xA;&#xA; RAISERROR(@r,11,0)&#xA;end&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -8032,7 +8348,7 @@ order by Name</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{D64DE920-8D05-43C4-8902-B8066196F157}"
+      DTS:DTSID="{BF23B727-ADA3-4B81-8E52-A805DA03A8DF}"
       DTS:From="Package\Clear SchemaChekResults"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -8040,7 +8356,7 @@ order by Name</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{90327FB9-B439-4894-BC7D-F43010AC7E17}"
+      DTS:DTSID="{8D58F03E-8938-48BA-8196-DD49CFE61207}"
       DTS:From="Package\CheckSourceTables"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -8048,7 +8364,7 @@ order by Name</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
       DTS:CreationName=""
-      DTS:DTSID="{08057149-B168-4964-9A2F-185F7C908AFF}"
+      DTS:DTSID="{54A08DB4-9772-4191-BFDC-34DA75D8526D}"
       DTS:From="Package\CheckTableDetails Staging Again"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 10"
@@ -8056,7 +8372,7 @@ order by Name</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
       DTS:CreationName=""
-      DTS:DTSID="{99CC5B37-DE54-44E2-9B33-D67840B69A50}"
+      DTS:DTSID="{37C1ACBC-68ED-480D-9ABB-0FAD61B9A715}"
       DTS:From="Package\Execute SQL Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 11"
@@ -8064,7 +8380,7 @@ order by Name</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{E85670E3-1BCC-4F59-AC0E-1B64FB881F4A}"
+      DTS:DTSID="{D8283A4C-7996-4E03-A63F-39C02709B746}"
       DTS:From="Package\Clear SchemaChekResults"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -8072,7 +8388,7 @@ order by Name</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{D826378F-ECDF-432C-A9A1-8477F26708BF}"
+      DTS:DTSID="{9ED90485-4633-41C3-B8AC-C57B1C8EA9F7}"
       DTS:From="Package\CheckDestTables"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -8080,7 +8396,7 @@ order by Name</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{D33B8F00-8E36-4F77-A0E9-3658B9689EF5}"
+      DTS:DTSID="{716DA4B3-92E4-4F96-8A80-36EE08063753}"
       DTS:From="Package\RaiseErrorIfNeeded Tables"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
@@ -8088,7 +8404,7 @@ order by Name</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{93B62A48-7245-405A-88B9-E368212780D3}"
+      DTS:DTSID="{F1E7ED2F-92EB-4262-A88E-9E7A0642DFD0}"
       DTS:From="Package\RaiseErrorIfNeeded Deatils"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
@@ -8096,7 +8412,7 @@ order by Name</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
-      DTS:DTSID="{560B05B4-4EF6-4C61-B6C0-513C0CF0468E}"
+      DTS:DTSID="{ECDDEC59-A6B5-42A1-BDC6-30F37796A83D}"
       DTS:From="Package\CheckTableDetails"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
@@ -8104,7 +8420,7 @@ order by Name</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
-      DTS:DTSID="{67AC127A-2AFF-4F52-9416-C7494E2B00CB}"
+      DTS:DTSID="{C00D5F7E-4180-4477-A1CC-135B2ED64E31}"
       DTS:EvalOp="3"
       DTS:Expression="@[User::stagingErrorRowCount]&gt;0"
       DTS:From="Package\CheckTableDetails Staging"
@@ -8114,7 +8430,7 @@ order by Name</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
       DTS:CreationName=""
-      DTS:DTSID="{1AFE921C-0114-4080-9EF1-609D12EDAE41}"
+      DTS:DTSID="{C952BECE-8F39-4A11-9C25-331D39478748}"
       DTS:From="Package\Create staging tables"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
@@ -8122,7 +8438,7 @@ order by Name</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
       DTS:CreationName=""
-      DTS:DTSID="{60228795-CC3A-4FF4-AF60-C52473D9DD51}"
+      DTS:DTSID="{F84772D4-BCFE-4FB1-8544-6EFC975D368D}"
       DTS:From="Package\Clear SchemaChekResults 1"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 9"
@@ -8603,9 +8919,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.4734505208334,50.6382978723404,30.780234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8639,9 +8953,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="10.1932161458334,51.2310030395137,30.780234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8687,9 +8999,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.3901171875,7.96337890625,30.780234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8806,9 +9116,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-75.2527473958335,50.0455927051672,30.838828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8842,9 +9150,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="47.6932161458335,49.4528875379939,30.780234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8890,9 +9196,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.3901171875,7.96337890625,30.780234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9068,9 +9372,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-49.1868294270834,29.3200568990043,30.7069921875,9.421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9104,9 +9406,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="16.4798372395834,28.7268847795164,30.7069921875,9.421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9140,9 +9440,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="25.6932161458334,55.3799392097265,30.780234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9176,9 +9474,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-41.9368294270833,51.8605974395448,30.7069921875,9.421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9212,9 +9508,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="16.1932161458333,50.674253200569,30.780234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9248,9 +9542,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-52.2820442708334,54.7872340425532,30.897421875,9.55859375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9308,9 +9600,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.35349609375,15.5390625,30.7069921875,9.421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9344,9 +9634,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-140.10349609375,26.5,30.7069921875,9.421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9368,9 +9656,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.35349609375,12.5390625,30.7069921875,9.421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9609,9 +9895,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="15.3305859375,5,30.838828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9679,9 +9963,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="33.4139192708333,31.6927453769559,30.838828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9703,9 +9985,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="4.8305859375,5,30.838828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9775,9 +10055,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="23.4788606770834,55.9726443768997,30.2089453125,9.4462890625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9811,9 +10089,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="22.2288606770833,56.0128022759602,30.2089453125,9.4462890625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9847,9 +10123,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-56.2820442708334,53.6018237082067,30.897421875,9.55859375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9918,7 +10192,7 @@ order by Name</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.53673828125,1,87.0734765625,11.6630859375"
+              BoundingBox="4.68787109375,1,46.6242578125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9953,9 +10227,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-37.1694140625,41.8199233716475,30.838828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10023,9 +10295,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-19.4194140625,24,30.838828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10059,9 +10329,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="15.5805859375,-15.5732421875,30.838828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10103,6 +10371,22 @@ order by Name</property>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\CheckTableDetails Staging\SourceTables">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CheckTableDetails Staging\SyncTable 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CheckTableDetails Staging\SyncTable">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10697,10 +10981,39 @@ order by Name</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\CheckTableDetails Staging Again\SyncTable 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CheckTableDetails Staging Again\SyncTable">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\CheckTableDetails Staging Again\DestTables">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CheckTableDetails Staging Again\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

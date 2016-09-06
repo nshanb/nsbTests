@@ -5,22 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="PC-0609"
   DTS:CreatorName="SOFTCONSTRUCT\nshan.barseghyan"
-  DTS:DelayValidation="True"
-  DTS:DTSID="{6779309B-851B-4647-B4C2-B19466E4469C}"
+  DTS:DTSID="{D48D529E-6B4C-41AB-962B-6EBD77869653}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
-  DTS:ObjectName="PlaceHolder_FullJoin"
+  DTS:ObjectName="Table1_FullJoin"
   DTS:PackageType="5"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{A323A5A2-42B1-4985-AB5C-3A79A5AD66A8}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{D4D666F6-C082-425F-9695-A52299D50681}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{8323A207-09A2-4BE8-B342-8BDB916F70FE}"
+      DTS:DTSID="{2FB2B5F9-1057-42F7-8F2F-E99B219F54CE}"
       DTS:ObjectName="Delete_FriendlyExpression">
       <DTS:Property
         DTS:DataType="8"
@@ -29,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{5855CB5F-1B79-47F6-9605-C7859DBDA745}"
+      DTS:DTSID="{BA2EB60F-0C10-4FF2-893E-3699AA23480C}"
       DTS:ObjectName="Insert_FriendlyExpression">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{144AD859-C414-4B0E-B250-B6244580FB98}"
+      DTS:DTSID="{1EE9687E-6038-4080-A130-16504F6C7360}"
       DTS:ObjectName="PartnerId">
       <DTS:Property
         DTS:DataType="3"
@@ -47,25 +46,25 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{F5ACCE93-6209-487D-A9A1-6288857B9452}"
+      DTS:DTSID="{341D914D-CD75-454E-9474-F4D118888DE2}"
       DTS:ObjectName="SyncTableName">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">nsb</DTS:Property>
+        DTS:Name="ParameterValue">table1</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{0A94803D-4101-4A4B-A506-54487337AA2D}"
+      DTS:DTSID="{74484A8C-6EA1-43B4-AEE5-57B1148868DC}"
       DTS:ObjectName="Update_FriendlyExpression">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">False</DTS:Property>
+        DTS:Name="ParameterValue">((ISNULL([text1])!=ISNULL([text1 (1)]))||((!ISNULL([text1])&amp;&amp;!ISNULL([text1 (1)]))&amp;&amp;([text1]!=[text1 (1)])))</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{2C90EA00-8162-4F53-A9B2-C69117D7DAC0}"
+      DTS:DTSID="{BE77FE9F-E83D-4CEE-85ED-085D89A9E7DF}"
       DTS:ObjectName="Update_Statement">
       <DTS:Property
         DTS:DataType="8"
@@ -75,7 +74,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EBCCCBAE-2B3D-4B4B-9966-2BF2CBE4E80B}"
+      DTS:DTSID="{859ECFFF-665B-4240-BA8B-7C0A79C658DB}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="currentLogId">
@@ -84,18 +83,18 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1924B0AB-0F37-41BD-9DB6-7DA5F28D1193}"
+      DTS:DTSID="{6C4383D4-039B-4DCD-8C12-11F131AB77D2}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;delete staging.&quot; + @[$Package::SyncTableName]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="destDelStagingTable">
       <DTS:VariableValue
-        DTS:DataType="8">delete staging.nsb</DTS:VariableValue>
+        DTS:DataType="8">delete staging.table1</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1BF6EF7D-476D-4897-9773-CD537AE25991}"
+      DTS:DTSID="{030304A5-873B-41F0-AF74-A4AA15B55CE4}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="IsPlaceHolder">
@@ -104,7 +103,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{79A00CF1-BE7C-4544-857C-A46BBA572A22}"
+      DTS:DTSID="{D40194BC-4169-47FA-992C-78299C1CB3A6}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="rowCountDelete">
@@ -113,7 +112,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{15F49A8B-A598-40D3-9B7B-5CC5647293EC}"
+      DTS:DTSID="{94E3FB98-E9CD-4604-8567-EC785D4143C3}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="rowCountInsert">
@@ -122,7 +121,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{157F9E48-FB3B-43EC-A8F4-22EF7DA31FC5}"
+      DTS:DTSID="{9E4BD2C6-2DF0-4EE4-9C1B-B6A4275F5055}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="rowCountSource">
@@ -131,7 +130,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{8F7AF113-3D03-4D0E-896B-C07C15BDA87B}"
+      DTS:DTSID="{B177D16C-1677-4649-9B47-F71AFAFB71E0}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="rowCountUpdate">
@@ -140,7 +139,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D2652470-930E-4A5E-B8FD-0934EBF81AD8}"
+      DTS:DTSID="{102287D0-5911-44B4-B41D-89310D94253A}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="syncLogName">
@@ -153,7 +152,7 @@
       DTS:refId="Package\Clear Staging"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2bdd4222-8229-407b-884e-6da5bc8f616b}"
+      DTS:DTSID="{F45C778A-9AD2-452E-B425-83CA4D949A4C}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear Staging"
@@ -165,16 +164,14 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3337BC26-8662-4224-9CA6-774281EBE361}"
-          SQLTask:SqlStatementSource="delete staging.nsb" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="delete staging.table1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
-      DTS:DelayValidation="True"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{46D26320-C0B6-48A4-9E08-6EEE531ECB63}"
+      DTS:DTSID="{695A5EC8-9D86-4DC0-9534-FE45BAD67F55}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task"
@@ -182,47 +179,47 @@
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{B734118D-A6B0-455F-8706-131E03D95DC8}"
+          DTS:DTSID="{EF581855-281A-4899-935D-835ACD468C33}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="&quot;delete &quot; + @[$Package::SyncTableName] + &quot; where  [Id]=?&quot;"
           DTS:IncludeInDebugDump="2345"
           DTS:Namespace="User"
           DTS:ObjectName="destDelete">
           <DTS:VariableValue
-            DTS:DataType="8">delete nsb where  [Id]=?</DTS:VariableValue>
+            DTS:DataType="8">delete table1 where  [Id]=?</DTS:VariableValue>
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{51DC9E68-15FF-49ED-9F2E-9A0099973C78}"
+          DTS:DTSID="{47FB1FC1-8F2B-46DB-91BD-DE68437DFFE7}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="&quot;Select * from &quot; + @[$Package::SyncTableName] + &quot; order by Id&quot;"
           DTS:IncludeInDebugDump="2345"
           DTS:Namespace="User"
           DTS:ObjectName="destSelect">
           <DTS:VariableValue
-            DTS:DataType="8">Select * from nsb order by Id</DTS:VariableValue>
+            DTS:DataType="8">Select * from table1 order by Id</DTS:VariableValue>
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{F05D8D63-4CD1-44C2-9C8A-A4E5B7658395}"
+          DTS:DTSID="{8E32F65D-4E7F-408B-87DE-07937FA969D6}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="&quot;staging.&quot; + @[$Package::SyncTableName]"
           DTS:IncludeInDebugDump="2345"
           DTS:Namespace="User"
           DTS:ObjectName="destUpdateStaging">
           <DTS:VariableValue
-            DTS:DataType="8">staging.nsb</DTS:VariableValue>
+            DTS:DataType="8">staging.table1</DTS:VariableValue>
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{01CBC144-A575-4FF7-945E-26ADD7DC53CF}"
+          DTS:DTSID="{070B7A2E-4091-435F-8DC0-637613D0050B}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="&quot;Select * from &quot; + @[$Package::SyncTableName] + &quot; order by Id&quot;"
           DTS:IncludeInDebugDump="2345"
           DTS:Namespace="User"
           DTS:ObjectName="sourceSelect">
           <DTS:VariableValue
-            DTS:DataType="8">Select * from nsb order by Id</DTS:VariableValue>
+            DTS:DataType="8">Select * from table1 order by Id</DTS:VariableValue>
         </DTS:Variable>
       </DTS:Variables>
       <DTS:PropertyExpression
@@ -255,7 +252,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">delete nsb where  [Id]=?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">delete table1 where  [Id]=?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -276,8 +273,28 @@
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Delete.Inputs[OLE DB Command Input].Columns[Id (1)]"
+                      cachedDataType="i4"
+                      cachedName="Id (1)"
+                      externalMetadataColumnId="Package\Data Flow Task\Delete.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id (1)]" />
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Delete.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -371,15 +388,59 @@
               <outputs>
                 <output
                   refId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Output]"
+                  isSorted="true"
                   name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Output].Columns[Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      lineageId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Output].Columns[text1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Output].ExternalColumns[text1]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Output].Columns[text1]"
+                      name="text1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Output].ExternalColumns[text1]"
+                      dataType="wstr"
+                      length="10"
+                      name="text1" />
+                  </externalMetadataColumns>
                 </output>
                 <output
                   refId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Error Output].Columns[text1]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Error Output].Columns[text1]"
+                      name="text1" />
                     <outputColumn
                       refId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -468,8 +529,34 @@
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert.Inputs[OLE DB Destination Input].Columns[text1]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="text1"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert.Inputs[OLE DB Destination Input].ExternalColumns[text1]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1]" />
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert.Inputs[OLE DB Destination Input].ExternalColumns[text1]"
+                      dataType="wstr"
+                      length="10"
+                      name="text1" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -575,20 +662,14 @@
                       cachedName="Id"
                       cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      lineageId="Package\Data Flow Task\363:invalid" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[text2]"
+                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[text1]"
                       cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="text2"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[text2]"
-                      lineageId="Package\Data Flow Task\364:invalid" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[Table1Id]"
-                      cachedDataType="i4"
-                      cachedName="Table1Id"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[Table1Id]"
-                      lineageId="Package\Data Flow Task\365:invalid" />
+                      cachedLength="10"
+                      cachedName="text1"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[text1]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -597,14 +678,10 @@
                       dataType="i4"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[text2]"
+                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[text1]"
                       dataType="wstr"
-                      length="50"
-                      name="text2" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[Table1Id]"
-                      dataType="i4"
-                      name="Table1Id" />
+                      length="10"
+                      name="text1" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -649,7 +726,7 @@
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of columns in the ordering key."
-                  name="NumKeyColumns">0</property>
+                  name="NumKeyColumns">1</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the null values are treated as equal values."
@@ -664,19 +741,105 @@
                   refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
                   hasSideEffects="true"
                   name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[text1]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="text1"
+                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[text1]" />
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
                 <input
                   refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
                   hasSideEffects="true"
                   name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[text1]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="text1"
+                      lineageId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Output].Columns[text1]" />
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
                   refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
                   name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id]"
+                      name="Id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1]"
+                      name="text1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[text1]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id (1)]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id (1)]"
+                      name="Id (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1 (1)]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1 (1)]"
+                      name="text1 (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[text1]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -856,15 +1019,59 @@
               <outputs>
                 <output
                   refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output]"
+                  isSorted="true"
                   name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[text1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[text1]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[text1]"
+                      name="text1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[text1]"
+                      dataType="wstr"
+                      length="10"
+                      name="text1" />
+                  </externalMetadataColumns>
                 </output>
                 <output
                   refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[text1]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[text1]"
+                      name="text1" />
                     <outputColumn
                       refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -894,6 +1101,19 @@
                   refId="Package\Data Flow Task\Split Ins Del.Inputs[Conditional Split Input]"
                   description="Input to the Conditional Split Transformation"
                   name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Split Ins Del.Inputs[Conditional Split Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Split Ins Del.Inputs[Conditional Split Input].Columns[Id (1)]"
+                      cachedDataType="i4"
+                      cachedName="Id (1)"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id (1)]" />
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -912,13 +1132,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression"> FALSE </property>
+                      name="Expression">[ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id (1)]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression"> FALSE </property>
+                      name="FriendlyExpression">ISNULL([Id (1)])</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -940,13 +1160,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression"> FALSE </property>
+                      name="Expression">[ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Id]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression"> FALSE </property>
+                      name="FriendlyExpression">ISNULL(Id)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -1004,6 +1224,20 @@
                   refId="Package\Data Flow Task\Split Upd.Inputs[Conditional Split Input]"
                   description="Input to the Conditional Split Transformation"
                   name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Split Upd.Inputs[Conditional Split Input].Columns[text1]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="text1"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Split Upd.Inputs[Conditional Split Input].Columns[text1 (1)]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="text1 (1)"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1 (1)]" />
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -1022,13 +1256,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression"> FALSE </property>
+                      name="Expression">(([ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1]}) != [ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1 (1)]})) || ((![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1 (1)]})) &amp;&amp; (#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[text1 (1)]})))</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression"> FALSE </property>
+                      name="FriendlyExpression">((ISNULL(text1) != ISNULL([text1 (1)])) || ((!ISNULL(text1) &amp;&amp; !ISNULL([text1 (1)])) &amp;&amp; (text1 != [text1 (1)])))</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -1082,6 +1316,41 @@
               name="Conditional Split Default Output"
               startId="Package\Data Flow Task\Split Ins Del.Outputs[Conditional Split Default Output]" />
             <path
+              refId="Package\Data Flow Task.Paths[Merge Join Output]"
+              endId="Package\Data Flow Task\Split Ins Del.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\RowCount Source.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\DSource.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Row Count Output 1]"
+              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
+              name="Row Count Output 1"
+              startId="Package\Data Flow Task\RowCount Source.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Row Count Output 11]"
+              endId="Package\Data Flow Task\Insert.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Data Flow Task\RowCount Ins.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Row Count Output 12]"
+              endId="Package\Data Flow Task\Delete.Inputs[OLE DB Command Input]"
+              name="Row Count Output 1"
+              startId="Package\Data Flow Task\RowCount Del.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Row Count Output 13]"
+              endId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Data Flow Task\RowCount Upd.Outputs[Row Count Output 1]" />
+            <path
               refId="Package\Data Flow Task.Paths[ToDelete]"
               endId="Package\Data Flow Task\RowCount Del.Inputs[Row Count Input 1]"
               name="ToDelete"
@@ -1104,7 +1373,7 @@
       DTS:refId="Package\Do Update"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{32256959-164a-448c-bd5e-81046920e30a}"
+      DTS:DTSID="{E2C15A3D-3F15-4EED-9112-D018C2360161}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Do Update"
@@ -1123,7 +1392,7 @@
       DTS:refId="Package\Expression Task"
       DTS:CreationName="Microsoft.ExpressionTask"
       DTS:Description="Expression Task"
-      DTS:DTSID="{0F672462-9BFD-42C6-AFFF-080F218D6ECD}"
+      DTS:DTSID="{1F8E7A06-3C33-49D6-9D61-605FE782E94F}"
       DTS:ExecutableType="Microsoft.ExpressionTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Expression Task"
@@ -1139,7 +1408,7 @@
       DTS:refId="Package\LogFailure"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2F15BC55-8353-4FEE-9AFD-E9BF3FB33806}"
+      DTS:DTSID="{C1FC4E1F-45E2-4E5F-8D74-86EAF24D8D04}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure"
@@ -1187,7 +1456,7 @@
       DTS:refId="Package\LogFailure CS"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{5b5ad041-bff8-40af-81c7-466193c0dd9d}"
+      DTS:DTSID="{825EE1C9-8EAF-40E3-BE45-0B0592005A2B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure CS"
@@ -1235,7 +1504,7 @@
       DTS:refId="Package\LogFailure DU"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{1cf42233-4bf9-4b62-96e2-3a04f0ce773e}"
+      DTS:DTSID="{0FB3F532-3C92-4C45-ABC2-A1DA9C684B22}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure DU"
@@ -1284,7 +1553,7 @@
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:Disabled="True"
-      DTS:DTSID="{38A492D4-DE85-47CD-A863-E25745FE8AC1}"
+      DTS:DTSID="{939C84EA-52EC-4A01-B801-0D20FCCF257B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogNothing"
@@ -1308,7 +1577,7 @@
       DTS:refId="Package\LogStart"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{F58A7E68-451D-45F8-ABB8-9E939B362B5E}"
+      DTS:DTSID="{35160B91-682A-4C3B-BDD5-B5F82645654B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogStart"
@@ -1342,7 +1611,7 @@
       DTS:refId="Package\LogSuccess"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{B960297D-4604-4C1C-8738-A74271464327}"
+      DTS:DTSID="{D7B9E7EA-8C80-4868-948F-00E439D9CC34}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogSuccess"
@@ -1391,7 +1660,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{2DAE11DD-1406-47DF-BEC7-8053879C5F68}"
+      DTS:DTSID="{5979BCBF-F0E3-4567-8644-C703219A3BA5}"
       DTS:From="Package\Expression Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -1399,7 +1668,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{C6B23D63-A36F-4F32-9945-DA886A7E27B4}"
+      DTS:DTSID="{64FDD6A9-643D-4E31-A00B-766846BF2B53}"
       DTS:From="Package\LogStart"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -1407,7 +1676,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{8EDBB363-D52C-4F23-8C7C-EBF16BE940DF}"
+      DTS:DTSID="{C1CBFA1D-EE87-4055-B96F-113840FE48E3}"
       DTS:From="Package\Clear Staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -1415,7 +1684,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{BA6978B5-7003-4CFD-B86E-DAC6FA4DBA92}"
+      DTS:DTSID="{7779BAE6-136C-484D-8FE4-9B528E54BA5C}"
       DTS:EvalOp="3"
       DTS:Expression="@[User::rowCountUpdate] &gt; 0"
       DTS:From="Package\Data Flow Task"
@@ -1425,7 +1694,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{83678F1F-0F97-4016-8C82-7ACAD395C844}"
+      DTS:DTSID="{6B772BCD-7837-43BD-9379-A7DA841DF686}"
       DTS:EvalOp="3"
       DTS:Expression="@[User::rowCountUpdate] == 0"
       DTS:From="Package\Data Flow Task"
@@ -1434,14 +1703,14 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{9A3E708B-3DD9-44C6-9055-0BDC355E58FE}"
+      DTS:DTSID="{644391FC-7A93-4709-99F3-0F6EC74EDA23}"
       DTS:From="Package\Do Update"
       DTS:ObjectName="Constraint 5"
       DTS:To="Package\LogSuccess" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
-      DTS:DTSID="{4BAD4D2E-3468-4051-BF93-F05636E13236}"
+      DTS:DTSID="{7C7AF4D2-6551-48F0-AFEE-BDD2353075BE}"
       DTS:From="Package\Data Flow Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
@@ -1450,7 +1719,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
-      DTS:DTSID="{83657BF1-8359-4D93-8BA3-06B5F94F5D21}"
+      DTS:DTSID="{D1A92512-2B26-41C1-BB83-8195D974A7B5}"
       DTS:From="Package\Clear Staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
@@ -1459,7 +1728,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
       DTS:CreationName=""
-      DTS:DTSID="{3A3B785A-705E-438A-897E-05F12BCC8068}"
+      DTS:DTSID="{6EBB8BC1-F1F0-418E-80C7-8CB0BEECB4C9}"
       DTS:From="Package\Do Update"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
@@ -1750,13 +2019,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="dataflow:&#xD;&#xA;delay validation = false&#xD;&#xA;desabled"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="151,72"
-          Id="a91c403d-5ab2-4aec-a926-a47aee98677f"
-          TopLeft="806,199" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1764,31 +2026,11 @@
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="136,42"
-          Id="Package\Data Flow Task\Split Ins Del"
-          TopLeft="215,266" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Data Flow Task\Merge Join"
-          TopLeft="306,176" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="107,42"
           Id="Package\Data Flow Task\Insert"
           TopLeft="145,464" />
-        <NodeLayout
-          Size="118,42"
-          Id="Package\Data Flow Task\RSource"
-          TopLeft="122,32" />
-        <NodeLayout
-          Size="149,42"
-          Id="Package\Data Flow Task\RowCount Upd"
-          TopLeft="491,382" />
-        <NodeLayout
-          Size="118,42"
-          Id="Package\Data Flow Task\DSource"
-          TopLeft="401,30" />
         <NodeLayout
           Size="121,42"
           Id="Package\Data Flow Task\Split Upd"
@@ -1799,20 +2041,300 @@
           TopLeft="89,130" />
         <NodeLayout
           Size="145,42"
-          Id="Package\Data Flow Task\Insert Staging"
-          TopLeft="493,465" />
-        <NodeLayout
-          Size="145,42"
           Id="Package\Data Flow Task\RowCount Ins"
           TopLeft="122,381" />
-        <NodeLayout
-          Size="109,42"
-          Id="Package\Data Flow Task\Delete"
-          TopLeft="314,465" />
         <NodeLayout
           Size="146,42"
           Id="Package\Data Flow Task\RowCount Del"
           TopLeft="304,383" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Data Flow Task\RowCount Upd"
+          TopLeft="491,382" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Data Flow Task\Insert Staging"
+          TopLeft="493,465" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Data Flow Task\DSource"
+          TopLeft="401,30" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Data Flow Task\Split Ins Del"
+          TopLeft="215,266" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Data Flow Task\Merge Join"
+          TopLeft="306,176" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Data Flow Task\RSource"
+          TopLeft="122,32" />
+        <NodeLayout
+          Size="109,42"
+          Id="Package\Data Flow Task\Delete"
+          TopLeft="314,465" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[ToDelete]"
+          TopLeft="304.333333333333,308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.6666666666667,75"
+              Start="0,0"
+              End="72.6666666666667,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5232558139535" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5232558139535"
+                    Point2="0,30.5232558139535"
+                    Point3="4,30.5232558139535" />
+                  <mssgle:LineSegment
+                    End="68.6666666666667,30.5232558139535" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68.6666666666667,30.5232558139535"
+                    Point2="72.6666666666667,30.5232558139535"
+                    Point3="72.6666666666667,34.5232558139535" />
+                  <mssgle:LineSegment
+                    End="72.6666666666667,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="15.7308919270833,35.5232558139535,41.2048828125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Row Count Output 13]"
+          TopLeft="565.5,424">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.10447265625,12.02685546875,30.2089453125,9.4462890625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Row Count Output 12]"
+          TopLeft="377,425">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.5,40"
+              Start="0,0"
+              End="-8.5,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="-4,20" />
+                  <mssgle:LineSegment
+                    End="-4.5,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,20"
+                    Point2="-8.5,20"
+                    Point3="-8.5,24" />
+                  <mssgle:LineSegment
+                    End="-8.5,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Row Count Output 11]"
+          TopLeft="196.5,423">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Row Count Output 1]"
+          TopLeft="251,151">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55,46"
+              Start="0,0"
+              End="47.5,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.5,0"
+                    Point2="27.5,0"
+                    Point3="27.5,4" />
+                  <mssgle:LineSegment
+                    End="27.5,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.5,42"
+                    Point2="27.5,46"
+                    Point3="31.5,46" />
+                  <mssgle:LineSegment
+                    End="47.5,46" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="9.66552734375,-15.568359375,35.6689453125,9.568359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="460,72">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-89,104"
+              Start="0,0"
+              End="-89,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48"
+                    Point2="0,52"
+                    Point3="-4,52" />
+                  <mssgle:LineSegment
+                    End="-85,52" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-85,52"
+                    Point2="-89,52"
+                    Point3="-89,56" />
+                  <mssgle:LineSegment
+                    End="-89,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-62.33447265625,57,35.6689453125,9.568359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="181,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11,56"
+              Start="0,0"
+              End="-11,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="-4,28" />
+                  <mssgle:LineSegment
+                    End="-7,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7,28"
+                    Point2="-11,28"
+                    Point3="-11,32" />
+                  <mssgle:LineSegment
+                    End="-11,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.33447265625,33,35.6689453125,9.568359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="371,218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-88,48"
+              Start="0,0"
+              End="-88,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="-4,24" />
+                  <mssgle:LineSegment
+                    End="-84,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-84,24"
+                    Point2="-88,24"
+                    Point3="-88,28" />
+                  <mssgle:LineSegment
+                    End="-88,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-61.83447265625,29,35.6689453125,9.568359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Conditional Split Default Output]"
           TopLeft="351,288.5">
@@ -1833,7 +2355,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="1.13609374999999,5,141.2278125,11.658203125"
+              BoundingBox="-21.4792578125,5,186.458515625,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1857,7 +2379,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-22.24244140625,25.9453125,44.4848828125,11.609375"
+              BoundingBox="-42.25283203125,25.9453125,84.5056640625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1897,53 +2419,9 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[ToDelete]"
-          TopLeft="304.333333333333,308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="72.6666666666667,75"
-              Start="0,0"
-              End="72.6666666666667,67.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5232558139535" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.5232558139535"
-                    Point2="0,30.5232558139535"
-                    Point3="4,30.5232558139535" />
-                  <mssgle:LineSegment
-                    End="68.6666666666667,30.5232558139535" />
-                  <mssgle:CubicBezierSegment
-                    Point1="68.6666666666667,30.5232558139535"
-                    Point2="72.6666666666667,30.5232558139535"
-                    Point3="72.6666666666667,34.5232558139535" />
-                  <mssgle:LineSegment
-                    End="72.6666666666667,67.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="15.7308919270833,35.5232558139535,41.2048828125,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\RSource">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\DSource">
     <Properties>
@@ -1953,7 +2431,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Insert Staging">
+    design-time-name="Package\Data Flow Task\RSource">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1970,6 +2448,14 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Insert Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

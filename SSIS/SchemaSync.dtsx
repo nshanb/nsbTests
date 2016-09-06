@@ -5,111 +5,76 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="PC-0609"
   DTS:CreatorName="SOFTCONSTRUCT\nshan.barseghyan"
-  DTS:DTSID="{8D58A69F-CC24-434B-B151-03746B07DD4D}"
+  DTS:DTSID="{8DE33599-F9FF-4239-9427-D9104D39FE80}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
   DTS:ObjectName="SchemaSync"
   DTS:PackageType="5"
-  DTS:VersionBuild="68"
-  DTS:VersionGUID="{D2A53C8F-3C15-4BB3-9CE4-89F342F4059E}">
+  DTS:VersionBuild="86"
+  DTS:VersionGUID="{B78E4426-7F53-4097-A193-9B4AD9F288DD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[etalonSMO]"
       DTS:CreationName="SMOServer"
-      DTS:DTSID="{D838D253-D5FC-4E12-A98A-A19D4E6D2BEA}"
+      DTS:DTSID="{2562F554-4D06-479A-AEF8-FA73B36E3DB3}"
       DTS:ObjectName="etalonSMO">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">@[$Project::eSMOconnstring]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SMOServerConnectionManager
-          ConnectionString="SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;" />
+          ConnectionString="SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[sourceSMO]"
       DTS:CreationName="SMOServer"
-      DTS:DTSID="{1885E42D-FAC8-4AD9-BF8F-4CBED5FD760A}"
+      DTS:DTSID="{D76215B6-6C1E-43EB-B485-B6AAC8CDF7FD}"
       DTS:ObjectName="sourceSMO">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">@[$Project::sSMOconnstring]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SMOServerConnectionManager
-          ConnectionString="SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;" />
+          ConnectionString="SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{857C38EA-75FE-4517-B6CE-0A8DA41C0C01}"
+      DTS:DTSID="{3103FA3A-7DE4-4701-A192-AA7AEB0318E4}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="safeToCopy">
       <DTS:VariableValue
         DTS:DataType="11">0</DTS:VariableValue>
     </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:Description="to delete, playGround"
-      DTS:DTSID="{A795A0A1-AD26-4EEF-A076-9CD256BBEEE6}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="tableList1">
-      <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:Description="to delete, playGround"
-      DTS:DTSID="{0B1D5B6B-094B-41D2-B4AC-9B9818B8CCF6}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="tableList2">
-      <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:Description="to delete, playGround"
-      DTS:DTSID="{07877834-71B0-405A-8B62-810AABA012BE}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="tableList3">
-      <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:Description="to delete, playGround"
-      DTS:DTSID="{75FCC6DB-F26B-4683-A80D-A02FB5D008AE}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="tableList4">
-      <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
-    </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\delete staging_synctable"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{87BA987B-C358-4562-B660-2B994B4C9B08}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete staging_synctable"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5621CA13-24B8-4CCC-9A50-4A11A1C31F38}"
+          SQLTask:SqlStatementSource="delete [staging].[SyncTable]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Expression Task"
       DTS:CreationName="Microsoft.ExpressionTask"
       DTS:Description="Expression Task"
-      DTS:DTSID="{F75DCA56-4EB2-4367-B002-0E1FC5132CAF}"
+      DTS:DTSID="{bfcc1939-1808-4e0c-a278-8a150447b08a}"
       DTS:ExecutableType="Microsoft.ExpressionTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Expression Task"
@@ -122,84 +87,264 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\GetTables FullResultSet"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{85651eef-e3be-4fbd-87cb-848bbde06903}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:refId="Package\Fill staging_synctable"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{40D646E4-5CE6-47EE-ABFC-5ED23A8BC0A1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="GetTables FullResultSet"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ObjectName="Fill staging_synctable"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
-          SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="select Name from sync4partner.SyncTable where ToCopy = 1"
-          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="0"
-            SQLTask:DtsVariableName="User::tableList3" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\GetTables None"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{055CEB19-7E82-46EA-8128-52A5892E9753}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="GetTables None"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
-          SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="exec sp_executesql N'&#xA;select @S = @S + Name from sync4partner.SyncTable&#xA;',N'@S nvarchar(max) OUTPUT',? output" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="@O"
-            SQLTask:DtsVariableName="User::tableList2"
-            SQLTask:ParameterDirection="Output"
-            SQLTask:DataType="130"
-            SQLTask:ParameterSize="-1" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\GetTables SingleRow"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{2FA7CE3A-1ED0-4640-9E46-34B706E109B3}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="GetTables SingleRow"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}"
-          SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="declare @S NVARCHAR(max)&#xA;SET @S = ''&#xA;select @S = @S + Name  + ',' from sync4partner.SyncTable where ToCopy = 1&#xA;select @S as Name into #0&#xA;select * from #0&#xA;"
-          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="Name"
-            SQLTask:DtsVariableName="User::tableList1" />
-        </SQLTask:SqlTaskData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Fill staging_synctable\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[staging].[SyncTable]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill staging_synctable\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{5621CA13-24B8-4CCC-9A50-4A11A1C31F38}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[sourceConnmgr]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fill staging_synctable\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fill staging_synctable\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="Name"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Fill staging_synctable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Output].Columns[Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill staging_synctable\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="128"
+                      name="Name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fill staging_synctable\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fill staging_synctable\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill staging_synctable\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill staging_synctable\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill staging_synctable\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill staging_synctable\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fill staging_synctable\SyncTable"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SyncTable"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[sync4partner].[SyncTable]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select Name from sync4partner.SyncTable 
+where ToCopy =1
+order by Name</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill staging_synctable\SyncTable.Connections[OleDbConnection]"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="128"
+                      lineageId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="128"
+                      name="Name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fill staging_synctable.Paths[OLE DB Source Output]"
+              endId="Package\Fill staging_synctable\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fill staging_synctable\SyncTable.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\TransferTables"
       DTS:CreationName="Microsoft.TransferSqlServerObjectsTask"
       DTS:Description="Transfer SQL Server Objects Task"
-      DTS:DTSID="{84685FFB-6CE9-464C-BB94-003BDD6519CC}"
+      DTS:DTSID="{D0260E21-A1EF-4BD7-BB07-D15752DACE4C}"
       DTS:ExecutableType="Microsoft.TransferSqlServerObjectsTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="TransferTables"
@@ -212,16 +357,15 @@
         DTS:Name="SourceDatabase">@[$Project::sCatalogName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <TransferSqlServerObjectsTaskData
-          SourceConnection="{1885E42D-FAC8-4AD9-BF8F-4CBED5FD760A}"
-          DestinationConnection="{D838D253-D5FC-4E12-A98A-A19D4E6D2BEA}"
-          SourceDatabase="SSIS1"
-          DestinationDatabase="SSIS2"
-          TablesList="3,14,[dbo].[Table1],14,[dbo].[Table2],23,[staging].[TestStaging],"
+          SourceConnection="{D76215B6-6C1E-43EB-B485-B6AAC8CDF7FD}"
+          DestinationConnection="{2562F554-4D06-479A-AEF8-FA73B36E3DB3}"
+          SourceDatabase="SportsBookTest"
+          DestinationDatabase="SBetalon"
+          TablesList="54,15,[dbo].[Account],15,[dbo].[Balance],19,[dbo].[BalanceType],11,[dbo].[Bet],19,[dbo].[BetDocument],20,[dbo].[BetSelection],15,[dbo].[Betshop],20,[dbo].[BetshopGroup],16,[dbo].[CashDesk],19,[dbo].[CashDeskKPI],21,[dbo].[CashDeskShift],16,[dbo].[Category],18,[dbo].[Classifier],14,[dbo].[Client],19,[dbo].[ClientBonus],17,[dbo].[ClientKPI],18,[dbo].[ClientNote],21,[dbo].[ClientRequest],21,[dbo].[ClientSession],31,[dbo].[ClientSportsbookProfile],19,[dbo].[Competition],16,[dbo].[Currency],20,[dbo].[CurrencyRate],16,[dbo].[Document],20,[dbo].[DocumentType],12,[dbo].[Game],15,[dbo].[GameKPI],16,[dbo].[Language],24,[dbo].[LoyaltyGameGroup],14,[dbo].[Market],18,[dbo].[MarketType],13,[dbo].[Match],19,[dbo].[MatchResult],18,[dbo].[MatchState],17,[dbo].[MatchTeam],15,[dbo].[Partner],21,[dbo].[PaymentSystem],15,[dbo].[Product],23,[dbo].[ProductCategory],23,[dbo].[ProductProvider],14,[dbo].[Region],14,[dbo].[Season],19,[dbo].[SeasonGroup],17,[dbo].[Selection],21,[dbo].[SelectionType],23,[dbo].[SettlementQueue],13,[dbo].[Sport],12,[dbo].[Team],19,[dbo].[Transaction],19,[dbo].[Translation],24,[dbo].[TranslationEntry],12,[dbo].[User],19,[dbo].[UserSession],23,[staging].[TestStaging],"
           SchemasList="1,7,staging,"
           DropObjectsFirst="True"
           CopyIndexes="True"
-          CopyPrimaryKeys="True"
-          CopyForeignKeys="True" />
+          CopyPrimaryKeys="True" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -229,29 +373,21 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{DC2E35ED-40DE-452F-8213-40295427DFA9}"
-      DTS:From="Package\GetTables SingleRow"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint"
-      DTS:To="Package\GetTables None" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{54BDA61C-52CD-481B-BBC0-42B368784F61}"
-      DTS:From="Package\GetTables None"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 1"
-      DTS:To="Package\GetTables FullResultSet" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{A8366FEA-AB09-42BC-BD11-D6E159817017}"
-      DTS:EvalOp="1"
+      DTS:DTSID="{48D8F025-FCCD-4644-8987-9783027C3643}"
+      DTS:EvalOp="3"
       DTS:Expression="@[User::safeToCopy]"
       DTS:From="Package\Expression Task"
       DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 2"
+      DTS:ObjectName="Constraint"
       DTS:To="Package\TransferTables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{61B976F8-903A-43E2-BF90-BD64A364C291}"
+      DTS:From="Package\delete staging_synctable"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Fill staging_synctable" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -266,116 +402,149 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="195,42"
+          Id="Package\delete staging_synctable"
+          TopLeft="54,138" />
+        <NodeLayout
           Size="155,42"
           Id="Package\Expression Task"
-          TopLeft="33,45" />
+          TopLeft="45,42" />
         <NodeLayout
-          Size="160,42"
-          Id="Package\GetTables FullResultSet"
-          TopLeft="580,349" />
+          Size="179,42"
+          Id="Package\Fill staging_synctable"
+          TopLeft="312,140" />
         <NodeLayout
-          Size="160,42"
-          Id="Package\GetTables None"
-          TopLeft="345,351" />
-        <NodeLayout
-          Size="178,42"
-          Id="Package\GetTables SingleRow"
-          TopLeft="112,350" />
-        <NodeLayout
-          Size="149,42"
+          Size="168,42"
           Id="Package\TransferTables"
-          TopLeft="290,51" />
+          TopLeft="304,46" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="290,371.5">
+          TopLeft="200,65">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="55,0"
+              EndConnector="104,0"
               Start="0,0"
-              End="47.5,0">
+              End="96.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="47.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="505,371">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="75,0"
-              Start="0,0"
-              End="67.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="67.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="188,69">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="102,0"
-              Start="0,0"
-              End="94.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="94.5,0" />
+                    End="96.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="39.25,5,16,16"
+              BoundingBox="40.25,5,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="249,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63,0"
+              Start="0,0"
+              End="55.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="55.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="on Source&#xA;CREATE SCHEMA [staging]&#xA;GO&#xA;CREATE TABLE [staging].[SyncTable] (&#xA;    [Name]    [sysname] NOT NULL,&#xA;    CONSTRAINT [PK_SyncTable] PRIMARY KEY CLUSTERED ([Name] ASC)&#xA;);&#xA;&#xA;CREATE TABLE [staging].[TestStaging](&#xA; [Id] [int] IDENTITY(1,1) NOT NULL,&#xA; [MessageText] [nvarchar](250) NULL,&#xA; [MessageDate] [datetime2](7) NOT NULL,&#xA;PRIMARY KEY CLUSTERED &#xA;(&#xA; [Id] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;ALTER TABLE [staging].[TestStaging] ADD  DEFAULT (sysdatetime()) FOR [MessageDate]&#xA;GO"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="883,375"
+          Id="d49da97a-3854-487c-af59-29a4f098cc58"
+          TopLeft="667.272727272727,96.3636363636364" />
+        <AnnotationLayout
+          Text="WITHOUT foreign keys"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="150,40"
+          Id="051703fe-4950-4b30-9e52-554fc93913ac"
+          TopLeft="180,319" />
         <AnnotationLayout
           Text="TablesList property of TransgerLists is set up from c# project&#xA;can not access TransferTables from Script Task (possibly threw system variables?)"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="452,56"
-          Id="58c98d83-4494-4890-bfb6-c5437273d9ab"
-          TopLeft="116,139" />
-        <AnnotationLayout
-          Text="select Name from table =&gt; returns string&#xA;declare @S NVARCHAR(max); SET @S = 'k' select @s as Name =&gt; returns __ComObject"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="491,56"
-          Id="80150303-0c38-4633-be38-fe061ce1c8ba"
-          TopLeft="117,197" />
-        <AnnotationLayout
-          Text="can not get output parameter from OLEDB sql"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="273,40"
-          Id="93b2909f-bf72-4715-a1bf-5fbb56fb787c"
-          TopLeft="117,256" />
+          Size="456,56"
+          Id="b8d00a8d-82fd-4142-abcb-a4d461ac9e67"
+          TopLeft="60,414" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Fill staging_synctable">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Fill staging_synctable\OLE DB Destination"
+          TopLeft="343.5,50.5" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Fill staging_synctable\SyncTable"
+          TopLeft="105,54" />
+        <EdgeLayout
+          Id="Package\Fill staging_synctable.Paths[OLE DB Source Output]"
+          TopLeft="232,73.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.5,0"
+              Start="0,0"
+              End="104,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="104,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill staging_synctable\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill staging_synctable\SyncTable">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

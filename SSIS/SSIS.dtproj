@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">TOSHIBA</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8w9YTOCDEEqiF8t7HrYJkgAAAAACAAAAAAADZgAAwAAAABAAAAAbwylLt/qeNwy6CXH8FYxYAAAAAASAAACgAAAAEAAAAHXIgg1X0opHBjMdPtAuLs6IAAAAj5qVnEqMhDUjAdbVe17NUB0T7TV3lDGl2kkCRGCFvWGd5Msz8zLLr6bNggacu/lGWoSVclm6wppsONSg/pr886TxXS0BTkm71keJPU5k583hFeRVa1pGJO7WEELLV5DORCTyNpC1hVvNBurDXKpu1/hKpdnY1jCxrquI5b4Kgwhl/2RphNP0/hQAAADWaXTx232jvhaUyUOUr0+ZSRqDGA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgUkHg4HO3kGL1q3yNGFY+AAAAAACAAAAAAAQZgAAAAEAACAAAAAUAPBQ2lKunIeU3KrIxlABkvliTNEbcX7FhgF1yHQx5QAAAAAOgAAAAAIAACAAAACowraquwfuzVCyjTE7eFXrRxWN3HfsmLXapfJKrebYc5AAAADCE1X7jiP7DkrJVNshL6tXBCY0Jgu24iduNTGi5hXU/ByY5UQEVt8YpQ1EeSz7A1cY4x6gPfmmYpbapaS7lzV1V1zFRtZjpitstNhi47aCrEVlY/bY/5FSUSKb6md0XVIP6hguRw7hLt+oirs4VacQrdYpdMFhBY8bmJ3nvPMQjpDZwzjMFDl28QfS5QYOcrdAAAAAFcKO1D26fh6w9MPMhqzS+fkbm36n0nJO4nhfky6RuA1L4LJH+4uuzjFJnCNt0DzfFu10acp613rS1+phUh9LiA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -44,7 +44,6 @@
           <SSIS:Package SSIS:Name="EmptyPlaceHolder.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Real.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="CopyByFullJoinP.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Package1.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="PlaceHolder_FullJoin.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Table2_FullJoin.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="ExForeach.dtsx" SSIS:EntryPoint="1" />
@@ -73,7 +72,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=PC-0609;Initial Catalog=forSSIStests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSISSync2Partner;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=forSSIStests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSISSync2Partner;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -131,7 +130,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=PC-0609;Initial Catalog=SSIS2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSISSync2Partner;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=SSIS2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSISSync2Partner;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -189,7 +188,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=PC-0609;Initial Catalog=SSIS1;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSISSync2Partner;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=SSIS1;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSISSync2Partner;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -603,20 +602,35 @@
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="SchemaSync.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{8D58A69F-CC24-434B-B151-03746B07DD4D}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{8DE33599-F9FF-4239-9427-D9104D39FE80}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">SchemaSync</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">68</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">87</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{D2A53C8F-3C15-4BB3-9CE4-89F342F4059E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{8DC681B1-3B24-4FE4-86BF-58654FAA66C7}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="CM.etalonSMO.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="CM.etalonSMO.Password">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
@@ -628,21 +642,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.etalonSMO.SqlServerName">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">PC-0609</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -672,6 +671,8 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -690,6 +691,21 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.sourceSMO.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="CM.sourceSMO.Password">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
@@ -701,21 +717,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.sourceSMO.SqlServerName">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">PC-0609</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -745,6 +746,8 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -803,10 +806,10 @@
                 <SSIS:Property SSIS:Name="Name">FillSamples</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">29</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">30</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{B3A92954-95B9-4921-9296-D3E9A51F27E5}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{E66F53A7-78A2-40AF-8B6E-90D6A5FE5125}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -945,6 +948,8 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1078,14 +1083,14 @@
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="Init.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{EDE5DEEB-A146-423F-9E15-7586C4781099}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{2019A874-6849-4AD4-86E5-074297D944CA}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">Init</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">31</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">34</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{F9B5C9C8-C3F6-4D29-9A02-D1DBB0972AE6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{342E16C4-1280-4FE7-9A87-F83588B0D184}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1165,10 +1170,10 @@
                 <SSIS:Property SSIS:Name="Name">Real</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">5</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E40DDF94-C186-4459-AEE6-E6EE9222B3DD}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{9A7DAE6A-D971-4A07-B327-77DD56F37FF4}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1321,6 +1326,8 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1429,23 +1436,6 @@
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Package1.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{0A26A85D-BF03-450C-8D28-AF8C9383A0C5}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">5</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{07697087-2E1D-4577-B9C5-6FE074747F18}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="PlaceHolder_FullJoin.dtsx">
               <SSIS:Properties>
@@ -1643,10 +1633,10 @@
                 <SSIS:Property SSIS:Name="Name">ExForeach</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">40</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">41</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{9CD4C06F-997C-42CB-9B82-0B90906A0823}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{A7C565D5-F310-40FC-B894-7502E6B9A133}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1785,6 +1775,8 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1826,10 +1818,10 @@
                 <SSIS:Property SSIS:Name="Name">ExLookup</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">28</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">29</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{89361FFA-2D16-4399-8287-242275275FA7}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{7B1DD26C-D6F6-4179-960D-6B2930F6604B}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1968,6 +1960,8 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -2039,20 +2033,49 @@
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="DoAllSchema.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{B024948B-0309-4293-A1CA-974C7D15505F}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{39B60252-B8F9-48B9-B11D-0BD88FBC5BCA}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">DoAllSchema</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">33</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{F8A80E1E-9951-457B-8E0D-D75341BBB884}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{F1D08F46-AF06-43BC-B1D4-2B9A3FA27675}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
-              <SSIS:Parameters />
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="PartnerId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{A4F69F1E-A19A-4465-B9B9-41A35505ADD2}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">-2</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="SyncTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{17E16058-3A3C-4107-B3F2-9BBD3ADD5EE4}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">nsb</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="Table1_FullJoin.dtsx">
               <SSIS:Properties>
@@ -2092,7 +2115,7 @@
           <ConfigurationSetting>
             <Id>LastModifiedTime</Id>
             <Name>LastModifiedTime</Name>
-            <Value xsi:type="xsd:dateTime">2016-08-31T07:01:52.0594148Z</Value>
+            <Value xsi:type="xsd:dateTime">2016-09-06T18:24:47.5427056Z</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>{90ecfa7e-3769-4e06-9860-80178165ca66}</Id>
@@ -2101,7 +2124,7 @@
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>{39a979fe-957f-4339-852f-47b0bda0f4be}</Id>
-            <Name>Project::cConnString</Name>
+            <Name>Project::cConnString1</Name>
             <Value xsi:type="xsd:string">Data Source=PC-0609;Initial Catalog=ForSSISTests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
@@ -2111,18 +2134,23 @@
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>{e41ed680-0411-4bfa-ac16-103fd133c7dc}</Id>
-            <Name>Project::dConnString</Name>
+            <Name>Project::dConnString1</Name>
             <Value xsi:type="xsd:string">Data Source=PC-0609;Initial Catalog=SSIS2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>{884f6ef3-9b20-445c-ad85-1c0675f9d7ad}</Id>
-            <Name>Project::eSMOconnstring</Name>
+            <Name>Project::eSMOconnstring1</Name>
             <Value xsi:type="xsd:string">SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>{986434cb-405d-494b-ad34-6a5b3af7242d}</Id>
-            <Name>Project::sSMOconnstring</Name>
+            <Name>Project::sSMOconnstring1</Name>
             <Value xsi:type="xsd:string">SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{aca3c62c-7004-499d-ace2-13e25900b58d}</Id>
+            <Name>Project::ServerName</Name>
+            <Value xsi:type="xsd:string">PC-0609</Value>
           </ConfigurationSetting>
         </ParameterConfigurationValues>
       </Options>
@@ -2140,7 +2168,7 @@
           <ConfigurationSetting>
             <Id>LastModifiedTime</Id>
             <Name>LastModifiedTime</Name>
-            <Value xsi:type="xsd:dateTime">2016-08-29T05:45:31.3079781Z</Value>
+            <Value xsi:type="xsd:dateTime">2016-09-06T18:24:47.5427056Z</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>{90ecfa7e-3769-4e06-9860-80178165ca66}</Id>
@@ -2149,7 +2177,7 @@
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>{39a979fe-957f-4339-852f-47b0bda0f4be}</Id>
-            <Name>Project::cConnString</Name>
+            <Name>Project::cConnString1</Name>
             <Value xsi:type="xsd:string">Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=ForSSISTests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
@@ -2159,18 +2187,23 @@
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>{e41ed680-0411-4bfa-ac16-103fd133c7dc}</Id>
-            <Name>Project::dConnString</Name>
+            <Name>Project::dConnString1</Name>
             <Value xsi:type="xsd:string">Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=SSIS2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>{884f6ef3-9b20-445c-ad85-1c0675f9d7ad}</Id>
-            <Name>Project::eSMOconnstring</Name>
+            <Name>Project::eSMOconnstring1</Name>
             <Value xsi:type="xsd:string">SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>{986434cb-405d-494b-ad34-6a5b3af7242d}</Id>
-            <Name>Project::sSMOconnstring</Name>
+            <Name>Project::sSMOconnstring1</Name>
             <Value xsi:type="xsd:string">SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{aca3c62c-7004-499d-ace2-13e25900b58d}</Id>
+            <Name>Project::ServerName</Name>
+            <Value xsi:type="xsd:string">TOSHIBA\SQLEXPRESS</Value>
           </ConfigurationSetting>
         </ParameterConfigurationValues>
       </Options>

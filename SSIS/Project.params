@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0"?>
 <SSIS:Parameters xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
   <SSIS:Parameter
-    SSIS:Name="eSMOconnstring">
+    SSIS:Name="eSMOconnstring1">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{884f6ef3-9b20-445c-ad85-1c0675f9d7ad}</SSIS:Property>
       <SSIS:Property
         SSIS:Name="CreationName"></SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Description"></SSIS:Property>
+        SSIS:Name="Description">Solution configuration</SSIS:Property>
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
@@ -16,7 +16,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;</SSIS:Property>
+        SSIS:Name="Value">SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
@@ -42,8 +42,8 @@
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
   </SSIS:Parameter>
-    <SSIS:Parameter
-    SSIS:Name="sSMOconnstring">
+  <SSIS:Parameter
+    SSIS:Name="sSMOconnstring1">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{986434cb-405d-494b-ad34-6a5b3af7242d}</SSIS:Property>
@@ -58,7 +58,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;</SSIS:Property>
+        SSIS:Name="Value">SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
@@ -85,7 +85,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="cConnString">
+    SSIS:Name="cConnString1">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{39a979fe-957f-4339-852f-47b0bda0f4be}</SSIS:Property>
@@ -100,7 +100,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">Data Source=PC-0609;Initial Catalog=ForSSISTests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+        SSIS:Name="Value">Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=ForSSISTests;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
@@ -121,13 +121,13 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">Data Source=PC-0609;Initial Catalog=SSIS1;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+        SSIS:Name="Value">Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=SSIS1;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="dConnString">
+    SSIS:Name="dConnString1">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{e41ed680-0411-4bfa-ac16-103fd133c7dc}</SSIS:Property>
@@ -142,7 +142,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">Data Source=PC-0609;Initial Catalog=SSIS2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+        SSIS:Name="Value">Data Source=TOSHIBA\SQLEXPRESS;Initial Catalog=SSIS2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
@@ -197,7 +197,7 @@
       <SSIS:Property
         SSIS:Name="CreationName"></SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Description"></SSIS:Property>
+        SSIS:Name="Description">Solution configuration</SSIS:Property>
       <SSIS:Property
         SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
       <SSIS:Property
@@ -205,7 +205,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">PC-0609</SSIS:Property>
+        SSIS:Name="Value">TOSHIBA\SQLEXPRESS</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
@@ -231,7 +231,7 @@
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
   </SSIS:Parameter>
-    <SSIS:Parameter
+  <SSIS:Parameter
     SSIS:Name="DefaultPath">
     <SSIS:Properties>
       <SSIS:Property
@@ -247,7 +247,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">D:\Nshan\nsbTests\SSIS\testData\</SSIS:Property>
+        SSIS:Name="Value">C:\Users\User\Documents\Visual Studio 2015\Projects\nsbTests\SSIS\testData\</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
@@ -273,5 +273,4 @@
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
   </SSIS:Parameter>
-
 </SSIS:Parameters>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Real"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{E40DDF94-C186-4459-AEE6-E6EE9222B3DD}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{9A7DAE6A-D971-4A07-B327-77DD56F37FF4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -870,7 +870,7 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -960,19 +960,19 @@
                       name="tableName" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ToCopy]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="1"
                       name="ToCopy" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OnlyInsert]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="1"
                       name="OnlyInsert" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Other]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="125"
                       name="Other" />
@@ -1080,7 +1080,7 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -1110,19 +1110,19 @@
                       name="tableName" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ToCopy]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="1"
                       name="ToCopy" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="1"
                       name="OnlyInsert" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Other]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="125"
                       name="Other" />

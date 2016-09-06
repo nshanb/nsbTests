@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ExLookup"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{89361FFA-2D16-4399-8287-242275275FA7}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{7B1DD26C-D6F6-4179-960D-6B2930F6604B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -431,7 +431,7 @@ where [refTable].[Name] = ?</property>
               <connections>
                 <connection
                   refId="Package\Extract Sample Currency Data\Lookup Currency Key.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
@@ -578,7 +578,7 @@ where [refTable].[Name] = ?</property>
               <connections>
                 <connection
                   refId="Package\Extract Sample Currency Data\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -720,7 +720,7 @@ where [refTable].[Name] = ?</property>
               <connections>
                 <connection
                   refId="Package\Extract Sample Currency Data\OLE DB Destination 1.Connections[OleDbConnection]"
-                  connectionManagerID="{B70919C3-0B19-432D-A95E-E2A3977CBAB4}:external"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
                   connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -952,7 +952,7 @@ where [refTable].[Name] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -962,7 +962,7 @@ where [refTable].[Name] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -5,7 +5,7 @@
 5. Sync with nsbTests 
 6. look if table have been changed
 7. create table in staging to look index_usage_stats => do nothing if not changed besides first time after restart after
-
+timestamp!!
 vsdbcmd.exe
 sqlpackage.exe
 DacFx

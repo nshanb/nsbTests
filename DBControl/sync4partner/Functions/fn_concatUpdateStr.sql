@@ -2,13 +2,18 @@
 RETURNS Varchar(Max)
 AS
 BEGIN
+ declare @n int
+ select @n = count(*) from [sync4partner].[ColumnList]
+ where is_primarykey = 0 and tname = @tableName
+ if( @n = 0 ) return ''
+
  declare @c Varchar(Max)
  set @c = 'update ' + @tableName + ' set '
  
  select @c = @c + '[' + cName + ']=s.['+cName+'],'
   from [sync4partner].[ColumnList]
-  where is_identity = 0 and is_nullable = 1 and tname = @tableName
-
+  where is_primarykey = 0 and tname = @tableName
+  if( @n = 0 ) return ''
   set @c = substring(@c,0,len(@c)-0)
  RETURN @c + ' from staging.' +@tableName+ ' as s where s.id='+@tableName+'.id; delete staging.'+@tableName
 

@@ -6,21 +6,21 @@
   DTS:CreatorComputerName="PC-0609"
   DTS:CreatorName="SOFTCONSTRUCT\nshan.barseghyan"
   DTS:DelayValidation="True"
-  DTS:DTSID="{6779309B-851B-4647-B4C2-B19466E4469C}"
+  DTS:DTSID="{985ADD2B-6AE9-4256-B874-4371FE334037}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
-  DTS:ObjectName="PlaceHolder_FullJoin"
+  DTS:ObjectName="PlaceHolder_IdMod"
   DTS:PackageType="5"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{133DFAF2-AE9C-4213-9D7E-78D249C27B19}">
+  DTS:VersionBuild="72"
+  DTS:VersionGUID="{22BF0776-2F61-43A4-803D-27CAF0041264}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{8323A207-09A2-4BE8-B342-8BDB916F70FE}"
+      DTS:DTSID="{538E818C-BA7E-426A-B100-A9AD6B76E729}"
       DTS:ObjectName="Delete_FriendlyExpression">
       <DTS:Property
         DTS:DataType="8"
@@ -29,7 +29,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{5855CB5F-1B79-47F6-9605-C7859DBDA745}"
+      DTS:DTSID="{5A4F8941-61B8-4610-BA69-34535FC30C62}"
       DTS:ObjectName="Insert_FriendlyExpression">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{144AD859-C414-4B0E-B250-B6244580FB98}"
+      DTS:DTSID="{A06291EA-558E-4E33-9039-92CBBD009E06}"
       DTS:ObjectName="PartnerId">
       <DTS:Property
         DTS:DataType="3"
@@ -47,7 +47,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{F5ACCE93-6209-487D-A9A1-6288857B9452}"
+      DTS:DTSID="{5A1697DA-F963-4032-864A-7044B80B469E}"
       DTS:ObjectName="SyncTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -56,7 +56,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{0A94803D-4101-4A4B-A506-54487337AA2D}"
+      DTS:DTSID="{2610D16E-5C41-458E-94F1-05BB2990DF5C}"
       DTS:ObjectName="Update_FriendlyExpression">
       <DTS:Property
         DTS:DataType="8"
@@ -65,7 +65,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{2C90EA00-8162-4F53-A9B2-C69117D7DAC0}"
+      DTS:DTSID="{9096FC23-DE2D-4322-9862-9DF71E088BD3}"
       DTS:ObjectName="Update_Statement">
       <DTS:Property
         DTS:DataType="8"
@@ -75,7 +75,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EBCCCBAE-2B3D-4B4B-9966-2BF2CBE4E80B}"
+      DTS:DTSID="{57F739C5-F780-4537-8E08-2EA70B6EC358}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="currentLogId">
@@ -84,7 +84,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1924B0AB-0F37-41BD-9DB6-7DA5F28D1193}"
+      DTS:DTSID="{83030A3B-B532-4101-A19C-3610CCB271B1}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;delete staging.&quot; + @[$Package::SyncTableName]"
       DTS:IncludeInDebugDump="2345"
@@ -95,7 +95,18 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1BF6EF7D-476D-4897-9773-CD537AE25991}"
+      DTS:DTSID="{C3302628-591E-43E8-8FED-2AD7A80151E3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;DECLARE @r DATETIME2;DECLARE @r1 int;select @r=max(Modified),@r1=max(id) from [&quot; + @[$Package::SyncTableName] +&quot;]; select isnull(@r1,-1) as Id,cast(isnull(@r,'1879-03-19') as varchar) as Modified&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="destSelectMaxId">
+      <DTS:VariableValue
+        DTS:DataType="8">DECLARE @r DATETIME2;DECLARE @r1 int;select @r=max(Modified),@r1=max(id) from [nsb]; select isnull(@r1,-1) as Id,cast(isnull(@r,'1879-03-19') as varchar) as Modified</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{87077D75-5395-47EF-97D2-F017CB13B83B}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="IsPlaceHolder">
@@ -104,7 +115,25 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{79A00CF1-BE7C-4544-857C-A46BBA572A22}"
+      DTS:DTSID="{7645B0B2-99BA-4D21-B297-137353B24C3A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="lastKey">
+      <DTS:VariableValue
+        DTS:DataType="3">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{00D7E58B-7677-4CE2-BC2D-47B014825AB5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="lastModified">
+      <DTS:VariableValue
+        DTS:DataType="8">1879-03-19</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{86E8F6CB-7EDA-4A64-B6CE-85B912D55F5D}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="rowCountDelete">
@@ -113,7 +142,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{15F49A8B-A598-40D3-9B7B-5CC5647293EC}"
+      DTS:DTSID="{D88DCD2E-7EFF-4D78-8C3A-1142691F0961}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="rowCountInsert">
@@ -122,7 +151,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{157F9E48-FB3B-43EC-A8F4-22EF7DA31FC5}"
+      DTS:DTSID="{428B48AF-8BB2-4674-BA46-0160ACBBE1C3}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="rowCountSource">
@@ -131,7 +160,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{8F7AF113-3D03-4D0E-896B-C07C15BDA87B}"
+      DTS:DTSID="{50D47DB0-B3C2-4577-BDA1-AED74350720C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="rowCountUpdate">
@@ -140,7 +169,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D2652470-930E-4A5E-B8FD-0934EBF81AD8}"
+      DTS:DTSID="{7D4173EE-08E1-4FF6-8087-B72550FF8DF9}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="syncLogName">
@@ -153,7 +182,7 @@
       DTS:refId="Package\Clear Staging"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2bdd4222-8229-407b-884e-6da5bc8f616b}"
+      DTS:DTSID="{6FFD9CA0-3D3F-498A-A4BD-21D317170848}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear Staging"
@@ -174,7 +203,7 @@
       DTS:DelayValidation="True"
       DTS:Description="Data Flow Task"
       DTS:Disabled="True"
-      DTS:DTSID="{46D26320-C0B6-48A4-9E08-6EEE531ECB63}"
+      DTS:DTSID="{11865ADD-286E-4D7D-9619-C56BAC83880D}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task"
@@ -182,7 +211,7 @@
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{B734118D-A6B0-455F-8706-131E03D95DC8}"
+          DTS:DTSID="{BE265C33-A348-415F-B2B3-13F58F3303FB}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="&quot;delete &quot; + @[$Package::SyncTableName] + &quot; where  [Id]=?&quot;"
           DTS:IncludeInDebugDump="2345"
@@ -193,7 +222,7 @@
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{51DC9E68-15FF-49ED-9F2E-9A0099973C78}"
+          DTS:DTSID="{F273B793-CC92-4ECE-B0FF-0721704EB359}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="&quot;Select * from &quot; + @[$Package::SyncTableName] + &quot; order by Id&quot;"
           DTS:IncludeInDebugDump="2345"
@@ -204,7 +233,7 @@
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{F05D8D63-4CD1-44C2-9C8A-A4E5B7658395}"
+          DTS:DTSID="{F3BB739F-3C89-4FA9-B8ED-D1167D8B5EDD}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="&quot;staging.&quot; + @[$Package::SyncTableName]"
           DTS:IncludeInDebugDump="2345"
@@ -215,14 +244,14 @@
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{01CBC144-A575-4FF7-945E-26ADD7DC53CF}"
+          DTS:DTSID="{88CC9DBB-C65E-40F3-A146-AD18F7ADE89F}"
           DTS:EvaluateAsExpression="True"
-          DTS:Expression="&quot;Select * from &quot; + @[$Package::SyncTableName] + &quot; order by Id&quot;"
+          DTS:Expression="&quot;Select * from &quot; + @[$Package::SyncTableName] + &quot; where Id&lt;&quot;+ (DT_WSTR,10)@[User::lastKey] +&quot; and Modified&gt;'&quot;+ @[User::lastModified]+&quot;'&quot;"
           DTS:IncludeInDebugDump="2345"
           DTS:Namespace="User"
           DTS:ObjectName="sourceSelect">
           <DTS:VariableValue
-            DTS:DataType="8">Select * from nsb order by Id</DTS:VariableValue>
+            DTS:DataType="8">Select * from nsb where Id&lt;-1 and Modified&gt;'1879-03-19'</DTS:VariableValue>
         </DTS:Variable>
       </DTS:Variables>
       <DTS:PropertyExpression
@@ -576,20 +605,20 @@
                       cachedName="Id"
                       cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      lineageId="Package\Data Flow Task\360:invalid" />
+                      lineageId="Package\Data Flow Task\139:invalid" />
                     <inputColumn
                       refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[text2]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="text2"
                       externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[text2]"
-                      lineageId="Package\Data Flow Task\361:invalid" />
+                      lineageId="Package\Data Flow Task\140:invalid" />
                     <inputColumn
                       refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[Table1Id]"
                       cachedDataType="i4"
                       cachedName="Table1Id"
                       externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[Table1Id]"
-                      lineageId="Package\Data Flow Task\362:invalid" />
+                      lineageId="Package\Data Flow Task\141:invalid" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1103,10 +1132,273 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Data Flow Task Ins"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{8715ea3d-a813-4c39-b324-f7f81bdcc087}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task Ins"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{f9887dd4-2fed-40d1-8912-ddb2a1aa4c30}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="&quot;staging.&quot; + @[$Package::SyncTableName]"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="destUpdateStaging">
+          <DTS:VariableValue
+            DTS:DataType="8">staging.nsb</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{0d3458d7-2ab5-4939-bc02-146c27696d4d}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="&quot;Select * from [&quot; + @[$Package::SyncTableName] + &quot;] where Id&gt;&quot;+ (DT_WSTR,10) @[User::lastKey] +&quot; order by Id&quot;"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="sourceSelect">
+          <DTS:VariableValue
+            DTS:DataType="8">Select * from [nsb] where Id&gt;-1 order by Id</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task Ins\Insert"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable">$Package::SyncTableName</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">4</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task Ins\Insert.Connections[OleDbConnection]"
+                  connectionManagerID="{3337BC26-8662-4224-9CA6-774281EBE361}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[destConnmgr]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ins\Insert.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ins\Insert.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task Ins\Insert.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ins\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ins\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ins\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ins\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ins\RowCount Ins"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="RowCount Ins">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::rowCountInsert</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Ins\RowCount Ins.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ins\RowCount Ins.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Data Flow Task Ins\RowCount Ins.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Ins\RSource"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="RSource"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable">User::sourceSelect</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task Ins\RSource.Connections[OleDbConnection]"
+                  connectionManagerID="{5621CA13-24B8-4CCC-9A50-4A11A1C31F38}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[sourceConnmgr]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ins\RSource.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </output>
+                <output
+                  refId="Package\Data Flow Task Ins\RSource.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ins\RSource.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ins\RSource.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ins\RSource.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ins\RSource.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task Ins.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task Ins\RowCount Ins.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task Ins\RSource.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Do Update"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{32256959-164a-448c-bd5e-81046920e30a}"
+      DTS:DTSID="{A9BCF870-E6C7-4223-9A44-0A5FF67EED82}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Do Update"
@@ -1125,7 +1417,7 @@
       DTS:refId="Package\Expression Task"
       DTS:CreationName="Microsoft.ExpressionTask"
       DTS:Description="Expression Task"
-      DTS:DTSID="{0F672462-9BFD-42C6-AFFF-080F218D6ECD}"
+      DTS:DTSID="{7CB4B790-D2A3-473A-9924-CD5673212A29}"
       DTS:ExecutableType="Microsoft.ExpressionTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Expression Task"
@@ -1134,19 +1426,52 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <ExpressionTask
-          Expression="@[User::syncLogName] = &quot;Sync &quot;+@[$Package::SyncTableName]+&quot; FullJoin&quot;" />
+          Expression="@[User::syncLogName] = &quot;Sync &quot;+@[$Package::SyncTableName]+&quot; IdMod&quot;" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GetLastKey"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{635a2745-cf58-4063-ab35-49bb9fd01628}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GetLastKey"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3337BC26-8662-4224-9CA6-774281EBE361}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStmtSourceType="Variable"
+          SQLTask:SqlStatementSource="User::destSelectMaxId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="Id"
+            SQLTask:DtsVariableName="User::lastKey" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="Modified"
+            SQLTask:DtsVariableName="User::lastModified" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::SyncTableName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\LogFailure"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2F15BC55-8353-4FEE-9AFD-E9BF3FB33806}"
+      DTS:DTSID="{26931CBE-032B-43C6-A22D-AE9734E76811}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1189,7 +1514,7 @@
       DTS:refId="Package\LogFailure CS"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{5b5ad041-bff8-40af-81c7-466193c0dd9d}"
+      DTS:DTSID="{11CCB4A5-68D9-4BB1-B01F-9D079F2EE5FD}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure CS"
@@ -1237,7 +1562,7 @@
       DTS:refId="Package\LogFailure DU"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{1cf42233-4bf9-4b62-96e2-3a04f0ce773e}"
+      DTS:DTSID="{229A82CF-2F55-4F21-8C82-873604559D13}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure DU"
@@ -1282,16 +1607,112 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\LogFailure GLK"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{790c5169-41f3-41ff-b61b-7051abf97dd0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LogFailure GLK"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
+          SQLTask:SqlStatementSource="update sync4partner.Log set [SyncEndDate] = SYSDATETIME(),[Status]='Failure',[Description]='Get last key', [SyncRowCountInsert]=?, SyncRowCountUpdate=?, [SyncRowCountDelete]=?, SyncRowCountSource=? where id=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::rowCountInsert"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="User::currentLogId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::rowCountUpdate"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::rowCountDelete"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::rowCountSource"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\LogFailure Ins"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{52d930fe-5939-47c3-a6b9-4ee6c45e80c2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LogFailure Ins"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
+          SQLTask:SqlStatementSource="update sync4partner.Log set [SyncEndDate] = SYSDATETIME(),[Status]='Failure',[Description]='Ins', [SyncRowCountInsert]=?, SyncRowCountUpdate=?, [SyncRowCountDelete]=?, SyncRowCountSource=? where id=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::rowCountInsert"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="User::currentLogId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::rowCountUpdate"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::rowCountDelete"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::rowCountSource"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\LogNothing"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:Disabled="True"
-      DTS:DTSID="{38A492D4-DE85-47CD-A863-E25745FE8AC1}"
+      DTS:DTSID="{BDC77C5B-C6F7-467C-B7A5-CF8B76BA2755}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogNothing"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1310,7 +1731,7 @@
       DTS:refId="Package\LogStart"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{F58A7E68-451D-45F8-ABB8-9E939B362B5E}"
+      DTS:DTSID="{D678E9F5-C9C2-45DF-B6DC-0292BBE61478}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogStart"
@@ -1344,12 +1765,12 @@
       DTS:refId="Package\LogSuccess"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{B960297D-4604-4C1C-8738-A74271464327}"
+      DTS:DTSID="{586E1CA2-C04B-4D42-A696-BC07FC2161C5}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="LogSuccess"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1393,7 +1814,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{2DAE11DD-1406-47DF-BEC7-8053879C5F68}"
+      DTS:DTSID="{4587327A-8DFD-42E6-BF1D-F5F51412DEE5}"
       DTS:From="Package\Expression Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -1401,15 +1822,40 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{C6B23D63-A36F-4F32-9945-DA886A7E27B4}"
+      DTS:DTSID="{C961A9D2-C5E9-4A7E-9B56-EF2D082E1A03}"
       DTS:From="Package\LogStart"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
+      DTS:To="Package\GetLastKey" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{102406CD-5A17-43CD-8122-A738ADD67CBB}"
+      DTS:From="Package\GetLastKey"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\LogFailure GLK"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{1420315B-AABD-47A1-A1A4-F71BB7A0D364}"
+      DTS:From="Package\GetLastKey"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\Data Flow Task Ins" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{00B26493-FAD7-49F6-8B30-B5DC61D0D08A}"
+      DTS:From="Package\Data Flow Task Ins"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
       DTS:To="Package\Clear Staging" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{8EDBB363-D52C-4F23-8C7C-EBF16BE940DF}"
+      DTS:DTSID="{6E56A1FB-5778-4FC5-AEFB-32A8463A8255}"
       DTS:From="Package\Clear Staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -1417,7 +1863,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{BA6978B5-7003-4CFD-B86E-DAC6FA4DBA92}"
+      DTS:DTSID="{321FBA83-FE5B-4802-BD3E-46FFD2B80CD1}"
       DTS:EvalOp="3"
       DTS:Expression="@[User::rowCountUpdate] &gt; 0"
       DTS:From="Package\Data Flow Task"
@@ -1427,7 +1873,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{83678F1F-0F97-4016-8C82-7ACAD395C844}"
+      DTS:DTSID="{A777E2E9-23EB-4677-81AC-4B50AE28B232}"
       DTS:EvalOp="3"
       DTS:Expression="@[User::rowCountUpdate] == 0"
       DTS:From="Package\Data Flow Task"
@@ -1436,14 +1882,14 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{9A3E708B-3DD9-44C6-9055-0BDC355E58FE}"
+      DTS:DTSID="{BEB7849F-FDAC-4495-851D-2DCF4AED076C}"
       DTS:From="Package\Do Update"
       DTS:ObjectName="Constraint 5"
       DTS:To="Package\LogSuccess" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
-      DTS:DTSID="{4BAD4D2E-3468-4051-BF93-F05636E13236}"
+      DTS:DTSID="{19ADCA2E-0B27-441F-AEBB-F89899E27417}"
       DTS:From="Package\Data Flow Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
@@ -1452,7 +1898,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
-      DTS:DTSID="{83657BF1-8359-4D93-8BA3-06B5F94F5D21}"
+      DTS:DTSID="{A36B5D09-5FFC-4A6C-AC3C-76C69C520FFC}"
       DTS:From="Package\Clear Staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
@@ -1461,11 +1907,20 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
       DTS:CreationName=""
-      DTS:DTSID="{3A3B785A-705E-438A-897E-05F12BCC8068}"
+      DTS:DTSID="{1B6BF2CF-8845-4E41-A935-5A9C53643430}"
       DTS:From="Package\Do Update"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
       DTS:To="Package\LogFailure DU"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{512C947F-9A65-4355-8637-021E40115434}"
+      DTS:From="Package\Data Flow Task Ins"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\LogFailure Ins"
       DTS:Value="1" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -1483,15 +1938,15 @@
         <NodeLayout
           Size="142,42"
           Id="Package\Clear Staging"
-          TopLeft="87,235" />
+          TopLeft="87,369" />
         <NodeLayout
           Size="151,42"
           Id="Package\Data Flow Task"
-          TopLeft="87,339" />
+          TopLeft="87,473" />
         <NodeLayout
           Size="129,42"
           Id="Package\Do Update"
-          TopLeft="198,436" />
+          TopLeft="198,570" />
         <NodeLayout
           Size="155,42"
           Id="Package\Expression Task"
@@ -1499,15 +1954,15 @@
         <NodeLayout
           Size="127,42"
           Id="Package\LogFailure"
-          TopLeft="407,336" />
+          TopLeft="407,470" />
         <NodeLayout
           Size="143,42"
           Id="Package\LogFailure CS"
-          TopLeft="399,230" />
+          TopLeft="399,364" />
         <NodeLayout
           Size="145,42"
           Id="Package\LogFailure DU"
-          TopLeft="404,433" />
+          TopLeft="404,567" />
         <NodeLayout
           Size="133,42"
           Id="Package\LogNothing"
@@ -1519,7 +1974,7 @@
         <NodeLayout
           Size="133,42"
           Id="Package\LogSuccess"
-          TopLeft="6,440" />
+          TopLeft="6,574" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="157.5,92">
@@ -1543,30 +1998,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="157.75,173">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,62"
-              Start="0,0"
-              End="0,54.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="160.25,277">
+          TopLeft="160.25,411">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1588,7 +2021,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="186.333333333333,381">
+          TopLeft="186.333333333333,515">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1599,17 +2032,17 @@
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.346002621232" />
+                    End="0,18.3460026212319" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.346002621232"
-                    Point2="0,22.346002621232"
-                    Point3="4,22.346002621232" />
+                    Point1="0,18.3460026212319"
+                    Point2="0,22.3460026212319"
+                    Point3="4,22.3460026212319" />
                   <mssgle:LineSegment
-                    End="72.1666666666667,22.346002621232" />
+                    End="72.1666666666667,22.3460026212319" />
                   <mssgle:CubicBezierSegment
-                    Point1="72.1666666666667,22.346002621232"
-                    Point2="76.1666666666667,22.346002621232"
-                    Point3="76.1666666666667,26.346002621232" />
+                    Point1="72.1666666666667,22.3460026212319"
+                    Point2="76.1666666666667,22.3460026212319"
+                    Point3="76.1666666666667,26.3460026212319" />
                   <mssgle:LineSegment
                     End="76.1666666666667,47.5" />
                 </mssgle:SegmentCollection>
@@ -1618,13 +2051,13 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="30.0833333333333,27.346002621232,16,16"
+              BoundingBox="30.0833333333334,27.3460026212319,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="138.666666666667,381">
+          TopLeft="138.666666666667,515">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1635,17 +2068,17 @@
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.9711664482307" />
+                    End="0,19.9711664482306" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.9711664482307"
-                    Point2="0,23.9711664482307"
-                    Point3="-4,23.9711664482307" />
+                    Point1="0,19.9711664482306"
+                    Point2="0,23.9711664482306"
+                    Point3="-4,23.9711664482306" />
                   <mssgle:LineSegment
-                    End="-62.1666666666667,23.9711664482307" />
+                    End="-62.1666666666667,23.9711664482306" />
                   <mssgle:CubicBezierSegment
-                    Point1="-62.1666666666667,23.9711664482307"
-                    Point2="-66.1666666666667,23.9711664482307"
-                    Point3="-66.1666666666667,27.9711664482307" />
+                    Point1="-62.1666666666667,23.9711664482306"
+                    Point2="-66.1666666666667,23.9711664482306"
+                    Point3="-66.1666666666667,27.9711664482306" />
                   <mssgle:LineSegment
                     End="-66.1666666666667,51.5" />
                 </mssgle:SegmentCollection>
@@ -1654,13 +2087,13 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-41.0833333333333,28.9711664482307,16,16"
+              BoundingBox="-41.0833333333334,28.9711664482306,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="198,459">
+          TopLeft="198,593">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1682,7 +2115,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="238,358.5">
+          TopLeft="238,492.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1706,7 +2139,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="229,253.5">
+          TopLeft="229,387.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1730,7 +2163,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="327,455.5">
+          TopLeft="327,589.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1759,6 +2192,143 @@
           Size="151,72"
           Id="a91c403d-5ab2-4aec-a926-a47aee98677f"
           TopLeft="806,199" />
+        <AnnotationLayout
+          Text="SeasonGroup&#xD;&#xA;Team&#xD;&#xA;MatchState&#xD;&#xA;Season&#xD;&#xA;Sport&#xD;&#xA;Client&#xD;&#xA;Competition&#xD;&#xA;LoyaltyGameGroup&#xD;&#xA;Match&#xD;&#xA;Market&#xD;&#xA;"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="131,200"
+          Id="5237cd5b-e4a0-4465-ad69-d911e26c16f3"
+          TopLeft="1000,159" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\GetLastKey"
+          TopLeft="82,208" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="157.5,173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="149,42"
+          Id="Package\LogFailure GLK"
+          TopLeft="398,203" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="233,226.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="165,0"
+              Start="0,0"
+              End="157.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="157.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="63.50865234375,5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Data Flow Task Ins"
+          TopLeft="79,279" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\LogFailure Ins"
+          TopLeft="408,277" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="248,299">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="160,0"
+              Start="0,0"
+              End="152.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="152.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="61.00865234375,5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="160.5,250">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="160.75,321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1975,5 +2545,47 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow Task Ins">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Data Flow Task Ins\RowCount Ins"
+          TopLeft="305,32" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Data Flow Task Ins\RSource"
+          TopLeft="122,32" />
+        <NodeLayout
+          Size="107,42"
+          Id="Package\Data Flow Task Ins\Insert"
+          TopLeft="520,34" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Ins.Paths[OLE DB Source Output]"
+          TopLeft="240,53">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65,0"
+              Start="0,0"
+              End="57.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="57.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

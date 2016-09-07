@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SchemaSync"
   DTS:PackageType="5"
-  DTS:VersionBuild="88"
-  DTS:VersionGUID="{78F093E2-8FD7-4BE9-B91B-EA1D55821178}">
+  DTS:VersionBuild="90"
+  DTS:VersionGUID="{D3F1CCBD-CDA3-4645-B006-989F6F9F8A3C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -22,10 +22,10 @@
       DTS:DTSID="{2562F554-4D06-479A-AEF8-FA73B36E3DB3}"
       DTS:ObjectName="etalonSMO">
       <DTS:PropertyExpression
-        DTS:Name="SqlServerName">@[$Project::ServerName]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::eSMOconnstring]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SMOServerConnectionManager
-          ConnectionString="SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;" />
+          ConnectionString="SqlServerName=PC-0609;UseWindowsAuthentication=True;UserName=;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -34,10 +34,14 @@
       DTS:DTSID="{D76215B6-6C1E-43EB-B485-B6AAC8CDF7FD}"
       DTS:ObjectName="sourceSMO">
       <DTS:PropertyExpression
-        DTS:Name="SqlServerName">@[$Project::ServerName]</DTS:PropertyExpression>
+        DTS:Name="SqlServerName">@[$Project::sDataSource]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SMOServerConnectionManager
-          ConnectionString="SqlServerName=TOSHIBA\SQLEXPRESS;UseWindowsAuthentication=True;UserName=;" />
+          ConnectionString="SqlServerName=PC-0609;UseWindowsAuthentication=False;UserName=sa;">
+          <PassWord
+            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8w9YTOCDEEqiF8t7HrYJkgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACMMbgh8Vq4gPseJymlnXC3AAAAAASAAACgAAAAEAAAABxwCc0LnjhwLo+qrTwaKX4IAAAAChT/Q8LfdX4UAAAAWbdTyB3pGp1xtGHjVQrdmSm5T+U</PassWord>
+        </SMOServerConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -359,11 +363,12 @@ order by Name</property>
         <TransferSqlServerObjectsTaskData
           SourceConnection="{D76215B6-6C1E-43EB-B485-B6AAC8CDF7FD}"
           DestinationConnection="{2562F554-4D06-479A-AEF8-FA73B36E3DB3}"
-          SourceDatabase="SSIS1"
-          DestinationDatabase="SSIS1etalon"
-          TablesList="4,14,[dbo].[Table1],14,[dbo].[Table2],14,[dbo].[Table3],23,[staging].[TestStaging],"
+          SourceDatabase="SportsBookTest"
+          DestinationDatabase="SBetalon"
+          TablesList="54,15,[dbo].[Account],15,[dbo].[Balance],19,[dbo].[BalanceType],11,[dbo].[Bet],19,[dbo].[BetDocument],20,[dbo].[BetSelection],15,[dbo].[Betshop],20,[dbo].[BetshopGroup],16,[dbo].[CashDesk],19,[dbo].[CashDeskKPI],21,[dbo].[CashDeskShift],16,[dbo].[Category],18,[dbo].[Classifier],14,[dbo].[Client],19,[dbo].[ClientBonus],17,[dbo].[ClientKPI],18,[dbo].[ClientNote],21,[dbo].[ClientRequest],21,[dbo].[ClientSession],31,[dbo].[ClientSportsbookProfile],19,[dbo].[Competition],16,[dbo].[Currency],20,[dbo].[CurrencyRate],16,[dbo].[Document],20,[dbo].[DocumentType],12,[dbo].[Game],15,[dbo].[GameKPI],16,[dbo].[Language],24,[dbo].[LoyaltyGameGroup],14,[dbo].[Market],18,[dbo].[MarketType],13,[dbo].[Match],19,[dbo].[MatchResult],18,[dbo].[MatchState],17,[dbo].[MatchTeam],15,[dbo].[Partner],21,[dbo].[PaymentSystem],15,[dbo].[Product],23,[dbo].[ProductCategory],23,[dbo].[ProductProvider],14,[dbo].[Region],14,[dbo].[Season],19,[dbo].[SeasonGroup],17,[dbo].[Selection],21,[dbo].[SelectionType],23,[dbo].[SettlementQueue],13,[dbo].[Sport],12,[dbo].[Team],19,[dbo].[Transaction],19,[dbo].[Translation],24,[dbo].[TranslationEntry],12,[dbo].[User],19,[dbo].[UserSession],23,[staging].[TestStaging],"
           SchemasList="1,7,staging,"
           DropObjectsFirst="True"
+          UseCollation="True"
           CopyIndexes="True"
           CopyPrimaryKeys="True" />
       </DTS:ObjectData>
@@ -491,7 +496,7 @@ order by Name</property>
     design-time-name="Package\Fill staging_synctable">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="171,42"
           Id="Package\Fill staging_synctable\OLE DB Destination"
@@ -519,9 +524,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DoAllSchema"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{F1D08F46-AF06-43BC-B1D4-2B9A3FA27675}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{0524B6D9-E204-484A-AEB2-D024AC6F8A9E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -120,7 +120,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Delete ColumnNames"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -274,6 +274,31 @@
                       cachedName="is_identity"
                       externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[is_identity]"
                       lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_identity]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[column_id]"
+                      cachedDataType="i4"
+                      cachedName="column_id"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[column_id]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[column_id]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[key_ordinal]"
+                      cachedDataType="ui1"
+                      cachedName="key_ordinal"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[key_ordinal]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[key_ordinal]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[iName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="iName"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[iName]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[iName]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[is_primarykey]"
+                      cachedDataType="i4"
+                      cachedName="is_primarykey"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[is_primarykey]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_primarykey]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -295,6 +320,23 @@
                       refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[is_identity]"
                       dataType="bool"
                       name="is_identity" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[column_id]"
+                      dataType="i4"
+                      name="column_id" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[key_ordinal]"
+                      dataType="i4"
+                      name="key_ordinal" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[iName]"
+                      dataType="wstr"
+                      length="128"
+                      name="iName" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[is_primarykey]"
+                      dataType="bool"
+                      name="is_primarykey" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -393,6 +435,27 @@
                       cachedDataType="bool"
                       cachedName="is_identity"
                       lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_identity]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[column_id]"
+                      cachedDataType="i4"
+                      cachedName="column_id"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[column_id]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[key_ordinal]"
+                      cachedDataType="ui1"
+                      cachedName="key_ordinal"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[key_ordinal]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[iName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="iName"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[iName]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[is_primarykey]"
+                      cachedDataType="i4"
+                      cachedName="is_primarykey"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_primarykey]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -458,6 +521,59 @@
                           name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[is_identity]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[column_id]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[column_id]"
+                      name="column_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[column_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[key_ordinal]"
+                      dataType="ui1"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[key_ordinal]"
+                      name="key_ordinal">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[key_ordinal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[iName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[iName]"
+                      name="iName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[iName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_primarykey]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_primarykey]"
+                      name="is_primarykey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[is_primarykey]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -488,8 +604,15 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct t.name tName,c.name cName,c.is_nullable,is_identity from sys.tables as t join sys.columns as c on t.object_id = c.object_id
-left join sys.types as ty on ty.system_type_id = c.system_type_id</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select tName,cName,is_nullable,is_identity,cols.column_id,key_ordinal,iName, 
+CASE WHEN iName is null THEN 0 ELSE 1 END as is_primarykey
+from 
+(select distinct t.name tName,c.name cName,c.is_nullable,is_identity,c.column_id,t.object_id from sys.tables as t join sys.columns as c on t.object_id = c.object_id  join sys.schemas on t.schema_id=schemas.schema_id and schemas.name='dbo') as cols
+left join
+(select indexes.object_id,index_columns.column_id,key_ordinal,indexes.name as iName from sys.index_columns 
+join sys.indexes on index_columns.object_id=indexes.object_id and indexes.is_primary_key=1 and indexes.index_id=index_columns.index_id) as pk
+on pk.object_id=cols.object_id and pk.column_id=cols.column_id
+order by tName</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -565,6 +688,43 @@ left join sys.types as ty on ty.system_type_id = c.system_type_id</property>
                       lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_identity]"
                       name="is_identity"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[column_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[column_id]"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[column_id]"
+                      name="column_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[key_ordinal]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[key_ordinal]"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[key_ordinal]"
+                      name="key_ordinal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[iName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[iName]"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[iName]"
+                      name="iName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_primarykey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[is_primarykey]"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_primarykey]"
+                      name="is_primarykey"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -586,6 +746,23 @@ left join sys.types as ty on ty.system_type_id = c.system_type_id</property>
                       refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[is_identity]"
                       dataType="bool"
                       name="is_identity" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[column_id]"
+                      dataType="i4"
+                      name="column_id" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[key_ordinal]"
+                      dataType="ui1"
+                      name="key_ordinal" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[iName]"
+                      dataType="wstr"
+                      length="128"
+                      name="iName" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[is_primarykey]"
+                      dataType="i4"
+                      name="is_primarykey" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -615,6 +792,27 @@ left join sys.types as ty on ty.system_type_id = c.system_type_id</property>
                       dataType="bool"
                       lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[is_identity]"
                       name="is_identity" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[column_id]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[column_id]"
+                      name="column_id" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[key_ordinal]"
+                      dataType="ui1"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[key_ordinal]"
+                      name="key_ordinal" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[iName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[iName]"
+                      name="iName" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[is_primarykey]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[is_primarykey]"
+                      name="is_primarykey" />
                     <outputColumn
                       refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -707,25 +905,6 @@ order by Name</property>
                       name="Name"
                       sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
-                      lineageId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].Columns[OnlyInsert]"
-                      name="OnlyInsert"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
-                      length="150"
-                      lineageId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
-                      name="Description"
-                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -776,17 +955,6 @@ order by Name</property>
                       lineageId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
-                    <outputColumn
-                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
-                      dataType="bool"
-                      lineageId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
-                      name="OnlyInsert" />
-                    <outputColumn
-                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
-                      dataType="wstr"
-                      length="150"
-                      lineageId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
-                      name="Description" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -822,7 +990,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Fill Operation Data"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1009,7 +1177,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1033,7 +1201,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1063,7 +1231,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1087,7 +1255,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1111,7 +1279,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1135,7 +1303,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure SQLcomm"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1159,7 +1327,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure SQLcomm1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1184,7 +1352,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogNothing"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1242,7 +1410,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogSuccess"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1266,7 +1434,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Update Last SchemaConfig Date"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData

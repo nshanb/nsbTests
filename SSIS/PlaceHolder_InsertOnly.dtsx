@@ -85,12 +85,12 @@
       DTS:CreationName=""
       DTS:DTSID="{7F68956C-3277-4AEF-A39F-6A2F0A36A17A}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;DECLARE @r int; select max(id) from &quot; + @[$Package::SyncTableName] +&quot;; select isnull(@r,-1) as Id&quot;"
+      DTS:Expression="&quot;DECLARE @r int; select @r=max(id) from [&quot; + @[$Package::SyncTableName] +&quot;]; select isnull(@r,-1) as Id&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="destSelectMaxId">
       <DTS:VariableValue
-        DTS:DataType="8">DECLARE @r int; select max(id) from nsb; select isnull(@r,-1) as Id</DTS:VariableValue>
+        DTS:DataType="8">DECLARE @r int; select @r=max(id) from [nsb]; select isnull(@r,-1) as Id</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -157,6 +157,17 @@
       <DTS:VariableValue
         DTS:DataType="8">nsb_log</DTS:VariableValue>
     </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ACA0498F-C679-40BD-A5BE-874AA32DF3C8}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;[&quot;+@[$Package::SyncTableName]+&quot;]&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableNameCanonical">
+      <DTS:VariableValue
+        DTS:DataType="8">[nsb]</DTS:VariableValue>
+    </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
@@ -185,12 +196,12 @@
           DTS:CreationName=""
           DTS:DTSID="{9667367E-9604-4B0E-837D-C86C1CA2BD58}"
           DTS:EvaluateAsExpression="True"
-          DTS:Expression="&quot;Select * from &quot; + @[$Package::SyncTableName] + &quot; where Id&gt;&quot;+ (DT_WSTR,10) @[User::lastKey] +&quot; order by Id&quot;"
+          DTS:Expression="&quot;Select * from [&quot; + @[$Package::SyncTableName] + &quot;] where Id&gt;&quot;+ (DT_WSTR,10) @[User::lastKey] +&quot; order by Id&quot;"
           DTS:IncludeInDebugDump="2345"
           DTS:Namespace="User"
           DTS:ObjectName="sourceSelect">
           <DTS:VariableValue
-            DTS:DataType="8">Select * from nsb where Id&gt;-1 order by Id</DTS:VariableValue>
+            DTS:DataType="8">Select * from [nsb] where Id&gt;-1 order by Id</DTS:VariableValue>
         </DTS:Variable>
       </DTS:Variables>
       <DTS:ObjectData>
@@ -435,7 +446,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <ExpressionTask
-          Expression="@[User::syncLogName] = &quot;Sync &quot;+@[$Package::SyncTableName]+&quot; FullJoin&quot;" />
+          Expression="@[User::syncLogName] = &quot;Sync &quot;+@[$Package::SyncTableName]+&quot; InsertOnly_Id&quot;" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable

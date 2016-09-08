@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DoAllSchema"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{C2BF565C-464D-4CE5-98A1-F5AAB63C512E}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{56B8D2BA-19AA-4815-8C2F-D9C4F282ADCC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -1430,11 +1430,34 @@ order by Name</property>
       DTS:ObjectName="LogStart"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
-      <DTS:Variables />
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{1773A966-053B-45E8-8875-DC9272723E9A}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="&quot; / &quot; +   @[$Project::dCatalogName]"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="vDestination">
+          <DTS:VariableValue
+            DTS:DataType="8"> / SBdest</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{006F9DCD-3778-4A2E-8408-8AE57E476BFB}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="@[$Project::sDataSource] + &quot; / &quot; +  @[$Project::sCatalogName]"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="vSource">
+          <DTS:VariableValue
+            DTS:DataType="8">PC-0609 / SportsBookTest</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
-          SQLTask:SqlStatementSource="insert sync4partner.Log ([SyncName],TaskConfigId,[SyncStartDate],[Status]) VALUES(?,?,SYSDATETIME(),'Started')&#xA;&#xA;select @@IDENTITY as Id&#xA;"
+          SQLTask:SqlStatementSource="insert sync4partner.Log ([SyncName],TaskConfigId,[SyncStartDate],[Status],[Source],[Destination]) VALUES(?,?,SYSDATETIME(),'Started',?,?)&#xA;&#xA;select @@IDENTITY as Id"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="Id"
@@ -1450,6 +1473,18 @@ order by Name</property>
             SQLTask:DtsVariableName="$Package::PartnerId"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::vSource"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::vDestination"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
             SQLTask:ParameterSize="-1" />
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
@@ -2230,11 +2265,15 @@ order by Name</property>
     design-time-name="Package\Fill Column Names">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="142,42"
           Id="Package\Fill Column Names\SourceTables"
           TopLeft="327,30" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Fill Column Names\Merge Join"
+          TopLeft="202,167" />
         <NodeLayout
           Size="127,42"
           Id="Package\Fill Column Names\SyncTable"
@@ -2243,10 +2282,6 @@ order by Name</property>
           Size="147,42"
           Id="Package\Fill Column Names\Fill ColumnList"
           TopLeft="187,304" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Fill Column Names\Merge Join"
-          TopLeft="202,167" />
         <EdgeLayout
           Id="Package\Fill Column Names.Paths[OLE DB Source Output1]"
           TopLeft="116.5,69">
@@ -2278,7 +2313,9 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2312,7 +2349,9 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2334,7 +2373,9 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -11,6 +11,10 @@
     [SyncRowCountInsert] INT            NULL,
     [SyncRowCountUpdate] INT            NULL,
     [SyncRowCountDelete] INT            NULL,
+    [Source]             NVARCHAR (125) NULL,
+    [Destination]        NVARCHAR (125) NULL,
     CONSTRAINT [PK_Log] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
 

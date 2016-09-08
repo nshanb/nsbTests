@@ -7,11 +7,11 @@ BEGIN
  
  select @c = @c + '((ISNULL([' + cName + '])!=ISNULL(['+cName+' (1)]))||((!ISNULL([' + cName + '])&&!ISNULL(['+cName+' (1)]))&&(['+cName+']!=['+cName+' (1)]))) ||'
   from [sync4partner].[ColumnList]
-  where is_primarykey = 0 and is_nullable = 1 and tname = @tableName
+  where is_primarykey = 0 and is_nullable = 1 and typeName <> 'timestamp' and tname = @tableName
 
   select @c = @c +  '(['+cName+']!=['+cName+' (1)]) ||'
    from [sync4partner].[ColumnList]
-   where is_primarykey = 0 and is_nullable = 0  and tname = @tableName
+   where is_primarykey = 0 and is_nullable = 0 and typeName <> 'timestamp' and tname = @tableName
 
    if( len(@c) = 0 ) return 'FALSE'
  RETURN substring(@c,0,len(@c)-2)

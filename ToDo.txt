@@ -66,3 +66,15 @@ EXEC dbo.sp_add_notification
 or
 http://www.databasejournal.com/features/mssql/setting-up-email-notification-for-ssis-package-failure.html
 
+
+
+!!
+select tName,cName,is_nullable,is_identity,cols.column_id,key_ordinal,iName,
+CASE WHEN iName is null THEN 0 ELSE 1 END as is_primarykey,typeName
+from 
+(select distinct t.name tName,c.name cName,c.is_nullable,is_identity,c.column_id,t.object_id,types.name as typeName from sys.tables as t join sys.columns as c on t.object_id = c.object_id  join sys.schemas on t.schema_id=schemas.schema_id and schemas.name='dbo' join sys.types on c.user_type_id=types.user_type_id) as cols
+left join
+(select indexes.object_id,index_columns.column_id,key_ordinal,indexes.name as iName from sys.index_columns 
+join sys.indexes on index_columns.object_id=indexes.object_id and indexes.is_primary_key=1 and indexes.index_id=index_columns.index_id) as pk
+on pk.object_id=cols.object_id and pk.column_id=cols.column_id
+order by tName

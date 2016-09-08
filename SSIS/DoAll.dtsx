@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DoAll"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{D912E255-BA7D-469A-AB50-006C57985854}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{B8FC24B1-1ECF-4471-A58C-DB8FE615597E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -141,6 +141,7 @@
           DTS:refId="Package\Foreach Loop Container\Do only some of tasks"
           DTS:CreationName="Microsoft.ExpressionTask"
           DTS:Description="Expression Task"
+          DTS:Disabled="True"
           DTS:DTSID="{4F9FEF92-A8DF-4940-83FC-CBB7A3552547}"
           DTS:ExecutableType="Microsoft.ExpressionTask"
           DTS:LocaleID="-1"

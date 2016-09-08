@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DoAllSchema"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{0524B6D9-E204-484A-AEB2-D024AC6F8A9E}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{C2BF565C-464D-4CE5-98A1-F5AAB63C512E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -120,7 +120,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Delete ColumnNames"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -299,6 +299,13 @@
                       cachedName="is_primarykey"
                       externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[is_primarykey]"
                       lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_primarykey]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[typeName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="typeName"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[typeName]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[typeName]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -337,6 +344,11 @@
                       refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[is_primarykey]"
                       dataType="bool"
                       name="is_primarykey" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[typeName]"
+                      dataType="wstr"
+                      length="128"
+                      name="typeName" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -456,6 +468,12 @@
                       cachedDataType="i4"
                       cachedName="is_primarykey"
                       lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_primarykey]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[typeName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="typeName"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[typeName]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -574,6 +592,20 @@
                           name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[is_primarykey]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[typeName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[typeName]"
+                      name="typeName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[typeName]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -604,10 +636,10 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select tName,cName,is_nullable,is_identity,cols.column_id,key_ordinal,iName, 
-CASE WHEN iName is null THEN 0 ELSE 1 END as is_primarykey
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select tName,cName,is_nullable,is_identity,cols.column_id,key_ordinal,iName,
+CASE WHEN iName is null THEN 0 ELSE 1 END as is_primarykey,typeName
 from 
-(select distinct t.name tName,c.name cName,c.is_nullable,is_identity,c.column_id,t.object_id from sys.tables as t join sys.columns as c on t.object_id = c.object_id  join sys.schemas on t.schema_id=schemas.schema_id and schemas.name='dbo') as cols
+(select distinct t.name tName,c.name cName,c.is_nullable,is_identity,c.column_id,t.object_id,types.name as typeName from sys.tables as t join sys.columns as c on t.object_id = c.object_id  join sys.schemas on t.schema_id=schemas.schema_id and schemas.name='dbo' join sys.types on c.user_type_id=types.user_type_id) as cols
 left join
 (select indexes.object_id,index_columns.column_id,key_ordinal,indexes.name as iName from sys.index_columns 
 join sys.indexes on index_columns.object_id=indexes.object_id and indexes.is_primary_key=1 and indexes.index_id=index_columns.index_id) as pk
@@ -725,6 +757,16 @@ order by tName</property>
                       lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_primarykey]"
                       name="is_primarykey"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[typeName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[typeName]"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[typeName]"
+                      name="typeName"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -763,6 +805,11 @@ order by tName</property>
                       refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[is_primarykey]"
                       dataType="i4"
                       name="is_primarykey" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[typeName]"
+                      dataType="wstr"
+                      length="128"
+                      name="typeName" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -813,6 +860,12 @@ order by tName</property>
                       dataType="i4"
                       lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[is_primarykey]"
                       name="is_primarykey" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[typeName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[typeName]"
+                      name="typeName" />
                     <outputColumn
                       refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -990,7 +1043,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Fill Operation Data"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1054,7 +1107,7 @@ order by Name</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Expression Task"
           DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <ExpressionTask
@@ -1070,7 +1123,7 @@ order by Name</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="SchemaBad"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1094,7 +1147,7 @@ order by Name</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="SchemaOK"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1155,7 +1208,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Get all tasks"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1177,7 +1230,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1201,7 +1254,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1231,7 +1284,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1255,7 +1308,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1279,7 +1332,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1303,7 +1356,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure SQLcomm"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1327,7 +1380,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure SQLcomm1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1352,7 +1405,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogNothing"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1410,7 +1463,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="LogSuccess"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1434,7 +1487,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Update Last SchemaConfig Date"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2179,9 +2232,9 @@ order by Name</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="130,42"
-          Id="Package\Fill Column Names\Merge Join"
-          TopLeft="202,167" />
+          Size="142,42"
+          Id="Package\Fill Column Names\SourceTables"
+          TopLeft="327,30" />
         <NodeLayout
           Size="127,42"
           Id="Package\Fill Column Names\SyncTable"
@@ -2191,9 +2244,9 @@ order by Name</property>
           Id="Package\Fill Column Names\Fill ColumnList"
           TopLeft="187,304" />
         <NodeLayout
-          Size="142,42"
-          Id="Package\Fill Column Names\SourceTables"
-          TopLeft="327,30" />
+          Size="130,42"
+          Id="Package\Fill Column Names\Merge Join"
+          TopLeft="202,167" />
         <EdgeLayout
           Id="Package\Fill Column Names.Paths[OLE DB Source Output1]"
           TopLeft="116.5,69">
@@ -2288,6 +2341,14 @@ order by Name</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Fill Column Names\SourceTables">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Fill Column Names\SyncTable">
     <Properties>
       <Property>
@@ -2305,14 +2366,6 @@ order by Name</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fill Column Names\SourceTables">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

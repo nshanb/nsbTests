@@ -7,6 +7,7 @@
     [key_ordinal]   INT       NULL,
     [iName]         [sysname] NULL,
     [is_primarykey] BIT       NOT NULL,
+    [typeName] nvarchar(128)       NOT NULL,
     CONSTRAINT [PK_ColumnList] PRIMARY KEY CLUSTERED ([tName] ASC, [cName] ASC)
 );
 

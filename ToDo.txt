@@ -82,3 +82,14 @@ order by tName
 
 replace LogStart from EmptyPlaceHolder to everywere. or? FlowPart?
 
+
+    MERGE Account AS target  
+    USING staging.Account AS s
+    ON (target.Id = s.Id)  
+    WHEN MATCHED !AND TARGET.ProductName <> SOURCE.ProductName !
+	THEN 
+		UPDATE SET [Balance]=s.[Balance],[BalanceTypeId]=s.[BalanceTypeId],[CreditLimit]=s.[CreditLimit],[CurrencyId]=s.[CurrencyId],[IsUsingCredit]=s.[IsUsingCredit],[Modified]=s.[Modified],[ObjectId]=s.[ObjectId],[ObjectType]=s.[ObjectType],[PartnerId]=s.[PartnerId],[PreliminaryBalance]=s.[PreliminaryBalance],[SessionId]=s.[SessionId]
+	WHEN NOT MATCHED BY TARGET  
+	THEN 
+		INSERT (Id,[Balance],[BalanceTypeId],[CreditLimit],[CurrencyId],[IsUsingCredit],[Modified],[ObjectId],[ObjectType],[PartnerId],[PreliminaryBalance],[SessionId]) 
+		VALUES (s.ID,s.[Balance],s.[BalanceTypeId],s.[CreditLimit],s.[CurrencyId],s.[IsUsingCredit],s.[Modified],s.[ObjectId],s.[ObjectType],s.[PartnerId],s.[PreliminaryBalance],s.[SessionId]);

@@ -16,9 +16,9 @@ namespace ConfigSSIS
 
         static void Main(string[] args) // scan package in 3 ways
         {
-            //myPackageChange();
+            myPackageChange();
             //myPackageWork();
-            myPackageReplace();
+            //myPackageReplace();
             //PackageUtils.ScanApplication();
             Console.WriteLine("Press any key to Continue.");
             Console.ReadLine();

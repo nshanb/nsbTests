@@ -13,7 +13,7 @@ namespace ConfigSSIS
     {
         static string projectRoot = ConfigurationManager.AppSettings["ProjectRoot"];
 
-        static string projectPath
+        static public string projectPath
         {
             get
             {

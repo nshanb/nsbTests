@@ -81,6 +81,7 @@
     <Build Include="sync4partner\Stored Procedures\FillSyncOperational.sql" />
     <Build Include="sync4partner\Functions\fn_concatUpdateStr.sql" />
     <Build Include="sync4partner\Functions\fn_concatCompareStr.sql" />
+    <Build Include="sync4partner\Functions\fn_concatUpsertStr.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />

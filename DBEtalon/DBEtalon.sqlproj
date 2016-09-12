@@ -4,17 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>DBSource</Name>
+    <Name>DBEtalon</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{c21f7ee5-e7c9-494c-91a1-5f17ec9ba318}</ProjectGuid>
+    <ProjectGuid>{8cc80d1a-4330-4268-811b-eba9ebfcc37d}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>DBSource</RootNamespace>
-    <AssemblyName>DBSource</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <RootNamespace>DBEtalon</RootNamespace>
+    <AssemblyName>DBEtalon</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -23,6 +23,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -65,13 +67,11 @@
     <Folder Include="staging\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Table2.sql" />
     <Build Include="dbo\Tables\Table1.sql" />
-    <Build Include="dbo\Tables\SmthUnused.sql" />
+    <Build Include="dbo\Tables\Table2.sql" />
+    <Build Include="dbo\Tables\Table3.sql" />
     <Build Include="staging\Tables\TestStaging.sql" />
     <Build Include="Security\staging.sql" />
-    <Build Include="staging\Tables\SyncTable.sql" />
-    <Build Include="dbo\Tables\Table3.sql" />
     <Build Include="staging\Stored Procedures\CreateUpsertProc.sql" />
   </ItemGroup>
 </Project>

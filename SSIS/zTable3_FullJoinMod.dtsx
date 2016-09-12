@@ -6,14 +6,14 @@
   DTS:CreatorComputerName="PC-0609"
   DTS:CreatorName="SOFTCONSTRUCT\nshan.barseghyan"
   DTS:DelayValidation="True"
-  DTS:DTSID="{D4975B54-16A8-4464-878A-AF5B862A82A6}"
+  DTS:DTSID="{0EBA397D-DD28-49E3-B239-423F989B0FB3}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
-  DTS:ObjectName="zAccount_FullJoinMod"
+  DTS:ObjectName="zTable3_FullJoinMod"
   DTS:PackageType="5"
-  DTS:VersionBuild="72"
-  DTS:VersionGUID="{13A5BFDB-07CA-460C-BC29-EF2F7DFFF795}">
+  DTS:VersionBuild="81"
+  DTS:VersionGUID="{FBC64D72-DD7C-4254-9E9F-A82E9B8166C0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -51,7 +51,7 @@
       DTS:ObjectName="SyncTableName">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">Account</DTS:Property>
+        DTS:Name="ParameterValue">Table3</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -91,7 +91,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="destDelStagingTable">
       <DTS:VariableValue
-        DTS:DataType="8">delete staging.Account</DTS:VariableValue>
+        DTS:DataType="8">delete staging.Table3</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -102,7 +102,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="destSelectMaxId">
       <DTS:VariableValue
-        DTS:DataType="8">DECLARE @r DATETIME2;select @r=max(Modified) from [Account]; select cast(isnull(@r,'1879-03-19') as varchar) as Modified</DTS:VariableValue>
+        DTS:DataType="8">DECLARE @r DATETIME2;select @r=max(Modified) from [Table3]; select cast(isnull(@r,'1879-03-19') as varchar) as Modified</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -185,7 +185,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3337BC26-8662-4224-9CA6-774281EBE361}"
-          SQLTask:SqlStatementSource="delete staging.Account" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="delete staging.Table3" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -207,7 +207,7 @@
           DTS:Namespace="User"
           DTS:ObjectName="destDelete">
           <DTS:VariableValue
-            DTS:DataType="8">delete Account where  [Id]=?</DTS:VariableValue>
+            DTS:DataType="8">delete Table3 where  [Id]=?</DTS:VariableValue>
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
@@ -218,7 +218,7 @@
           DTS:Namespace="User"
           DTS:ObjectName="destSelect">
           <DTS:VariableValue
-            DTS:DataType="8">Select * from Account order by Id</DTS:VariableValue>
+            DTS:DataType="8">Select * from Table3 order by Id</DTS:VariableValue>
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
@@ -229,7 +229,7 @@
           DTS:Namespace="User"
           DTS:ObjectName="destUpdateStaging">
           <DTS:VariableValue
-            DTS:DataType="8">staging.Account</DTS:VariableValue>
+            DTS:DataType="8">staging.Table3</DTS:VariableValue>
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
@@ -240,7 +240,7 @@
           DTS:Namespace="User"
           DTS:ObjectName="sourceSelect">
           <DTS:VariableValue
-            DTS:DataType="8">Select * from Account where Modified&gt;'1879-03-19'</DTS:VariableValue>
+            DTS:DataType="8">Select * from Table3 where Modified&gt;'1879-03-19'</DTS:VariableValue>
         </DTS:Variable>
       </DTS:Variables>
       <DTS:ObjectData>
@@ -328,69 +328,19 @@
                       externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
                       lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[Id]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[PartnerId]"
-                      cachedDataType="i4"
-                      cachedName="PartnerId"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[PartnerId]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[PartnerId]" />
+                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[LastName]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[BalanceTypeId]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="5"
-                      cachedName="BalanceTypeId"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[BalanceTypeId]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[BalanceTypeId]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[ObjectId]"
-                      cachedDataType="i8"
-                      cachedName="ObjectId"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[ObjectId]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[ObjectId]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[ObjectType]"
-                      cachedDataType="i4"
-                      cachedName="ObjectType"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[ObjectType]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[ObjectType]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[CurrencyId]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="CurrencyId"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyId]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[CurrencyId]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[Balance]"
-                      cachedDataType="numeric"
-                      cachedName="Balance"
-                      cachedPrecision="18"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[Balance]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[Balance]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[CreditLimit]"
-                      cachedDataType="numeric"
-                      cachedName="CreditLimit"
-                      cachedPrecision="18"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[CreditLimit]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[CreditLimit]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[IsUsingCredit]"
-                      cachedDataType="bool"
-                      cachedName="IsUsingCredit"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[IsUsingCredit]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[IsUsingCredit]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[PreliminaryBalance]"
-                      cachedDataType="numeric"
-                      cachedName="PreliminaryBalance"
-                      cachedPrecision="18"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[PreliminaryBalance]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[PreliminaryBalance]" />
+                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[FirstName]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[Modified]"
                       cachedDataType="dbTimeStampOffset"
@@ -398,76 +348,28 @@
                       cachedScale="3"
                       externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[Modified]"
                       lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[Modified]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].Columns[SessionId]"
-                      cachedDataType="i4"
-                      cachedName="SessionId"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[SessionId]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[SessionId]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
+                      dataType="i4"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[PartnerId]"
-                      dataType="i4"
-                      name="PartnerId" />
+                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[BalanceTypeId]"
-                      codePage="1252"
-                      dataType="str"
-                      length="5"
-                      name="BalanceTypeId" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[ObjectId]"
-                      dataType="i8"
-                      name="ObjectId" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[ObjectType]"
-                      dataType="i4"
-                      name="ObjectType" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyId]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
-                      name="CurrencyId" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[Balance]"
-                      dataType="numeric"
-                      name="Balance"
-                      precision="18"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[CreditLimit]"
-                      dataType="numeric"
-                      name="CreditLimit"
-                      precision="18"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[IsUsingCredit]"
-                      dataType="bool"
-                      name="IsUsingCredit" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[PreliminaryBalance]"
-                      dataType="numeric"
-                      name="PreliminaryBalance"
-                      precision="18"
-                      scale="2" />
+                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[Modified]"
-                      dataType="dbTimeStampOffset"
+                      dataType="dbTimeStamp2"
                       name="Modified"
-                      scale="3" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Staging.Inputs[OLE DB Destination Input].ExternalColumns[SessionId]"
-                      dataType="i4"
-                      name="SessionId" />
+                      scale="7" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -598,97 +500,6 @@
                       name="Id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[PartnerId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[PartnerId]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[PartnerId]"
-                      name="PartnerId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[BalanceTypeId]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[BalanceTypeId]"
-                      length="5"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[BalanceTypeId]"
-                      name="BalanceTypeId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[ObjectId]"
-                      dataType="i8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[ObjectId]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[ObjectId]"
-                      name="ObjectId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[ObjectType]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[ObjectType]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[ObjectType]"
-                      name="ObjectType"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[CurrencyId]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[CurrencyId]"
-                      length="3"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[CurrencyId]"
-                      name="CurrencyId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[Balance]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[Balance]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[Balance]"
-                      name="Balance"
-                      precision="18"
-                      scale="2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[CreditLimit]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[CreditLimit]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[CreditLimit]"
-                      name="CreditLimit"
-                      precision="18"
-                      scale="2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[IsUsingCredit]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[IsUsingCredit]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[IsUsingCredit]"
-                      name="IsUsingCredit"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[PreliminaryBalance]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[PreliminaryBalance]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[PreliminaryBalance]"
-                      name="PreliminaryBalance"
-                      precision="18"
-                      scale="2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[Modified]"
                       dataType="dbTimeStampOffset"
                       errorOrTruncationOperation="Conversion"
@@ -699,78 +510,47 @@
                       scale="3"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[SessionId]"
-                      dataType="i4"
+                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[SessionId]"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[SessionId]"
-                      name="SessionId"
+                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[Id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
+                      dataType="i4"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[PartnerId]"
-                      dataType="i4"
-                      name="PartnerId" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[BalanceTypeId]"
-                      codePage="1252"
-                      dataType="str"
-                      length="5"
-                      name="BalanceTypeId" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[ObjectId]"
-                      dataType="i8"
-                      name="ObjectId" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[ObjectType]"
-                      dataType="i4"
-                      name="ObjectType" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[CurrencyId]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
-                      name="CurrencyId" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[Balance]"
-                      dataType="numeric"
-                      name="Balance"
-                      precision="18"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[CreditLimit]"
-                      dataType="numeric"
-                      name="CreditLimit"
-                      precision="18"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[IsUsingCredit]"
-                      dataType="bool"
-                      name="IsUsingCredit" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[PreliminaryBalance]"
-                      dataType="numeric"
-                      name="PreliminaryBalance"
-                      precision="18"
-                      scale="2" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[Modified]"
-                      dataType="dbTimeStampOffset"
+                      dataType="dbTimeStamp2"
                       name="Modified"
-                      scale="3" />
+                      scale="7" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[SessionId]"
-                      dataType="i4"
-                      name="SessionId" />
+                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -780,77 +560,27 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
+                      dataType="i4"
                       lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[Id]"
                       name="Id" />
                     <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[PartnerId]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[PartnerId]"
-                      name="PartnerId" />
+                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
                     <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[BalanceTypeId]"
-                      codePage="1252"
-                      dataType="str"
-                      length="5"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[BalanceTypeId]"
-                      name="BalanceTypeId" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[ObjectId]"
-                      dataType="i8"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[ObjectId]"
-                      name="ObjectId" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[ObjectType]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[ObjectType]"
-                      name="ObjectType" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[CurrencyId]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[CurrencyId]"
-                      name="CurrencyId" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[Balance]"
-                      dataType="numeric"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[Balance]"
-                      name="Balance"
-                      precision="18"
-                      scale="2" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[CreditLimit]"
-                      dataType="numeric"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[CreditLimit]"
-                      name="CreditLimit"
-                      precision="18"
-                      scale="2" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[IsUsingCredit]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[IsUsingCredit]"
-                      name="IsUsingCredit" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[PreliminaryBalance]"
-                      dataType="numeric"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[PreliminaryBalance]"
-                      name="PreliminaryBalance"
-                      precision="18"
-                      scale="2" />
+                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
                     <outputColumn
                       refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[Modified]"
-                      dataType="dbTimeStampOffset"
+                      dataType="dbTimeStamp2"
                       lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[Modified]"
                       name="Modified"
-                      scale="3" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[SessionId]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[SessionId]"
-                      name="SessionId" />
+                      scale="7" />
                     <outputColumn
                       refId="Package\Data Flow Task\RSource.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -893,29 +623,12 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Do Insert"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:PropertyExpression
         DTS:Name="SqlStatementSource">@[$Package::Update_Statement]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{3337BC26-8662-4224-9CA6-774281EBE361}"
-          SQLTask:SqlStatementSource="Select 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Do Update"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{7edfc302-e308-4498-bf50-5c2605d39098}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Do Update"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:PropertyExpression
-        DTS:Name="SqlStatementSource">@[$Package::Update_Statement]</DTS:PropertyExpression>
+      <DTS:Property
+        DTS:Name="ExecValueVariable">rowCountUpdate</DTS:Property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3337BC26-8662-4224-9CA6-774281EBE361}"
@@ -977,7 +690,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1073,60 +786,12 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure DI"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
           SQLTask:SqlStatementSource="update sync4partner.Log set [SyncEndDate] = SYSDATETIME(),[Status]='Failure',[Description]='Do insert', [SyncRowCountInsert]=?, SyncRowCountUpdate=?, [SyncRowCountDelete]=?, SyncRowCountSource=? where id=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="0"
-            SQLTask:DtsVariableName="User::rowCountInsert"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="3"
-            SQLTask:ParameterSize="-1" />
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="4"
-            SQLTask:DtsVariableName="User::currentLogId"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="3"
-            SQLTask:ParameterSize="-1" />
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="1"
-            SQLTask:DtsVariableName="User::rowCountUpdate"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="3"
-            SQLTask:ParameterSize="-1" />
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="2"
-            SQLTask:DtsVariableName="User::rowCountDelete"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="3"
-            SQLTask:ParameterSize="-1" />
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="3"
-            SQLTask:DtsVariableName="User::rowCountSource"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="3"
-            SQLTask:ParameterSize="-1" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\LogFailure DU"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{375936d9-a099-40ae-ae8a-47faa848b266}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="LogFailure DU"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
-          SQLTask:SqlStatementSource="update sync4partner.Log set [SyncEndDate] = SYSDATETIME(),[Status]='Failure',[Description]='Do update', [SyncRowCountInsert]=?, SyncRowCountUpdate=?, [SyncRowCountDelete]=?, SyncRowCountSource=? where id=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::rowCountInsert"
@@ -1169,7 +834,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure GLK"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1253,7 +918,7 @@
           DTS:Namespace="User"
           DTS:ObjectName="vDestination">
           <DTS:VariableValue
-            DTS:DataType="8"> / SBdest</DTS:VariableValue>
+            DTS:DataType="8"> / SSIS2</DTS:VariableValue>
         </DTS:Variable>
         <DTS:Variable
           DTS:CreationName=""
@@ -1264,7 +929,7 @@
           DTS:Namespace="User"
           DTS:ObjectName="vSource">
           <DTS:VariableValue
-            DTS:DataType="8">PC-0609 / SportsBookTest</DTS:VariableValue>
+            DTS:DataType="8">TOSHIBA\SQLEXPRESS / SSIS1</DTS:VariableValue>
         </DTS:Variable>
       </DTS:Variables>
       <DTS:ObjectData>
@@ -1378,23 +1043,6 @@
       DTS:To="Package\LogFailure GLK"
       DTS:Value="1" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
-      DTS:CreationName=""
-      DTS:DTSID="{C167BA8D-EF64-40E8-BB74-F064E58D21A0}"
-      DTS:From="Package\Do Update"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 11"
-      DTS:To="Package\LogFailure DU"
-      DTS:Value="1" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
-      DTS:CreationName=""
-      DTS:DTSID="{17346118-6350-4860-8FB3-E4A1A40D2201}"
-      DTS:From="Package\Do Insert"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 12"
-      DTS:To="Package\Do Update" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{2CC1D91A-6000-4186-8B24-216154544D12}"
@@ -1424,8 +1072,8 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{80AB9C04-0FEA-45A1-A1FA-A1E8CDD5433F}"
-      DTS:From="Package\Do Update"
+      DTS:DTSID="{4C4658FE-422C-4594-B58A-206AB7FA63C6}"
+      DTS:From="Package\Do Insert"
       DTS:ObjectName="Constraint 5"
       DTS:To="Package\LogSuccess" />
     <DTS:PrecedenceConstraint
@@ -1493,6 +1141,10 @@
           Id="Package\Expression Task"
           TopLeft="80,62" />
         <NodeLayout
+          Size="132,42"
+          Id="Package\GetLastKey"
+          TopLeft="98,233" />
+        <NodeLayout
           Size="127,42"
           Id="Package\LogFailure"
           TopLeft="407,418" />
@@ -1504,6 +1156,10 @@
           Size="142,42"
           Id="Package\LogFailure DI"
           TopLeft="404,515" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\LogFailure GLK"
+          TopLeft="394,228" />
         <NodeLayout
           Size="133,42"
           Id="Package\LogNothing"
@@ -1536,6 +1192,52 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="161.25,198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="230,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="164,0"
+              Start="0,0"
+              End="156.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="156.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="63.00865234375,5,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1633,6 +1335,40 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="259.5,560">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-166.166666666667,42"
+              Start="0,0"
+              End="-166.166666666667,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.9004457652303" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.9004457652303"
+                    Point2="0,24.9004457652303"
+                    Point3="-4,24.9004457652303" />
+                  <mssgle:LineSegment
+                    End="-162.166666666667,24.9004457652303" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-162.166666666667,24.9004457652303"
+                    Point2="-166.166666666667,24.9004457652303"
+                    Point3="-166.166666666667,28.9004457652303" />
+                  <mssgle:LineSegment
+                    End="-166.166666666667,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="238,440.5">
           <EdgeLayout.Curve>
@@ -1704,60 +1440,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="132,42"
-          Id="Package\GetLastKey"
-          TopLeft="98,233" />
-        <NodeLayout
-          Size="149,42"
-          Id="Package\LogFailure GLK"
-          TopLeft="394,228" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="230,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="164,0"
-              Start="0,0"
-              End="156.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="156.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="63.00865234375,5,30.4826953125,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="161.25,198">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,35"
-              Start="0,0"
-              End="0,27.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
           TopLeft="161,275">
@@ -1780,82 +1462,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="129,42"
-          Id="Package\Do Update"
-          TopLeft="193,603" />
-        <NodeLayout
-          Size="145,42"
-          Id="Package\LogFailure DU"
-          TopLeft="399,600" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="322,622.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="77,0"
-              Start="0,0"
-              End="69.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="69.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="19.50865234375,5,30.4826953125,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="258.5,560">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43"
-              Start="0,0"
-              End="0,35.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="193,623.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-54,0"
-              Start="0,0"
-              End="-46.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-46.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1865,39 +1471,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="118,42"
-          Id="Package\Data Flow Task\RSource"
-          TopLeft="122,32" />
-        <NodeLayout
           Size="162,42"
           Id="Package\Data Flow Task\RowCount Source"
           TopLeft="283,34" />
         <NodeLayout
+          Size="118,42"
+          Id="Package\Data Flow Task\RSource"
+          TopLeft="122,32" />
+        <NodeLayout
           Size="145,42"
           Id="Package\Data Flow Task\Insert Staging"
           TopLeft="476,34" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="240,54">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="43,0"
-              Start="0,0"
-              End="35.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="35.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Row Count Output 1]"
           TopLeft="445,55">
@@ -1912,6 +1496,28 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="23.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="240,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43,0"
+              Start="0,0"
+              End="35.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

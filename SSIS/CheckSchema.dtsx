@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="CheckSchema"
   DTS:PackageType="5"
-  DTS:VersionBuild="88"
-  DTS:VersionGUID="{4AAF872E-ECE9-494A-A918-887CC74DF83E}">
+  DTS:VersionBuild="92"
+  DTS:VersionGUID="{F8B40205-91E8-4709-8434-35ACC8C8F0FE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -64,7 +64,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="dTABLE_CATALOG">
       <DTS:VariableValue
-        DTS:DataType="8">SBdest</DTS:VariableValue>
+        DTS:DataType="8">SSIS2</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -85,7 +85,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="sTABLE_CATALOG">
       <DTS:VariableValue
-        DTS:DataType="8">SportsBookTest</DTS:VariableValue>
+        DTS:DataType="8">SSIS1</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -297,7 +297,7 @@ order by TABLE_NAME</property>
                       name="TABLE_NAME" />
                     <externalMetadataColumn
                       refId="Package\CheckDestTables\DestTables.Outputs[OLE DB Source Output].ExternalColumns[TABLE_TYPE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="10"
                       name="TABLE_TYPE" />
@@ -744,6 +744,15 @@ order by Name</property>
                       lineageId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
                       name="Description"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      lineageId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -769,6 +778,10 @@ order by Name</property>
                       dataType="wstr"
                       length="150"
                       name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      dataType="bool"
+                      name="NeedsUpsert" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -799,6 +812,11 @@ order by Name</property>
                       dataType="bool"
                       lineageId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
                       name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert" />
                     <outputColumn
                       refId="Package\CheckDestTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
                       dataType="wstr"
@@ -1359,7 +1377,7 @@ order by TABLE_NAME</property>
                       name="TABLE_NAME" />
                     <externalMetadataColumn
                       refId="Package\CheckSourceTables\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[TABLE_TYPE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="10"
                       name="TABLE_TYPE" />
@@ -1487,6 +1505,15 @@ order by Name</property>
                       lineageId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
                       name="Description"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      lineageId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1512,6 +1539,10 @@ order by Name</property>
                       dataType="wstr"
                       length="150"
                       name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      dataType="bool"
+                      name="NeedsUpsert" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1542,6 +1573,11 @@ order by Name</property>
                       dataType="bool"
                       lineageId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
                       name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert" />
                     <outputColumn
                       refId="Package\CheckSourceTables\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
                       dataType="wstr"
@@ -2076,7 +2112,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails\DestTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -3135,7 +3171,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -3349,6 +3385,15 @@ order by Name</property>
                       lineageId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
                       name="Description"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      lineageId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3374,6 +3419,10 @@ order by Name</property>
                       dataType="wstr"
                       length="150"
                       name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      dataType="bool"
+                      name="NeedsUpsert" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3404,6 +3453,11 @@ order by Name</property>
                       dataType="bool"
                       lineageId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
                       name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert" />
                     <outputColumn
                       refId="Package\CheckTableDetails\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
                       dataType="wstr"
@@ -3509,6 +3563,15 @@ order by Name</property>
                       lineageId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].Columns[Description]"
                       name="Description"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      lineageId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3534,6 +3597,10 @@ order by Name</property>
                       dataType="wstr"
                       length="150"
                       name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      dataType="bool"
+                      name="NeedsUpsert" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3564,6 +3631,11 @@ order by Name</property>
                       dataType="bool"
                       lineageId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
                       name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert" />
                     <outputColumn
                       refId="Package\CheckTableDetails\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[Description]"
                       dataType="wstr"
@@ -4252,7 +4324,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails Staging\DestTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -5340,7 +5412,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails Staging\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -5554,6 +5626,15 @@ order by Name</property>
                       lineageId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
                       name="Description"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      lineageId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5579,6 +5660,10 @@ order by Name</property>
                       dataType="wstr"
                       length="150"
                       name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      dataType="bool"
+                      name="NeedsUpsert" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -5609,6 +5694,11 @@ order by Name</property>
                       dataType="bool"
                       lineageId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
                       name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert" />
                     <outputColumn
                       refId="Package\CheckTableDetails Staging\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
                       dataType="wstr"
@@ -5714,6 +5804,15 @@ order by Name</property>
                       lineageId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].Columns[Description]"
                       name="Description"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      lineageId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5739,6 +5838,10 @@ order by Name</property>
                       dataType="wstr"
                       length="150"
                       name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      dataType="bool"
+                      name="NeedsUpsert" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -5769,6 +5872,11 @@ order by Name</property>
                       dataType="bool"
                       lineageId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
                       name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert" />
                     <outputColumn
                       refId="Package\CheckTableDetails Staging\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[Description]"
                       dataType="wstr"
@@ -6463,7 +6571,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails Staging Again\DestTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -7551,7 +7659,7 @@ order by TABLE_NAME</property>
                       name="COLUMN_DEFAULT" />
                     <externalMetadataColumn
                       refId="Package\CheckTableDetails Staging Again\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[IS_NULLABLE]"
-                      codePage="1251"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="IS_NULLABLE" />
@@ -7765,6 +7873,15 @@ order by Name</property>
                       lineageId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].Columns[Description]"
                       name="Description"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      lineageId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7790,6 +7907,10 @@ order by Name</property>
                       dataType="wstr"
                       length="150"
                       name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      dataType="bool"
+                      name="NeedsUpsert" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -7820,6 +7941,11 @@ order by Name</property>
                       dataType="bool"
                       lineageId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
                       name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert" />
                     <outputColumn
                       refId="Package\CheckTableDetails Staging Again\SyncTable.Outputs[OLE DB Source Error Output].Columns[Description]"
                       dataType="wstr"
@@ -7925,6 +8051,15 @@ order by Name</property>
                       lineageId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].Columns[Description]"
                       name="Description"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      lineageId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7950,6 +8085,10 @@ order by Name</property>
                       dataType="wstr"
                       length="150"
                       name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      dataType="bool"
+                      name="NeedsUpsert" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -7980,6 +8119,11 @@ order by Name</property>
                       dataType="bool"
                       lineageId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[OnlyInsert]"
                       name="OnlyInsert" />
+                    <outputColumn
+                      refId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      dataType="bool"
+                      lineageId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[NeedsUpsert]"
+                      name="NeedsUpsert" />
                     <outputColumn
                       refId="Package\CheckTableDetails Staging Again\SyncTable 1.Outputs[OLE DB Source Error Output].Columns[Description]"
                       dataType="wstr"
@@ -8271,6 +8415,264 @@ order by Name</property>
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Create Upsert rocedures"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{03805bfe-78ca-4f8d-9667-0455a17d9da6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Upsert rocedures"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Create Upsert rocedures\Call CreateUpsert"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Call CreateUpsert"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">exec staging.CreateUpsertProc ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Create Upsert rocedures\Call CreateUpsert.Connections[OleDbConnection]"
+                  connectionManagerID="{3337BC26-8662-4224-9CA6-774281EBE361}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[destConnmgr]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Create Upsert rocedures\Call CreateUpsert.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Create Upsert rocedures\Call CreateUpsert.Inputs[OLE DB Command Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="Name"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Create Upsert rocedures\Call CreateUpsert.Inputs[OLE DB Command Input].ExternalColumns[@tableName]"
+                      lineageId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Output].Columns[Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Create Upsert rocedures\Call CreateUpsert.Inputs[OLE DB Command Input].ExternalColumns[@tableName]"
+                      dataType="wstr"
+                      length="128"
+                      name="@tableName">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Create Upsert rocedures\Call CreateUpsert.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Create Upsert rocedures\Call CreateUpsert.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Create Upsert rocedures\Call CreateUpsert.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Create Upsert rocedures\Call CreateUpsert.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Upsert rocedures\Call CreateUpsert.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Create Upsert rocedures\Call CreateUpsert.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Create Upsert rocedures\Call CreateUpsert.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Create Upsert rocedures\Call CreateUpsert.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Create Upsert rocedures\SyncTable"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SyncTable"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[sync4partner].[SyncTable]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from sync4partner.SyncTable 
+where ToCopy =1 and NeedsUpsert=1
+order by Name</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Create Upsert rocedures\SyncTable.Connections[OleDbConnection]"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="128"
+                      lineageId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="128"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[ToCopy]"
+                      dataType="bool"
+                      name="ToCopy" />
+                    <externalMetadataColumn
+                      refId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[ToStage]"
+                      dataType="bool"
+                      name="ToStage" />
+                    <externalMetadataColumn
+                      refId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      dataType="bool"
+                      name="OnlyInsert" />
+                    <externalMetadataColumn
+                      refId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      dataType="bool"
+                      name="NeedsUpsert" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Create Upsert rocedures.Paths[OLE DB Source Output]"
+              endId="Package\Create Upsert rocedures\Call CreateUpsert.Inputs[OLE DB Command Input]"
+              name="OLE DB Source Output"
+              startId="Package\Create Upsert rocedures\SyncTable.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Execute SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -8496,6 +8898,10 @@ order by Name</property>
           Id="Package\Create staging tables"
           TopLeft="199,641" />
         <NodeLayout
+          Size="193,42"
+          Id="Package\Create Upsert rocedures"
+          TopLeft="593,36" />
+        <NodeLayout
           Size="163,42"
           Id="Package\Execute SQL Task"
           TopLeft="513,513" />
@@ -8506,7 +8912,7 @@ order by Name</property>
         <NodeLayout
           Size="243,42"
           Id="Package\RaiseErrorIfNeeded Staging Tables"
-          TopLeft="910,718" />
+          TopLeft="842,718" />
         <NodeLayout
           Size="204,42"
           Id="Package\RaiseErrorIfNeeded Tables"
@@ -8585,14 +8991,14 @@ order by Name</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="160,0"
+              EndConnector="92,0"
               Start="0,0"
-              End="152.5,0">
+              End="84.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="152.5,0" />
+                    End="84.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8855,7 +9261,7 @@ order by Name</property>
           FontInfo="{assembly:Null}"
           Size="231,40"
           Id="516f3e1e-095f-4a84-9630-25a6b5e719f1"
-          TopLeft="644,73" />
+          TopLeft="663,136" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -9296,17 +9702,21 @@ order by Name</property>
           Id="Package\CheckTableDetails\SourceTables"
           TopLeft="265,32" />
         <NodeLayout
-          Size="98,42"
-          Id="Package\CheckTableDetails\Sort"
-          TopLeft="190,242" />
-        <NodeLayout
           Size="127,42"
           Id="Package\CheckTableDetails\SyncTable 1"
           TopLeft="515,37" />
         <NodeLayout
+          Size="98,42"
+          Id="Package\CheckTableDetails\Sort"
+          TopLeft="190,242" />
+        <NodeLayout
           Size="149,42"
           Id="Package\CheckTableDetails\DerCol missing"
           TopLeft="540,359" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\CheckTableDetails\Union All"
+          TopLeft="756,408" />
         <NodeLayout
           Size="130,42"
           Id="Package\CheckTableDetails\Merge Join"
@@ -9315,10 +9725,6 @@ order by Name</property>
           Size="139,42"
           Id="Package\CheckTableDetails\Merge Join 2"
           TopLeft="255,324" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\CheckTableDetails\Union All"
-          TopLeft="756,408" />
         <NodeLayout
           Size="131,42"
           Id="Package\CheckTableDetails\DestTables"
@@ -9335,210 +9741,6 @@ order by Name</property>
           Size="171,42"
           Id="Package\CheckTableDetails\OLE DB Destination"
           TopLeft="917,409" />
-        <EdgeLayout
-          Id="Package\CheckTableDetails.Paths[OLE DB Source Output2]"
-          TopLeft="738.5,77">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-53.1666666666666,79"
-              Start="0,0"
-              End="-53.1666666666666,71.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.8605974395448" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,42.8605974395448"
-                    Point2="0,46.8605974395448"
-                    Point3="-4,46.8605974395448" />
-                  <mssgle:LineSegment
-                    End="-49.1666666666666,46.8605974395448" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-49.1666666666666,46.8605974395448"
-                    Point2="-53.1666666666666,46.8605974395448"
-                    Point3="-53.1666666666666,50.8605974395448" />
-                  <mssgle:LineSegment
-                    End="-53.1666666666666,71.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails.Paths[OLE DB Source Output1]"
-          TopLeft="578.5,79">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="63.1666666666666,77"
-              Start="0,0"
-              End="63.1666666666666,69.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.674253200569" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,41.674253200569"
-                    Point2="0,45.674253200569"
-                    Point3="4,45.674253200569" />
-                  <mssgle:LineSegment
-                    End="59.1666666666666,45.674253200569" />
-                  <mssgle:CubicBezierSegment
-                    Point1="59.1666666666666,45.674253200569"
-                    Point2="63.1666666666666,45.674253200569"
-                    Point3="63.1666666666666,49.674253200569" />
-                  <mssgle:LineSegment
-                    End="63.1666666666666,69.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails.Paths[OLE DB Source Output]"
-          TopLeft="336,74">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-73.6666666666667,84"
-              Start="0,0"
-              End="-73.6666666666667,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.7872340425532" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,45.7872340425532"
-                    Point2="0,49.7872340425532"
-                    Point3="-4,49.7872340425532" />
-                  <mssgle:LineSegment
-                    End="-69.6666666666667,49.7872340425532" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-69.6666666666667,49.7872340425532"
-                    Point2="-73.6666666666667,49.7872340425532"
-                    Point3="-73.6666666666667,53.7872340425532" />
-                  <mssgle:LineSegment
-                    End="-73.6666666666667,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails.Paths[MissingCol]"
-          TopLeft="407,435">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="133,-55"
-              Start="0,0"
-              End="125.5,-55">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="62.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="62.5,0"
-                    Point2="66.5,0"
-                    Point3="66.5,-4" />
-                  <mssgle:LineSegment
-                    End="66.5,-51" />
-                  <mssgle:CubicBezierSegment
-                    Point1="66.5,-51"
-                    Point2="66.5,-55"
-                    Point3="70.5,-55" />
-                  <mssgle:LineSegment
-                    End="125.5,-55" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="43.18787109375,1,46.6242578125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails.Paths[Merge Join Output2]"
-          TopLeft="327,366">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48"
-              Start="0,0"
-              End="0,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails.Paths[Merge Join Output1]"
-          TopLeft="663.5,198">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-249.5,43"
-              Start="0,0"
-              End="-249.5,35.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.5"
-                    Point2="0,21.5"
-                    Point3="-4,21.5" />
-                  <mssgle:LineSegment
-                    End="-245.5,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-245.5,21.5"
-                    Point2="-249.5,21.5"
-                    Point3="-249.5,25.5" />
-                  <mssgle:LineSegment
-                    End="-249.5,35.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\CheckTableDetails.Paths[Merge Join Output]"
           TopLeft="240.5,200">
@@ -9803,6 +10005,210 @@ order by Name</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails.Paths[OLE DB Source Output2]"
+          TopLeft="738.5,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-53.1666666666666,79"
+              Start="0,0"
+              End="-53.1666666666666,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.8605974395448" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.8605974395448"
+                    Point2="0,46.8605974395448"
+                    Point3="-4,46.8605974395448" />
+                  <mssgle:LineSegment
+                    End="-49.1666666666666,46.8605974395448" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-49.1666666666666,46.8605974395448"
+                    Point2="-53.1666666666666,46.8605974395448"
+                    Point3="-53.1666666666666,50.8605974395448" />
+                  <mssgle:LineSegment
+                    End="-53.1666666666666,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails.Paths[OLE DB Source Output1]"
+          TopLeft="578.5,79">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.1666666666666,77"
+              Start="0,0"
+              End="63.1666666666666,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.674253200569" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.674253200569"
+                    Point2="0,45.674253200569"
+                    Point3="4,45.674253200569" />
+                  <mssgle:LineSegment
+                    End="59.1666666666666,45.674253200569" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.1666666666666,45.674253200569"
+                    Point2="63.1666666666666,45.674253200569"
+                    Point3="63.1666666666666,49.674253200569" />
+                  <mssgle:LineSegment
+                    End="63.1666666666666,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails.Paths[OLE DB Source Output]"
+          TopLeft="336,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-73.6666666666667,84"
+              Start="0,0"
+              End="-73.6666666666667,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.7872340425532" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.7872340425532"
+                    Point2="0,49.7872340425532"
+                    Point3="-4,49.7872340425532" />
+                  <mssgle:LineSegment
+                    End="-69.6666666666667,49.7872340425532" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-69.6666666666667,49.7872340425532"
+                    Point2="-73.6666666666667,49.7872340425532"
+                    Point3="-73.6666666666667,53.7872340425532" />
+                  <mssgle:LineSegment
+                    End="-73.6666666666667,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails.Paths[MissingCol]"
+          TopLeft="407,435">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="133,-55"
+              Start="0,0"
+              End="125.5,-55">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="62.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62.5,0"
+                    Point2="66.5,0"
+                    Point3="66.5,-4" />
+                  <mssgle:LineSegment
+                    End="66.5,-51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66.5,-51"
+                    Point2="66.5,-55"
+                    Point3="70.5,-55" />
+                  <mssgle:LineSegment
+                    End="125.5,-55" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="43.18787109375,1,46.6242578125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails.Paths[Merge Join Output2]"
+          TopLeft="327,366">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails.Paths[Merge Join Output1]"
+          TopLeft="663.5,198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-249.5,43"
+              Start="0,0"
+              End="-249.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="-4,21.5" />
+                  <mssgle:LineSegment
+                    End="-245.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-245.5,21.5"
+                    Point2="-249.5,21.5"
+                    Point3="-249.5,25.5" />
+                  <mssgle:LineSegment
+                    End="-249.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -9869,21 +10275,21 @@ order by Name</property>
           Id="Package\CheckTableDetails Staging\SourceTables"
           TopLeft="268,52" />
         <NodeLayout
-          Size="121,42"
-          Id="Package\CheckTableDetails Staging\Union All"
-          TopLeft="674,439" />
+          Size="136,42"
+          Id="Package\CheckTableDetails Staging\SyncTable 1"
+          TopLeft="491,54" />
         <NodeLayout
           Size="98,42"
           Id="Package\CheckTableDetails Staging\Sort"
           TopLeft="180,256" />
         <NodeLayout
-          Size="136,42"
-          Id="Package\CheckTableDetails Staging\SyncTable 1"
-          TopLeft="491,54" />
-        <NodeLayout
           Size="130,42"
           Id="Package\CheckTableDetails Staging\Row Count"
           TopLeft="864,437" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\CheckTableDetails Staging\Union All"
+          TopLeft="674,439" />
         <NodeLayout
           Size="149,42"
           Id="Package\CheckTableDetails Staging\DerCol missing"
@@ -9916,222 +10322,6 @@ order by Name</property>
           Size="180,42"
           Id="Package\CheckTableDetails Staging\OLE DB Destination 1"
           TopLeft="1042,434" />
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging.Paths[MissingCol]"
-          TopLeft="407,468">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="56,-62"
-              Start="0,0"
-              End="48.5,-62">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="24,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24,0"
-                    Point2="28,0"
-                    Point3="28,-4" />
-                  <mssgle:LineSegment
-                    End="28,-58" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28,-58"
-                    Point2="28,-62"
-                    Point3="32,-62" />
-                  <mssgle:LineSegment
-                    End="48.5,-62" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="4.68787109375,1,46.6242578125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging.Paths[Merge Join Output2]"
-          TopLeft="348.5,385">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-43.5,62"
-              Start="0,0"
-              End="-43.5,54.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.8199233716475" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.8199233716475"
-                    Point2="0,36.8199233716475"
-                    Point3="-4,36.8199233716475" />
-                  <mssgle:LineSegment
-                    End="-39.5,36.8199233716475" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-39.5,36.8199233716475"
-                    Point2="-43.5,36.8199233716475"
-                    Point3="-43.5,40.8199233716475" />
-                  <mssgle:LineSegment
-                    End="-43.5,54.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging.Paths[Merge Join Output1]"
-          TopLeft="655.5,224">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-153.5,31"
-              Start="0,0"
-              End="-153.5,23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.5"
-                    Point2="0,15.5"
-                    Point3="-4,15.5" />
-                  <mssgle:LineSegment
-                    End="-149.5,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-149.5,15.5"
-                    Point2="-153.5,15.5"
-                    Point3="-153.5,19.5" />
-                  <mssgle:LineSegment
-                    End="-153.5,23.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging.Paths[Merge Join Output]"
-          TopLeft="237,218">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-8,38"
-              Start="0,0"
-              End="-8,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="-4,19" />
-                  <mssgle:LineSegment
-                    End="-4,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4,19"
-                    Point2="-8,19"
-                    Point3="-8,23" />
-                  <mssgle:LineSegment
-                    End="-8,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging.Paths[Derived Column Output1]"
-          TopLeft="612,406">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="62,54"
-              Start="0,0"
-              End="54.5,54">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="27,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="27,0"
-                    Point2="31,0"
-                    Point3="31,4" />
-                  <mssgle:LineSegment
-                    End="31,50" />
-                  <mssgle:CubicBezierSegment
-                    Point1="31,50"
-                    Point2="31,54"
-                    Point3="35,54" />
-                  <mssgle:LineSegment
-                    End="54.5,54" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging.Paths[Derived Column Output]"
-          TopLeft="547,507">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="187.5,-26"
-              Start="0,0"
-              End="187.5,-18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-9" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-9"
-                    Point2="0,-13"
-                    Point3="4,-13" />
-                  <mssgle:LineSegment
-                    End="183.5,-13" />
-                  <mssgle:CubicBezierSegment
-                    Point1="183.5,-13"
-                    Point2="187.5,-13"
-                    Point3="187.5,-17" />
-                  <mssgle:LineSegment
-                    End="187.5,-18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\CheckTableDetails Staging.Paths[Union All Output 1]"
           TopLeft="795,459">
@@ -10432,6 +10622,222 @@ order by Name</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging.Paths[MissingCol]"
+          TopLeft="407,468">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56,-62"
+              Start="0,0"
+              End="48.5,-62">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="24,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24,0"
+                    Point2="28,0"
+                    Point3="28,-4" />
+                  <mssgle:LineSegment
+                    End="28,-58" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28,-58"
+                    Point2="28,-62"
+                    Point3="32,-62" />
+                  <mssgle:LineSegment
+                    End="48.5,-62" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.68787109375,1,46.6242578125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging.Paths[Merge Join Output2]"
+          TopLeft="348.5,385">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-43.5,62"
+              Start="0,0"
+              End="-43.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.8199233716475" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.8199233716475"
+                    Point2="0,36.8199233716475"
+                    Point3="-4,36.8199233716475" />
+                  <mssgle:LineSegment
+                    End="-39.5,36.8199233716475" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39.5,36.8199233716475"
+                    Point2="-43.5,36.8199233716475"
+                    Point3="-43.5,40.8199233716475" />
+                  <mssgle:LineSegment
+                    End="-43.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging.Paths[Merge Join Output1]"
+          TopLeft="655.5,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-153.5,31"
+              Start="0,0"
+              End="-153.5,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="-4,15.5" />
+                  <mssgle:LineSegment
+                    End="-149.5,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-149.5,15.5"
+                    Point2="-153.5,15.5"
+                    Point3="-153.5,19.5" />
+                  <mssgle:LineSegment
+                    End="-153.5,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging.Paths[Merge Join Output]"
+          TopLeft="237,218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,38"
+              Start="0,0"
+              End="-8,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="-4,19" />
+                  <mssgle:LineSegment
+                    End="-4,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4,19"
+                    Point2="-8,19"
+                    Point3="-8,23" />
+                  <mssgle:LineSegment
+                    End="-8,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging.Paths[Derived Column Output1]"
+          TopLeft="612,406">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62,54"
+              Start="0,0"
+              End="54.5,54">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27,0"
+                    Point2="31,0"
+                    Point3="31,4" />
+                  <mssgle:LineSegment
+                    End="31,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31,50"
+                    Point2="31,54"
+                    Point3="35,54" />
+                  <mssgle:LineSegment
+                    End="54.5,54" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging.Paths[Derived Column Output]"
+          TopLeft="547,507">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="187.5,-26"
+              Start="0,0"
+              End="187.5,-18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-9"
+                    Point2="0,-13"
+                    Point3="4,-13" />
+                  <mssgle:LineSegment
+                    End="183.5,-13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="183.5,-13"
+                    Point2="187.5,-13"
+                    Point3="187.5,-17" />
+                  <mssgle:LineSegment
+                    End="187.5,-18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -10498,21 +10904,21 @@ order by Name</property>
           Id="Package\CheckTableDetails Staging Again\SourceTables"
           TopLeft="268,52" />
         <NodeLayout
-          Size="121,42"
-          Id="Package\CheckTableDetails Staging Again\Union All"
-          TopLeft="674,439" />
+          Size="136,42"
+          Id="Package\CheckTableDetails Staging Again\SyncTable 1"
+          TopLeft="491,54" />
         <NodeLayout
           Size="98,42"
           Id="Package\CheckTableDetails Staging Again\Sort"
           TopLeft="180,256" />
         <NodeLayout
-          Size="136,42"
-          Id="Package\CheckTableDetails Staging Again\SyncTable 1"
-          TopLeft="491,54" />
-        <NodeLayout
           Size="130,42"
           Id="Package\CheckTableDetails Staging Again\Row Count"
           TopLeft="864,437" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\CheckTableDetails Staging Again\Union All"
+          TopLeft="674,439" />
         <NodeLayout
           Size="149,42"
           Id="Package\CheckTableDetails Staging Again\DerCol missing"
@@ -10545,222 +10951,6 @@ order by Name</property>
           Size="180,42"
           Id="Package\CheckTableDetails Staging Again\OLE DB Destination 1"
           TopLeft="1042,434" />
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging Again.Paths[MissingCol]"
-          TopLeft="407,468">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="56,-62"
-              Start="0,0"
-              End="48.5,-62">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="24,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24,0"
-                    Point2="28,0"
-                    Point3="28,-4" />
-                  <mssgle:LineSegment
-                    End="28,-58" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28,-58"
-                    Point2="28,-62"
-                    Point3="32,-62" />
-                  <mssgle:LineSegment
-                    End="48.5,-62" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="4.68787109375,1,46.6242578125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging Again.Paths[Merge Join Output2]"
-          TopLeft="348.5,385">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-43.5,62"
-              Start="0,0"
-              End="-43.5,54.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.8199233716475" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.8199233716475"
-                    Point2="0,36.8199233716475"
-                    Point3="-4,36.8199233716475" />
-                  <mssgle:LineSegment
-                    End="-39.5,36.8199233716475" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-39.5,36.8199233716475"
-                    Point2="-43.5,36.8199233716475"
-                    Point3="-43.5,40.8199233716475" />
-                  <mssgle:LineSegment
-                    End="-43.5,54.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging Again.Paths[Merge Join Output1]"
-          TopLeft="655.5,224">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-153.5,31"
-              Start="0,0"
-              End="-153.5,23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.5"
-                    Point2="0,15.5"
-                    Point3="-4,15.5" />
-                  <mssgle:LineSegment
-                    End="-149.5,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-149.5,15.5"
-                    Point2="-153.5,15.5"
-                    Point3="-153.5,19.5" />
-                  <mssgle:LineSegment
-                    End="-153.5,23.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging Again.Paths[Merge Join Output]"
-          TopLeft="237,218">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-8,38"
-              Start="0,0"
-              End="-8,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="-4,19" />
-                  <mssgle:LineSegment
-                    End="-4,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4,19"
-                    Point2="-8,19"
-                    Point3="-8,23" />
-                  <mssgle:LineSegment
-                    End="-8,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging Again.Paths[Derived Column Output1]"
-          TopLeft="612,406">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="62,54"
-              Start="0,0"
-              End="54.5,54">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="27,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="27,0"
-                    Point2="31,0"
-                    Point3="31,4" />
-                  <mssgle:LineSegment
-                    End="31,50" />
-                  <mssgle:CubicBezierSegment
-                    Point1="31,50"
-                    Point2="31,54"
-                    Point3="35,54" />
-                  <mssgle:LineSegment
-                    End="54.5,54" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CheckTableDetails Staging Again.Paths[Derived Column Output]"
-          TopLeft="547,507">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="187.5,-26"
-              Start="0,0"
-              End="187.5,-18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-9" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-9"
-                    Point2="0,-13"
-                    Point3="4,-13" />
-                  <mssgle:LineSegment
-                    End="183.5,-13" />
-                  <mssgle:CubicBezierSegment
-                    Point1="183.5,-13"
-                    Point2="187.5,-13"
-                    Point3="187.5,-17" />
-                  <mssgle:LineSegment
-                    End="187.5,-18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\CheckTableDetails Staging Again.Paths[Union All Output 1]"
           TopLeft="795,459">
@@ -11061,6 +11251,222 @@ order by Name</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging Again.Paths[MissingCol]"
+          TopLeft="407,468">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56,-62"
+              Start="0,0"
+              End="48.5,-62">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="24,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24,0"
+                    Point2="28,0"
+                    Point3="28,-4" />
+                  <mssgle:LineSegment
+                    End="28,-58" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28,-58"
+                    Point2="28,-62"
+                    Point3="32,-62" />
+                  <mssgle:LineSegment
+                    End="48.5,-62" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.68787109375,1,46.6242578125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging Again.Paths[Merge Join Output2]"
+          TopLeft="348.5,385">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-43.5,62"
+              Start="0,0"
+              End="-43.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.8199233716475" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.8199233716475"
+                    Point2="0,36.8199233716475"
+                    Point3="-4,36.8199233716475" />
+                  <mssgle:LineSegment
+                    End="-39.5,36.8199233716475" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39.5,36.8199233716475"
+                    Point2="-43.5,36.8199233716475"
+                    Point3="-43.5,40.8199233716475" />
+                  <mssgle:LineSegment
+                    End="-43.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging Again.Paths[Merge Join Output1]"
+          TopLeft="655.5,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-153.5,31"
+              Start="0,0"
+              End="-153.5,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="-4,15.5" />
+                  <mssgle:LineSegment
+                    End="-149.5,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-149.5,15.5"
+                    Point2="-153.5,15.5"
+                    Point3="-153.5,19.5" />
+                  <mssgle:LineSegment
+                    End="-153.5,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging Again.Paths[Merge Join Output]"
+          TopLeft="237,218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,38"
+              Start="0,0"
+              End="-8,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="-4,19" />
+                  <mssgle:LineSegment
+                    End="-4,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4,19"
+                    Point2="-8,19"
+                    Point3="-8,23" />
+                  <mssgle:LineSegment
+                    End="-8,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging Again.Paths[Derived Column Output1]"
+          TopLeft="612,406">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62,54"
+              Start="0,0"
+              End="54.5,54">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27,0"
+                    Point2="31,0"
+                    Point3="31,4" />
+                  <mssgle:LineSegment
+                    End="31,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31,50"
+                    Point2="31,54"
+                    Point3="35,54" />
+                  <mssgle:LineSegment
+                    End="54.5,54" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CheckTableDetails Staging Again.Paths[Derived Column Output]"
+          TopLeft="547,507">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="187.5,-26"
+              Start="0,0"
+              End="187.5,-18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-9"
+                    Point2="0,-13"
+                    Point3="4,-13" />
+                  <mssgle:LineSegment
+                    End="183.5,-13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="183.5,-13"
+                    Point2="187.5,-13"
+                    Point3="187.5,-17" />
+                  <mssgle:LineSegment
+                    End="187.5,-18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -11106,6 +11512,52 @@ order by Name</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Create Upsert rocedures">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Create Upsert rocedures\Call CreateUpsert"
+          TopLeft="320,36" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Create Upsert rocedures\SyncTable"
+          TopLeft="77,35" />
+        <EdgeLayout
+          Id="Package\Create Upsert rocedures.Paths[OLE DB Source Output]"
+          TopLeft="204,56.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="116,0"
+              Start="0,0"
+              End="108.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="108.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Create Upsert rocedures\SyncTable">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

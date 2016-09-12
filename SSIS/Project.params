@@ -273,4 +273,25 @@
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
   </SSIS:Parameter>
+  <SSIS:Parameter
+    SSIS:Name="sDataSource">
+    <SSIS:Properties>
+      <SSIS:Property
+        SSIS:Name="ID">{14ea26bc-efa1-4365-9fa0-785c76dbc3f4}</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="CreationName"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Description"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Required">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Sensitive">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Value">TOSHIBA\SQLEXPRESS</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="DataType">18</SSIS:Property>
+    </SSIS:Properties>
+  </SSIS:Parameter>
 </SSIS:Parameters>

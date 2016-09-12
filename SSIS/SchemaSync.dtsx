@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SchemaSync"
   DTS:PackageType="5"
-  DTS:VersionBuild="92"
-  DTS:VersionGUID="{8EBB1228-70B4-4F6D-96C8-4D4405F62FE9}">
+  DTS:VersionBuild="99"
+  DTS:VersionGUID="{04BEE6FB-8F24-471F-BD9B-945F9ACEBB35}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -54,6 +54,23 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\Delete ColumnNames"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{af25a365-8edf-4c2f-977f-24833e303c16}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete ColumnNames"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
+          SQLTask:SqlStatementSource="truncate table [sync4partner].[ColumnList]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\delete staging_synctable"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -79,11 +96,905 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Expression Task"
       DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <ExpressionTask
           Expression="@[User::safeToCopy] = ( @[$Project::eCatalogName]  != @[$Project::sCatalogName] )" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fill Column Names"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{46d7e5b0-28c1-46c2-bb38-2bbe85e3fdcc}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Column Names"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Fill Column Names\Fill ColumnList"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Fill ColumnList"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[sync4partner].[ColumnList]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill Column Names\Fill ColumnList.Connections[OleDbConnection]"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[tName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="tName"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[tName]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[tName]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[cName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="cName"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[cName]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[cName]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[is_nullable]"
+                      cachedDataType="bool"
+                      cachedName="is_nullable"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[is_nullable]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_nullable]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[is_identity]"
+                      cachedDataType="bool"
+                      cachedName="is_identity"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[is_identity]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_identity]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[column_id]"
+                      cachedDataType="i4"
+                      cachedName="column_id"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[column_id]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[column_id]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[key_ordinal]"
+                      cachedDataType="ui1"
+                      cachedName="key_ordinal"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[key_ordinal]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[key_ordinal]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[iName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="iName"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[iName]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[iName]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[is_primarykey]"
+                      cachedDataType="i4"
+                      cachedName="is_primarykey"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[is_primarykey]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_primarykey]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].Columns[typeName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="typeName"
+                      externalMetadataColumnId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[typeName]"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[typeName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[tName]"
+                      dataType="wstr"
+                      length="128"
+                      name="tName" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[cName]"
+                      dataType="wstr"
+                      length="128"
+                      name="cName" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[is_nullable]"
+                      dataType="bool"
+                      name="is_nullable" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[is_identity]"
+                      dataType="bool"
+                      name="is_identity" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[column_id]"
+                      dataType="i4"
+                      name="column_id" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[key_ordinal]"
+                      dataType="i4"
+                      name="key_ordinal" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[iName]"
+                      dataType="wstr"
+                      length="128"
+                      name="iName" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[is_primarykey]"
+                      dataType="bool"
+                      name="is_primarykey" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input].ExternalColumns[typeName]"
+                      dataType="wstr"
+                      length="128"
+                      name="typeName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fill Column Names\Fill ColumnList.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\Fill ColumnList.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\Fill ColumnList.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\Fill ColumnList.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fill Column Names\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Left Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="Name"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].Columns[Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[tName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="tName"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[tName]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[cName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="cName"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[cName]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[is_nullable]"
+                      cachedDataType="bool"
+                      cachedName="is_nullable"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_nullable]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[is_identity]"
+                      cachedDataType="bool"
+                      cachedName="is_identity"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_identity]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[column_id]"
+                      cachedDataType="i4"
+                      cachedName="column_id"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[column_id]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[key_ordinal]"
+                      cachedDataType="ui1"
+                      cachedName="key_ordinal"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[key_ordinal]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[iName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="iName"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[iName]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[is_primarykey]"
+                      cachedDataType="i4"
+                      cachedName="is_primarykey"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_primarykey]" />
+                    <inputColumn
+                      refId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[typeName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="typeName"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[typeName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[tName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[tName]"
+                      name="tName"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[tName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[cName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[cName]"
+                      name="cName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[cName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_nullable]"
+                      dataType="bool"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_nullable]"
+                      name="is_nullable">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[is_nullable]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_identity]"
+                      dataType="bool"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_identity]"
+                      name="is_identity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[is_identity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[column_id]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[column_id]"
+                      name="column_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[column_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[key_ordinal]"
+                      dataType="ui1"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[key_ordinal]"
+                      name="key_ordinal">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[key_ordinal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[iName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[iName]"
+                      name="iName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[iName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_primarykey]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[is_primarykey]"
+                      name="is_primarykey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[is_primarykey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[typeName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output].Columns[typeName]"
+                      name="typeName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input].Columns[typeName]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fill Column Names\SourceTables"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SourceTables"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select tName,cName,is_nullable,is_identity,cols.column_id,key_ordinal,iName,
+CASE WHEN iName is null THEN 0 ELSE 1 END as is_primarykey,typeName
+from 
+(select distinct t.name tName,c.name cName,c.is_nullable,is_identity,c.column_id,t.object_id,types.name as typeName from sys.tables as t join sys.columns as c on t.object_id = c.object_id  join sys.schemas on t.schema_id=schemas.schema_id and schemas.name='dbo' join sys.types on c.user_type_id=types.user_type_id) as cols
+left join
+(select indexes.object_id,index_columns.column_id,key_ordinal,indexes.name as iName from sys.index_columns 
+join sys.indexes on index_columns.object_id=indexes.object_id and indexes.is_primary_key=1 and indexes.index_id=index_columns.index_id) as pk
+on pk.object_id=cols.object_id and pk.column_id=cols.column_id
+order by tName</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{DA29B2AA-3239-4F04-9965-FAC0F8325113};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill Column Names\SourceTables.Connections[OleDbConnection]"
+                  connectionManagerID="{5621CA13-24B8-4CCC-9A50-4A11A1C31F38}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[sourceConnmgr]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[tName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[tName]"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[tName]"
+                      name="tName"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[cName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[cName]"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[cName]"
+                      name="cName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_nullable]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[is_nullable]"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_nullable]"
+                      name="is_nullable"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_identity]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[is_identity]"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_identity]"
+                      name="is_identity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[column_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[column_id]"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[column_id]"
+                      name="column_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[key_ordinal]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[key_ordinal]"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[key_ordinal]"
+                      name="key_ordinal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[iName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[iName]"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[iName]"
+                      name="iName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_primarykey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[is_primarykey]"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[is_primarykey]"
+                      name="is_primarykey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[typeName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[typeName]"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].Columns[typeName]"
+                      name="typeName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[tName]"
+                      dataType="wstr"
+                      length="128"
+                      name="tName" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[cName]"
+                      dataType="wstr"
+                      length="128"
+                      name="cName" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[is_nullable]"
+                      dataType="bool"
+                      name="is_nullable" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[is_identity]"
+                      dataType="bool"
+                      name="is_identity" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[column_id]"
+                      dataType="i4"
+                      name="column_id" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[key_ordinal]"
+                      dataType="ui1"
+                      name="key_ordinal" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[iName]"
+                      dataType="wstr"
+                      length="128"
+                      name="iName" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[is_primarykey]"
+                      dataType="i4"
+                      name="is_primarykey" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output].ExternalColumns[typeName]"
+                      dataType="wstr"
+                      length="128"
+                      name="typeName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[tName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[tName]"
+                      name="tName" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[cName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[cName]"
+                      name="cName" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[is_nullable]"
+                      dataType="bool"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[is_nullable]"
+                      name="is_nullable" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[is_identity]"
+                      dataType="bool"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[is_identity]"
+                      name="is_identity" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[column_id]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[column_id]"
+                      name="column_id" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[key_ordinal]"
+                      dataType="ui1"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[key_ordinal]"
+                      name="key_ordinal" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[iName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[iName]"
+                      name="iName" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[is_primarykey]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[is_primarykey]"
+                      name="is_primarykey" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[typeName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[typeName]"
+                      name="typeName" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fill Column Names\SyncTable"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SyncTable"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[sync4partner].[SyncTable]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from sync4partner.SyncTable 
+where ToCopy =1
+order by Name</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill Column Names\SyncTable.Connections[OleDbConnection]"
+                  connectionManagerID="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[controllConnmgr]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="128"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[ToCopy]"
+                      dataType="bool"
+                      name="ToCopy" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[ToStage]"
+                      dataType="bool"
+                      name="ToStage" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[OnlyInsert]"
+                      dataType="bool"
+                      name="OnlyInsert" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="150"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output].ExternalColumns[NeedsUpsert]"
+                      dataType="bool"
+                      name="NeedsUpsert" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fill Column Names.Paths[Merge Join Output]"
+              endId="Package\Fill Column Names\Fill ColumnList.Inputs[OLE DB Destination Input]"
+              name="Merge Join Output"
+              startId="Package\Fill Column Names\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Fill Column Names.Paths[OLE DB Source Output]"
+              endId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Right Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fill Column Names\SourceTables.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Fill Column Names.Paths[OLE DB Source Output1]"
+              endId="Package\Fill Column Names\Merge Join.Inputs[Merge Join Left Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fill Column Names\SyncTable.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fill Operation Data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{eb09cc96-2cf9-4a19-bd80-accea3676b65}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Operation Data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7E1B2590-C382-4CEF-8196-69DE9F4D6D23}"
+          SQLTask:SqlStatementSource="exec [sync4partner].FillSyncOperational" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -349,7 +1260,7 @@ order by Name</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TransferTables"
       DTS:TaskContact="Transfer Objects Task; Microsoft Corporation; SQL Server 2016; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:PropertyExpression
         DTS:Name="DestinationDatabase">@[$Project::eCatalogName]</DTS:PropertyExpression>
@@ -361,8 +1272,7 @@ order by Name</property>
           DestinationConnection="{2562F554-4D06-479A-AEF8-FA73B36E3DB3}"
           SourceDatabase="SSIS1"
           DestinationDatabase="SSIS1etalon"
-          TablesList="4,14,[dbo].[Table1],14,[dbo].[Table2],14,[dbo].[Table3],23,[staging].[TestStaging],"
-          SchemasList="1,7,staging,"
+          TablesList="3,14,[dbo].[Table1],14,[dbo].[Table2],14,[dbo].[Table3],"
           DropObjectsFirst="True"
           UseCollation="True"
           CopyIndexes="True"
@@ -389,6 +1299,22 @@ order by Name</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Fill staging_synctable" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A356561D-8FDB-4C8C-A174-FA240A81E4EA}"
+      DTS:From="Package\Delete ColumnNames"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Fill Column Names" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{6A2335E9-F01F-4BCB-AA38-557677166F8A}"
+      DTS:From="Package\Fill Column Names"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Fill Operation Data" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -403,24 +1329,36 @@ order by Name</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="180,42"
+          Id="Package\Delete ColumnNames"
+          TopLeft="45,167" />
+        <NodeLayout
           Size="195,42"
           Id="Package\delete staging_synctable"
-          TopLeft="54,138" />
+          TopLeft="45,96" />
         <NodeLayout
           Size="155,42"
           Id="Package\Expression Task"
-          TopLeft="45,42" />
+          TopLeft="45,20" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Fill Column Names"
+          TopLeft="304,168" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Fill Operation Data"
+          TopLeft="45,241" />
         <NodeLayout
           Size="179,42"
           Id="Package\Fill staging_synctable"
-          TopLeft="312,140" />
+          TopLeft="304,98" />
         <NodeLayout
           Size="149,42"
           Id="Package\TransferTables"
-          TopLeft="304,46" />
+          TopLeft="304,20" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="200,65">
+          TopLeft="200,41">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -444,18 +1382,40 @@ order by Name</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="249,160">
+          TopLeft="240,118">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="63,0"
+              EndConnector="64,0"
               Start="0,0"
-              End="55.5,0">
+              End="56.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="55.5,0" />
+                    End="56.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="225,188.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79,0"
+              Start="0,0"
+              End="71.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="71.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -485,14 +1445,170 @@ order by Name</property>
           Size="456,56"
           Id="b8d00a8d-82fd-4142-abcb-a4d461ac9e67"
           TopLeft="60,414" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="387,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-258.5,31"
+              Start="0,0"
+              End="-258.5,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="-4,15.5" />
+                  <mssgle:LineSegment
+                    End="-254.5,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-254.5,15.5"
+                    Point2="-258.5,15.5"
+                    Point3="-258.5,19.5" />
+                  <mssgle:LineSegment
+                    End="-258.5,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\Fill Column Names">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Fill Column Names\SourceTables"
+          TopLeft="327,18" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Fill Column Names\Merge Join"
+          TopLeft="202,167" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Fill Column Names\SyncTable"
+          TopLeft="53,17" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Fill Column Names\Fill ColumnList"
+          TopLeft="196,270" />
+        <EdgeLayout
+          Id="Package\Fill Column Names.Paths[OLE DB Source Output]"
+          TopLeft="398,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-110.666666666667,107"
+              Start="0,0"
+              End="-110.666666666667,99.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.419452887538" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59.419452887538"
+                    Point2="0,63.419452887538"
+                    Point3="-4,63.419452887538" />
+                  <mssgle:LineSegment
+                    End="-106.666666666667,63.419452887538" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-106.666666666667,63.419452887538"
+                    Point2="-110.666666666667,63.419452887538"
+                    Point3="-110.666666666667,67.419452887538" />
+                  <mssgle:LineSegment
+                    End="-110.666666666667,99.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fill Column Names.Paths[Merge Join Output]"
+          TopLeft="268.25,209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fill Column Names.Paths[OLE DB Source Output1]"
+          TopLeft="116.5,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="130.166666666667,108"
+              Start="0,0"
+              End="130.166666666667,100.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.0121580547113" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,60.0121580547113"
+                    Point2="0,64.0121580547113"
+                    Point3="4,64.0121580547113" />
+                  <mssgle:LineSegment
+                    End="126.166666666667,64.0121580547113" />
+                  <mssgle:CubicBezierSegment
+                    Point1="126.166666666667,64.0121580547113"
+                    Point2="130.166666666667,64.0121580547113"
+                    Point3="130.166666666667,68.0121580547113" />
+                  <mssgle:LineSegment
+                    End="130.166666666667,100.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Column Names\SyncTable">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Fill staging_synctable">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="171,42"
           Id="Package\Fill staging_synctable\OLE DB Destination"
@@ -520,9 +1636,7 @@ order by Name</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

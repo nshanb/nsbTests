@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="PC-0609"
   DTS:CreatorName="SOFTCONSTRUCT\nshan.barseghyan"
-  DTS:DTSID="{39F2E31A-C7F1-411C-80D7-487F9CC8E74D}"
+  DTS:DTSID="{2E074477-FB94-4BC6-9295-59682A52D41A}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Table2_FullJoin"
+  DTS:ObjectName="zTable2_FullJoin"
   DTS:PackageType="5"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{0CF75A2B-3290-4273-8621-BC2807D1A9A2}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{DE4C4FE4-E3B8-4A3B-911D-432482401FE0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -1515,7 +1515,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="LogFailure"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1718,7 +1718,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="LogSuccess"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2515,14 +2515,6 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\RSource">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\DSource">
     <Properties>
       <Property>
@@ -2532,6 +2524,14 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Insert Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\RSource">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

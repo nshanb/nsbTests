@@ -4,7 +4,7 @@ AS
 BEGIN
  declare @n int
  select @n = count(*) from [sync4partner].[ColumnList]
- where is_primarykey = 0 and tname = @tableName
+ where is_primarykey = 0 and tName = @tableName
  if( @n = 0 ) return ''
 
  declare @c Varchar(Max)
@@ -13,7 +13,6 @@ BEGIN
  select @c = @c + '[' + cName + ']=s.['+cName+'],'
   from [sync4partner].[ColumnList]
   where is_primarykey = 0 and typeName <> 'timestamp'and tname = @tableName
-  if( @n = 0 ) return ''
   set @c = substring(@c,0,len(@c)-0)
  RETURN @c + ' from staging.' +@tableName+ ' as s where s.id='+@tableName+'.id; delete staging.'+@tableName
 

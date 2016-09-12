@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="PC-0609"
   DTS:CreatorName="SOFTCONSTRUCT\nshan.barseghyan"
-  DTS:DTSID="{D48D529E-6B4C-41AB-962B-6EBD77869653}"
+  DTS:DTSID="{7F8FE8D5-1EE2-4675-BDE3-904A9B389BB1}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Table1_FullJoin"
+  DTS:ObjectName="zTable1_FullJoin"
   DTS:PackageType="5"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{D4D666F6-C082-425F-9695-A52299D50681}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{0EB842FF-0B87-4BE6-AA21-94D03F774CED}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>

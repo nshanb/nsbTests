@@ -26,33 +26,29 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">TOSHIBA</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgUkHg4HO3kGL1q3yNGFY+AAAAAACAAAAAAAQZgAAAAEAACAAAAAULnHa2iB+z4FpiY2XVaGqUkWCKv7hjB1DHTfINZv3tQAAAAAOgAAAAAIAACAAAAAU8A9ozNnwuVtrYcvvXfIs0XCsx2vpv105gbVqeTNXzJAAAACMtkknCbdQIMSikUvy+GzMQtIqiPA0/hoo2EHUj5m8P9VmgFOrNBCOkbP50leDR2vcrxRJHmTJtPOw0NNYTNQEMlWlaLCMa1VWrcaTPO+/jbslHqNoECZy7Ql5qNbbKpnwMqA8uk/zgAHRjOIdsZgYdaDf1IuOxKKtOZtNeu6pyqDguqvYe5MYaHQQgf6sLgJAAAAAqu+BsV75vIxcwd34uXaB/RT71Nm5iksuPZzVRADCTKGr0EX8NbyjE6IIMvIZNhNLoCayCKuEpfpYDDmDlWcZaw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgUkHg4HO3kGL1q3yNGFY+AAAAAACAAAAAAAQZgAAAAEAACAAAAAJ1ECO/rV4zmRiC9Yoq9Uv3IMa/Y1Jz7ga6w76Js/NfgAAAAAOgAAAAAIAACAAAABRq9zYAAKTskHNewbjF92q20SDIV4BJ+RCQkWkpyToq5AAAAB3PSU5zOJK2kKR5lCSLqyG8bTsfhWrhG2qnW1bqFEWf5UkNVVJMRx/fzXPT67x5DQl1VroGJOx1ymWvAVE/kS7fMtKvBwg3aOvf2BIlJIsIKtTHmEBLIKbwlpu14cQ8jiVRywiElaxqnqbfIyJnofFASmXKsmrsf0LnZxLUzetOrn3jJlyFQ+Aoci3yIZ7G7RAAAAA6IodU15yabfJBPbX+qXQbriwBPiqq6R3IrX6G6lQEvp7zO2rOfMvp7qT79X95IAmMeH9DzZQcNF+E/C2DjAOXA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="myFirstPackage.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="ParameterPG.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="SchemaSync.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="CopyByPrimaryKey InsertOnly.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="FillSamples.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="CopyByMergeJoin.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="CheckSchema.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="CopyByFullJoin.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Init.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DoAll.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="TryParalellForEach.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="EmptyPlaceHolder.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Real.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="CopyByFullJoinP.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="PlaceHolder_FullJoin.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Table2_FullJoin.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="ExForeach.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="ExLookup.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="PlaceHolder_InsertOnly.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Table3_InsertOnly.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DoAllSchema.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Table1_FullJoin.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="PlaceHolder_IdMod.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="zTable1_FullJoin.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="zTable2_FullJoin.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="zTable3_InsertOnly.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="zTable3_FullJoinMod.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="controllConnmgr.conmgr" />
@@ -575,10 +571,10 @@
                 <SSIS:Property SSIS:Name="Name">ParameterPG</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">13</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">17</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{89A6E79E-BA0E-4D29-A968-CD323FB822EF}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{E5780BF9-B3F2-4702-A0A7-5FAC4DB1B272}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -607,10 +603,10 @@
                 <SSIS:Property SSIS:Name="Name">SchemaSync</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">92</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">97</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{8EBB1228-70B4-4F6D-96C8-4D4405F62FE9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{A41C5B1B-01F1-4E29-B68F-5847B45722A1}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -672,8 +668,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -747,8 +741,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -765,38 +757,6 @@
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">true</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="CopyByPrimaryKey InsertOnly.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{558D73F0-086B-469C-990B-C212D9509A70}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">CopyByPrimaryKey InsertOnly</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">56</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{0CBC5C74-A24C-4A03-B98B-9B7425C8ADE1}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="SyncTableName">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{A62516EA-BD4A-4420-8374-8E1FBC3A2B70}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Table1</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
@@ -984,48 +944,16 @@
                 </SSIS:Parameter>
               </SSIS:Parameters>
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="CopyByMergeJoin.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{3104F121-7F2A-4DD3-BA66-C0C6DF281472}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">CopyByMergeJoin</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">25</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{ACD08263-EEC7-4D4E-A5F9-5657DBE4848A}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="SyncTableName">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{643768FE-B79B-4D4D-BD21-4870BE24E8B9}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Table2</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
-            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="CheckSchema.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{4F2A0F61-7BAF-441D-9651-07347D4CC642}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{0E0EDA5E-ADD1-460C-A049-36D3ED4BED7F}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">CheckSchema</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">71</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">91</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{94946542-293B-4E46-BBAE-4AA1BF11D559}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{53B861E8-ACB6-4214-80EE-BC47C39CC843}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1034,7 +962,7 @@
               <SSIS:Parameters>
                 <SSIS:Parameter SSIS:Name="PartnerId">
                   <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{4B910A5F-CF38-4ED9-BC6D-CA7AED175D8E}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="ID">{80C89F8D-0516-45D2-A526-1EEBCFDEDB89}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
@@ -1044,38 +972,6 @@
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">-2</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="CopyByFullJoin.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{32E03960-2554-46E6-A0DD-D3DAC6616A0C}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">CopyByFullJoin</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">14</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{1B9A9B0E-5907-4647-AD43-41B6275018EA}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="SyncTableName">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{BECE59D4-0362-40E0-9F4C-FA01D133BDC7}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Table2</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
@@ -1163,277 +1059,6 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Real.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{F8C707B9-BD88-4D61-8FC2-C6489966B2E3}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Real</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">6</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{9A7DAE6A-D971-4A07-B327-77DD56F37FF4}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="CM.Flat File Connection Manager.AlwaysCheckForRowDelimiters">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">true</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Flat File Connection Manager.CodePage">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">65001</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Flat File Connection Manager.ColumnNamesInFirstDataRow">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">true</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Flat File Connection Manager.ConnectionString">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">D:\Nshan\nsbTests\SSIS\testData\RealData.txt</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Flat File Connection Manager.DataRowsToSkip">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Flat File Connection Manager.Format">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Delimited</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Flat File Connection Manager.HeaderRowDelimiter">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property xml:space="preserve" SSIS:Name="Value">	</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Flat File Connection Manager.HeaderRowsToSkip">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Flat File Connection Manager.LocaleID">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">1033</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Flat File Connection Manager.RowDelimiter">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Flat File Connection Manager.TextQualifier">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">&lt;none&gt;</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Flat File Connection Manager.Unicode">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="CopyByFullJoinP.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{95D449BB-2D49-4BEF-9437-EFBCDC2E9C41}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">CopyByFullJoinP</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">28</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{0BC3C096-54AF-4ED8-A05C-CE2B8E3208EB}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="DataFlowTask_ConditionalSplit1ToUpdateFriendlyExpression">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{D486243C-B77C-4233-8620-91E86BB81BFA}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">(ISNULL(Table1Id) ? !ISNULL([Table1Id (1)]) : [Table1Id (1)] != Table1Id) || (ISNULL(text2) ? !ISNULL([text2 (1)]) : [text2 (1)] != text2)</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="DataFlowTask_ConditionalSplitToDeleteFriendlyExpression">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{1D421ADA-FC43-4FA0-9BBA-DE35217C6A48}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">ISNULL(Id)</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="DataFlowTask_ConditionalSplitToInsertFriendlyExpression">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{0FEEF07B-123B-4CD8-9D64-6EB0A5B62E20}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">ISNULL(Id_nullable)</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="SyncTableName">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{ADE5D0A1-2907-466B-AE69-9C1DD76DC850}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Table2</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
-            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="PlaceHolder_FullJoin.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{3EE16170-C0B0-48ED-AE04-8E0C0727F9BD}</SSIS:Property>
@@ -1517,108 +1142,6 @@
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">False</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Table2_FullJoin.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{61C1D604-EEDC-479F-843C-21636CBD1EE3}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Table2_FullJoin</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">78</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{8C67EBBC-674D-49ED-97BE-BB1AFA0008B5}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="Delete_FriendlyExpression">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{49104EAA-186B-4370-ACE8-0DDD8B2D452D}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">isnull(Id)</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="Insert_FriendlyExpression">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{80E41540-5F7B-4F3A-911D-76E34BD63896}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">ISNULL( [Id (1)])</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="PartnerId">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{E24040E1-1554-437E-936A-D7AE643AB3CA}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">-2</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="SyncTableName">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{53B96483-0B22-4259-BA1E-F6E0E5E83926}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Table2</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="Update_FriendlyExpression">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{F1330D9C-2AC0-4691-A468-1E7679DC6860}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">((ISNULL([text2])!=ISNULL([text2 (1)])) || ( (! ISNULL([text2]) &amp;&amp; ! ISNULL([text2 (1)]) ) &amp;&amp; ([text2] != [text2 (1)]) ))  || ((ISNULL([Table1Id])!=ISNULL([Table1Id (1)])) ||( ( ! ISNULL([Table1Id]) &amp;&amp; ! ISNULL([Table1Id (1)])) &amp;&amp; ([Table1Id] != [Table1Id (1)]) ))</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="Update_Statement">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{17DAAD2F-576B-4A22-82C9-271978AC0739}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">update Table2 set [Text2]=s.[Text2],[Table1Id]=s.[Table1Id]  from staging.Table2 as s where s.id=table2.id; delete staging.Table2</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -2007,33 +1530,16 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Table3_InsertOnly.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{9E721114-0A23-403B-9894-AE55F66833A6}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Table3_InsertOnly</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{8F6AD761-A903-424E-A35A-38854A48CB58}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="DoAllSchema.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{39B60252-B8F9-48B9-B11D-0BD88FBC5BCA}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">DoAllSchema</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">41</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">45</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C2BF565C-464D-4CE5-98A1-F5AAB63C512E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{361B6744-30C9-4CD8-901D-CBAB60416397}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -2069,23 +1575,6 @@
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Table1_FullJoin.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{7BA0EB8C-7929-4A7D-8792-FCE1D84EF77B}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Table1_FullJoin</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{79A6F621-92A3-4ECA-A854-17CDD4368612}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="PlaceHolder_IdMod.dtsx">
               <SSIS:Properties>
@@ -2176,6 +1665,414 @@
                 <SSIS:Parameter SSIS:Name="Update_Statement">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{50FA6B59-CED6-4B64-A34E-CA4C7D9F9D54}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Select 1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="zTable1_FullJoin.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{7F8FE8D5-1EE2-4675-BDE3-904A9B389BB1}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">zTable1_FullJoin</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">57</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0EB842FF-0B87-4BE6-AA21-94D03F774CED}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="Delete_FriendlyExpression">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{2FB2B5F9-1057-42F7-8F2F-E99B219F54CE}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">isnull(Id)</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="Insert_FriendlyExpression">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{BA2EB60F-0C10-4FF2-893E-3699AA23480C}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">ISNULL( [Id (1)])</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="PartnerId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{1EE9687E-6038-4080-A130-16504F6C7360}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">-2</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="SyncTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{341D914D-CD75-454E-9474-F4D118888DE2}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">table1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="Update_FriendlyExpression">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{74484A8C-6EA1-43B4-AEE5-57B1148868DC}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">((ISNULL([text1])!=ISNULL([text1 (1)]))||((!ISNULL([text1])&amp;&amp;!ISNULL([text1 (1)]))&amp;&amp;([text1]!=[text1 (1)])))</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="Update_Statement">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{BE77FE9F-E83D-4CEE-85ED-085D89A9E7DF}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Select 1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="zTable2_FullJoin.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{2E074477-FB94-4BC6-9295-59682A52D41A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">zTable2_FullJoin</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">54</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{DE4C4FE4-E3B8-4A3B-911D-432482401FE0}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="Delete_FriendlyExpression">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{3B954D21-F182-4575-8255-D9FA4BFEA02E}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">isnull(Id)</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="Insert_FriendlyExpression">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{6402AE94-9582-4174-9220-80BD744EE5AF}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">ISNULL( [Id (1)])</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="PartnerId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{8A799CC6-E72F-4D1D-8E64-50AAABC80090}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">-2</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="SyncTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{6710C38F-26FD-497E-83F9-12AE8C0A5CE1}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Table2</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="Update_FriendlyExpression">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{399504C3-5FF4-41A3-9832-32886532BD89}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">((ISNULL([Table1Id])!=ISNULL([Table1Id (1)]))||((!ISNULL([Table1Id])&amp;&amp;!ISNULL([Table1Id (1)]))&amp;&amp;([Table1Id]!=[Table1Id (1)]))) ||((ISNULL([text2])!=ISNULL([text2 (1)]))||((!ISNULL([text2])&amp;&amp;!ISNULL([text2 (1)]))&amp;&amp;([text2]!=[text2 (1)])))</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="Update_Statement">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{05FF6D48-4A00-496C-8DBF-CCB4CABF1B69}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Select 1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="zTable3_InsertOnly.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{CD366283-1D65-4F42-8D16-E537FA803207}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">zTable3_InsertOnly</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">62</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{895BA1A2-D52B-4409-929B-E06A72216059}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="Delete_FriendlyExpression">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{677EAAB8-3F55-4DB4-B1BC-89C61EAD382F}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">isnull(Id)</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="Insert_FriendlyExpression">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{BB3F9397-C6B6-4B4E-B5C5-FE138B1F294E}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">ISNULL( [Id (1)])</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="PartnerId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{4618DEA2-CD45-436F-9E1F-632E64EE4FE5}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">-2</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="SyncTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{73D53A99-2F64-4C1C-BD79-01EC7E65A660}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Table3</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="Update_FriendlyExpression">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{AE741F76-9BFE-4A1A-9019-7B7D4C6B877B}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">False</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="Update_Statement">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{7E25B77A-4872-4C1F-9509-03F0A3B9C021}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Select 1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="zTable3_FullJoinMod.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{0EBA397D-DD28-49E3-B239-423F989B0FB3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">zTable3_FullJoinMod</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">76</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{EF256ADB-4A3A-48AE-927C-BE4F316C29E0}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="Delete_FriendlyExpression">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{024BF63D-1343-4D22-A437-259EFF00810A}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">isnull(Id)</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="Insert_FriendlyExpression">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{169C45F3-6207-4BF3-A6DE-B222E9801F29}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">ISNULL( [Id (1)])</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="PartnerId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{CCAC6B4B-1DBF-49BE-8FC1-82A7C28E4A28}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">-2</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="SyncTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{6CD9F8AD-A4FD-44CB-88E7-234DE9F2B0F3}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Table3</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="Update_FriendlyExpression">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{3E6CD603-E91E-4C66-964C-8D7524C18D20}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">False</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="Update_Statement">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{2EA4DDFD-2C11-422C-A48A-8C498890694F}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">

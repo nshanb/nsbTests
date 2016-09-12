@@ -3,6 +3,7 @@
     [ToCopy]      BIT            NULL,
     [ToStage]     BIT            DEFAULT ((0)) NOT NULL,
     [OnlyInsert]  BIT            DEFAULT ((0)) NOT NULL,
+    [NeedsUpsert] BIT            DEFAULT ((0)) NOT NULL,
     [Description] NVARCHAR (150) NULL,
     CONSTRAINT [PK_SyncTable] PRIMARY KEY CLUSTERED ([Name] ASC)
 );

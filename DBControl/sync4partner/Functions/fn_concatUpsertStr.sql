@@ -11,7 +11,7 @@ declare @comBody nvarchar(MAX)
 
   declare @cond Varchar(Max)
   set @cond = ''
-  select @cond = @cond + 'target.[' + cName + ']=s.['+cName+'] and'
+  select @cond = @cond + 'target.[' + cName + ']=s.['+cName+'] and '
    from [sync4partner].[ColumnList]
    where is_primarykey=1 and tName = @tableName
    order by key_ordinal
@@ -21,7 +21,7 @@ declare @comBody nvarchar(MAX)
   set @c = ''
   select @c = @c + '[' + cName + ']=s.['+cName+'],'
    from [sync4partner].[ColumnList]
-   where typeName <> 'timestamp' and is_primarykey=0 and tName = @tableName
+   where typeName <> 'timestamp' and is_primarykey=0 and tName = @tableName and is_computed=0
   set @c = substring(@c,0,len(@c)-0)
 
   declare @i1 Varchar(Max)
@@ -29,13 +29,13 @@ declare @comBody nvarchar(MAX)
   set @i1 = ''
   select @i1 = @i1 + '[' + cName + '],'
    from [sync4partner].[ColumnList]
-   where typeName <> 'timestamp' and tName = @tableName
+   where typeName <> 'timestamp' and tName = @tableName and is_computed=0
   set @i1 = substring(@i1,0,len(@i1)-0)
   
   set @i2 = ''
   select @i2 = @i2 + 's.['+cName+'],'
    from [sync4partner].[ColumnList]
-   where typeName <> 'timestamp' and tName = @tableName
+   where typeName <> 'timestamp' and tName = @tableName and is_computed=0
   set @i2 = substring(@i2,0,len(@i2)-0)
 
   set @comBody = @ident+';

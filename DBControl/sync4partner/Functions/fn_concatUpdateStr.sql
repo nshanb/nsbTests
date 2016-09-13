@@ -8,13 +8,23 @@ BEGIN
  if( @n = 0 ) return ''
 
  declare @c Varchar(Max)
- set @c = 'update ' + @tableName + ' set '
+ set @c = 'update [' + @tableName + '] set '
  
  select @c = @c + '[' + cName + ']=s.['+cName+'],'
   from [sync4partner].[ColumnList]
-  where is_primarykey = 0 and typeName <> 'timestamp'and tname = @tableName
+  where is_primarykey = 0 and typeName <> 'timestamp'and tname = @tableName and is_computed=0
   set @c = substring(@c,0,len(@c)-0)
- RETURN @c + ' from staging.' +@tableName+ ' as s where s.id='+@tableName+'.id; delete staging.'+@tableName
+
+
+  declare @cond Varchar(Max)
+  set @cond = ''
+  select @cond = @cond + '[' + @tableName+'].[' + cName + ']=s.['+cName+'] and '
+   from [sync4partner].[ColumnList]
+   where is_primarykey=1 and tName = @tableName
+   order by key_ordinal
+  set @cond = substring(@cond,0,len(@cond)-3)
+
+ RETURN @c + ' from staging.[' +@tableName+ '] as s where ' + @cond+'; delete staging.['+@tableName+']'
 
 END
 

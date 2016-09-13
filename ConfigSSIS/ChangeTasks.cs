@@ -28,22 +28,22 @@ namespace ConfigSSIS
 
             // check and format newValue
             StringCollection qualifiedList = new StringCollection();
-            bool stagingfound = false;
+            //bool stagingfound = false;
             string s1;
             foreach (string s in newValue)
             {
                 s1 = s;
-                if (!stagingfound)
-                {
-                    if (s.ToLower() == "[staging].[teststaging]") { stagingfound = true; }
-                }
+                //if (!stagingfound)
+                //{
+                //    if (s.ToLower() == "[staging].[teststaging]") { stagingfound = true; }
+                //}
                 if (!s.Contains(".")) // TODO nsb check through regexp?
                 {
                     s1 = "[dbo].[" + s + "]";
                 }
                 qualifiedList.Add(s1);
             }
-            if(!stagingfound) qualifiedList.Add("[staging].[TestStaging]");
+            // if(!stagingfound) qualifiedList.Add("[staging].[TestStaging]");
             tl.SetValue(th, qualifiedList);
 
             return true;

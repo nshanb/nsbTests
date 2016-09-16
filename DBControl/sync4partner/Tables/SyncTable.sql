@@ -5,8 +5,11 @@
     [OnlyInsert]  BIT            DEFAULT ((0)) NOT NULL,
     [NeedsUpsert] BIT            DEFAULT ((0)) NOT NULL,
     [Description] NVARCHAR (150) NULL,
+    [SortOrder]   INT            DEFAULT ((100)) NOT NULL,
     CONSTRAINT [PK_SyncTable] PRIMARY KEY CLUSTERED ([Name] ASC)
 );
+
+
 
 
 

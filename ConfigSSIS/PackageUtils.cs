@@ -17,7 +17,7 @@ namespace ConfigSSIS
         {
             get
             {
-                return projectRoot + @"bin\Development\SSIS.ispac";
+                return projectRoot + @"bin\Development\BetConstruct.SSIS.ispac";
             }
         }
         public static Package LoadPackage(string packageName)

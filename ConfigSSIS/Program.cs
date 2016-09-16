@@ -16,9 +16,9 @@ namespace ConfigSSIS
 
         static void Main(string[] args) // scan package in 3 ways
         {
-            myPackageChange();
+            //myPackageChange();
             //myPackageWork();
-            //myPackageReplace();
+            myPackageReplace();
             //PackageUtils.ScanApplication();
             Console.WriteLine("Press any key to Continue.");
             Console.ReadLine();
@@ -27,7 +27,7 @@ namespace ConfigSSIS
         static void myPackageWork()
         {
             Package package;
-            package = PackageUtils.LoadPackage("EmptyPlaceHolder");
+            package = PackageUtils.LoadPackage("EmptyPlaceHolder",null as Project);
             PackageUtils.ScanPackage(package);
             PackageUtils.ScanMyTaskHostPackage(package, "LogStart");
         }
@@ -48,35 +48,38 @@ namespace ConfigSSIS
         }
         static void myPackageReplace()
         {
+            string pText;
             Project project = Project.OpenProject(PackageUtils.projectPath);
             Package packageS;
             packageS = PackageUtils.LoadPackage("EmptyPlaceHolder",project);
-            Executable exLogStartS = null;
-            foreach ( Executable ex in packageS.Executables)
-            {
-                if( (ex as TaskHost).Name == "LogStart")
-                {
-                    exLogStartS = ex;
-                }
-            }
-            Package packageD;
-            packageD = PackageUtils.LoadPackage("PlaceHolder_FullJoin", project);
-            Executable exLogStartD = null;
-            foreach (Executable ex in packageS.Executables)
-            {
-                if ((ex as TaskHost).Name == "LogStart")
-                {
-                    exLogStartD = ex;
-                }
-            }
-
-            packageS.Executables.Remove(exLogStartS); // partadir e? !!!
-            (exLogStartS as TaskHost).Name = "LogStart1";
-            packageD.Executables.Join(exLogStartS);
-
-            string pText;
-            packageD.SaveToXML(out pText, null);
+            packageS.SaveToXML(out pText, null);
             File.WriteAllText(destFullPath, pText);
+            //Executable exLogStartS = null;
+            //foreach ( Executable ex in packageS.Executables)
+            //{
+            //    if( (ex as TaskHost).Name == "LogStart")
+            //    {
+            //        exLogStartS = ex;
+            //    }
+            //}
+            //Package packageD;
+            //packageD = PackageUtils.LoadPackage("PlaceHolder_FullJoin", project);
+            //Executable exLogStartD = null;
+            //foreach (Executable ex in packageS.Executables)
+            //{
+            //    if ((ex as TaskHost).Name == "LogStart")
+            //    {
+            //        exLogStartD = ex;
+            //    }
+            //}
+
+            //packageS.Executables.Remove(exLogStartS); // partadir e? !!!
+            //(exLogStartS as TaskHost).Name = "LogStart1";
+            //packageD.Executables.Join(exLogStartS);
+
+            //
+            //packageD.SaveToXML(out pText, null);
+            //File.WriteAllText(destFullPath, pText);
         }
     }
 }

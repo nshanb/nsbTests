@@ -24,7 +24,7 @@ BEGIN
    order by key_ordinal
   set @cond = substring(@cond,0,len(@cond)-3)
 
- RETURN @c + ' from staging.[' +@tableName+ '] as s where ' + @cond+'; delete staging.['+@tableName+']'
+ RETURN @c + ' from staging.[' +@tableName+ '] as s where ' + @cond+'; truncate table staging.['+@tableName+']'
 
 END
 

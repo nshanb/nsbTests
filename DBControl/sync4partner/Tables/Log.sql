@@ -4,7 +4,7 @@
     [TaskConfigId]       INT            NULL,
     [SyncStartDate]      DATETIME2 (7)  NOT NULL,
     [SyncEndDate]        DATETIME2 (7)  NULL,
-    [Description]        NVARCHAR (250) NULL,
+    [Description]        NVARCHAR (MAX) NULL,
     [Duration_ms]        BIGINT         NULL,
     [Status]             CHAR (10)      NOT NULL,
     [SyncRowCountSource] INT            NULL,
@@ -15,6 +15,8 @@
     [Destination]        NVARCHAR (125) NULL,
     CONSTRAINT [PK_Log] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
 
 
 

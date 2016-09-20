@@ -36,6 +36,7 @@ select sqlserver_start_time,* from sys.dm_os_sys_info
 select OBJECT_NAME(indexes.object_id),last_user_update,last_system_update,* from  sys.indexes 
 join sys.objects on indexes.object_id=objects.object_id 
 join sys.dm_db_index_usage_stats as dms on dms.object_id=objects.object_id
+
 ClickOnce manifest signing
 
 update staging

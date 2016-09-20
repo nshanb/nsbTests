@@ -107,11 +107,20 @@ namespace ConfigSSIS
             Console.WriteLine();
             Console.WriteLine("Executables:");
             Microsoft.SqlServer.Dts.Runtime.TaskHost th;
+            Microsoft.SqlServer.Dts.Runtime.ForEachLoop f;
             foreach (Executable par in package.Executables)
             {
                 Console.WriteLine(par.ToString());
                 th = par as Microsoft.SqlServer.Dts.Runtime.TaskHost;
-                Console.WriteLine(th.CreationName + " - [" + th.Name + "]");
+                if( th != null )
+                {
+                    Console.WriteLine(th.CreationName + " - [" + th.Name + "]");
+                }
+                else
+                {
+                    f = par as Microsoft.SqlServer.Dts.Runtime.ForEachLoop;
+                    Console.WriteLine(f.CreationName + " - [" + f.Name + "]");
+                }
             }
 
             Console.WriteLine();
@@ -136,18 +145,23 @@ namespace ConfigSSIS
             }
         }
         // prints tasks properties, parameters, Variables
-        public static TaskHost ScanMyTaskHostPackage(Package package, string taskHostName)
+        public static TaskHost ScanTaskHostPackage(Package package, string taskHostName)
         {
             Console.WriteLine("Scanning taskHost:{0}/{1}", package.Name, taskHostName);
+            // nsb TODO ForEachLoop ?
             TaskHost th = package.Executables.Cast<TaskHost>().Where(t => t.Name == taskHostName).SingleOrDefault();
             if (th == null)
             {
                 Console.WriteLine("No such component!");
                 return null;
             }
-            Console.WriteLine("HostType:{0}; CreationName:{1}", th.HostType, th.CreationName);
+            return ScanTaskHostPackage(th);
+        }
+        public static TaskHost ScanTaskHostPackage(TaskHost th)
+        {
+            Console.WriteLine("HostType:{0}; CreationName:{1}; ParentName:{2}", th.HostType, th.CreationName, th.Parent.Name);
 
-            Console.WriteLine("Parameters:");
+            Console.WriteLine("Properties:");
             foreach (DtsProperty par in th.Properties)
             {
                 string val;

@@ -13,19 +13,42 @@ namespace ConfigSSIS
     {
         public static StringCollection get_SchemaSync_TransferTables_TablesList(Package package)
         {
-            if (package.Name != "SchemaSync") return null;
-            TaskHost th = package.Executables.Cast<TaskHost>().Where(t => t.Name == "TransferTables").SingleOrDefault();
-            DtsProperty tl = th.Properties.Cast<DtsProperty>().Where(t => t.Name == "TablesList").SingleOrDefault();
+            if (package.Name != "DoAllSchema") return null;
+            TaskHost th = null;
+            DtsProperty tl = null;
+            foreach (Executable ex in package.Executables)
+            {
+                th = ex as TaskHost;
+                if (th == null) continue;
+                if (th.Name == "TransferTables")
+                {
+                    tl = th.Properties.Cast<DtsProperty>().Where(t => t.Name == "TablesList").SingleOrDefault();
+                    break;
+                }
+            }
+            //TaskHost th = package.Executables.Cast<TaskHost>().Where(t => t.Name == "TransferTables").SingleOrDefault();
+            if (tl == null) return null;
 
             return tl.GetValue(th) as StringCollection;
         }
 
         public static bool set_SchemaSync_TransferTables_TablesList(Package package, StringCollection newValue)
         {
-            if (package.Name != "SchemaSync") return false;
-            TaskHost th = package.Executables.Cast<TaskHost>().Where(t => t.Name == "TransferTables").SingleOrDefault();
-            DtsProperty tl = th.Properties.Cast<DtsProperty>().Where(t => t.Name == "TablesList").SingleOrDefault();
+            if (package.Name != "DoAllSchema") return false;
+            TaskHost th = null;
+            DtsProperty tl = null;
+            foreach (Executable ex in package.Executables)
+            {
+                th = ex as TaskHost;
+                if (th == null) continue;
+                if (th.Name == "TransferTables")
+                {
+                    tl = th.Properties.Cast<DtsProperty>().Where(t => t.Name == "TablesList").SingleOrDefault();
+                    break;
+                }
+            }
 
+            if (tl == null) return false;
             // check and format newValue
             StringCollection qualifiedList = new StringCollection();
             //bool stagingfound = false;

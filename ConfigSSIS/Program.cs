@@ -17,9 +17,9 @@ namespace ConfigSSIS
 
         static void Main(string[] args) // scan package in 3 ways
         {
-            //myPackageChange();
+            myPackageChange();
             //myPackageWork();
-            myPackageReplaceEdit_LogStart();
+            //myPackageReplaceEdit_LogStart();
             //PackageUtils.ScanApplication();
             Console.WriteLine("Press any key to Continue.");
             Console.ReadLine();
@@ -34,7 +34,7 @@ namespace ConfigSSIS
         }
         static void myPackageChange()
         {
-            Package package = PackageUtils.LoadPackage("SchemaSync");
+            Package package = PackageUtils.LoadPackage("DoAllSchema", null as Project);
             StringCollection tabelList = ChangeTasks.get_SchemaSync_TransferTables_TablesList(package);
             foreach (string s in tabelList) Console.WriteLine("{0}; ", s);
 

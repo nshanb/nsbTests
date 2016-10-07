@@ -115,3 +115,47 @@ replace LogStart from EmptyPlaceHolder to everywere. or? FlowPart?
 	THEN 
 		INSERT (Id,[Balance],[BalanceTypeId],[CreditLimit],[CurrencyId],[IsUsingCredit],[Modified],[ObjectId],[ObjectType],[PartnerId],[PreliminaryBalance],[SessionId]) 
 		VALUES (s.ID,s.[Balance],s.[BalanceTypeId],s.[CreditLimit],s.[CurrencyId],s.[IsUsingCredit],s.[Modified],s.[ObjectId],s.[ObjectType],s.[PartnerId],s.[PreliminaryBalance],s.[SessionId]);
+
+
+
+
+select 
+	DB_NAME(qp.dbid) as dbName,
+    st.text,
+    qs.execution_count,
+    qs.total_worker_time, --microseconds
+    qs.average_worker_time,
+    qs.total_elapsed_time,
+    qs.average_elapsed_time,
+	qs.total_logical_reads,
+	qs.total_logical_writes,
+	qs.total_physical_reads,
+	qs.last_execution_time,
+    qp.query_plan
+from 
+(SELECT TOP 20 *
+,average_worker_time = (total_worker_time)/execution_count
+,average_elapsed_time = (total_elapsed_time)/execution_count
+ FROM sys.dm_exec_query_stats 
+--ORDER BY total_worker_time DESC
+ORDER BY average_worker_time DESC
+) as qs
+CROSS APPLY sys.dm_exec_sql_text(qs.sql_handle) AS st
+CROSS apply sys.dm_exec_query_plan (qs.plan_handle) AS qp
+
+
+exec sp_who2 
+
+
+select DB_NAME(database_id),OBJECT_NAME(phs.object_id),i.name,* FROM sys.dm_db_index_physical_stats(null,null,null,null,null) phs --'DETAILED'
+join sys.indexes AS i ON phs.object_id = i.object_id AND phs.index_id = i.index_id
+where page_count>10
+order by avg_fragmentation_in_percent desc
+--00:46
+
+select DB_NAME(database_id),OBJECT_NAME(phs.object_id),i.name,* FROM sys.dm_db_index_physical_stats(5,1509580416,null,null,'DETAILED') phs
+join sys.indexes AS i ON phs.object_id = i.object_id AND phs.index_id = i.index_id
+where page_count>10
+order by avg_fragmentation_in_percent desc
+
+ALTER INDEX AK_ClientSession_Token ON ClientSession REORGANIZE

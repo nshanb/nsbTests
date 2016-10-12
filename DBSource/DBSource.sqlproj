@@ -73,5 +73,6 @@
     <Build Include="staging\Tables\SyncTable.sql" />
     <Build Include="dbo\Tables\Table3.sql" />
     <Build Include="staging\Stored Procedures\CreateUpsertProc.sql" />
+    <Build Include="dbo\Tables\BigTable.sql" />
   </ItemGroup>
 </Project>

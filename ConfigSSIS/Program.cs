@@ -17,7 +17,8 @@ namespace ConfigSSIS
 
         static void Main(string[] args) // scan package in 3 ways
         {
-            myPackageChange();
+            myPackageAdd_PartnerIdSpec();
+            //myPackageChangeDoAllSchema();
             //myPackageWork();
             //myPackageReplaceEdit_LogStart();
             //PackageUtils.ScanApplication();
@@ -32,7 +33,7 @@ namespace ConfigSSIS
             PackageUtils.ScanPackage(package);
             //PackageUtils.ScanMyTaskHostPackage(package, "LogStart");
         }
-        static void myPackageChange()
+        static void myPackageChangeDoAllSchema()
         {
             Package package = PackageUtils.LoadPackage("DoAllSchema", null as Project);
             StringCollection tabelList = ChangeTasks.get_SchemaSync_TransferTables_TablesList(package);
@@ -46,6 +47,52 @@ namespace ConfigSSIS
             string pText;
             package.SaveToXML(out pText, null);
             File.WriteAllText(destFullPath, pText);
+        }
+        static void myPackageAdd_PartnerIdSpec()
+        {
+            Project project = Project.OpenProject(PackageUtils.projectPath);
+            string pText;
+            foreach (var pi in project.PackageItems)
+            {
+                Package packageS = pi.Package;
+                int exists = 0;
+                foreach (Parameter par in packageS.Parameters)
+                {
+                    if (par.Name == "PartnerId")
+                    {
+                        if (par.DataType == TypeCode.Int32 || (int)par.Value == -2)
+                        {
+                            exists++;
+                        }
+                        else
+                        {
+                            Console.WriteLine("!!! Package:{0} - Name:{1} - DataType:{2} - Value:{3}", packageS.Name, par.Name, par.DataType, par.Value);
+                        }
+                    }
+                    if (par.Name == "dCatalogName")
+                    {
+                        Console.WriteLine("!!! Package:{0} - Name:{1} - DataType:{2} - Value:{3}", packageS.Name, par.Name, par.DataType, par.Value);
+                        exists++;
+                    }
+                }
+                if (exists == 2)
+                {
+
+                }
+                if (exists == 1)
+                {
+                    Parameter par = packageS.Parameters.Add("dCatalogName", TypeCode.String);
+                    par.Value = "SBdest";
+                    par = packageS.Parameters.Add("dDataSource", TypeCode.String);
+                    par.Value = "PC-0609";
+                    par = packageS.Parameters.Add("dUser", TypeCode.String);
+                    par.Value = "SSIS_partnersync";
+                    par = packageS.Parameters.Add("dPSWD", TypeCode.String);
+                    par.Value = "dPSWD";
+                    packageS.SaveToXML(out pText, null);
+                    File.WriteAllText(destPath + packageS.Name + ".dtsx", pText);
+                }
+            }
         }
         static void myPackageReplaceEdit_LogStart()
         {
@@ -68,7 +115,7 @@ namespace ConfigSSIS
             List<Package> destinations = new List<Package>();
             TaskHost th;
             Package p;
-            foreach(PackageItem pItem in project.PackageItems)
+            foreach (PackageItem pItem in project.PackageItems)
             {
                 p = pItem.Package;
                 //if (p.Name != "PlaceHolder_IdMod" && p.Name != "zMatchResult_IdMod") continue;
@@ -112,13 +159,13 @@ namespace ConfigSSIS
                             pbind.DtsVariableName = "User::vDestination";
 
                             p.SaveToXML(out pText, null);
-                            File.WriteAllText(destPath+p.Name+".dtsx", pText);
+                            File.WriteAllText(destPath + p.Name + ".dtsx", pText);
                         }
                     }
                 }
             }
-                
-              
+
+
             //packageS.SaveToXML(out pText, null);
             //Executable exLogStartS = null;
             //foreach (Executable ex in packageS.Executables)

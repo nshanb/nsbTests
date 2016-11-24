@@ -1,3 +1,5 @@
+Database.SetInitializer(new MigrateDatabaseToLatestVersion<SBfraction, Migrations.Configuration>());
+
 static struct 
 DBSource.staging.SyncTable, DBSource.staging.TestStaging
 DBEtalon.staging.TestStaging, DBEtalon.staging.CreateUpsertProc

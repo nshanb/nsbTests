@@ -112,7 +112,7 @@ namespace ConfigSSIS
             {
                 Console.WriteLine(par.ToString());
                 th = par as Microsoft.SqlServer.Dts.Runtime.TaskHost;
-                if( th != null )
+                if (th != null)
                 {
                     Console.WriteLine(th.CreationName + " - [" + th.Name + "]");
                 }
@@ -167,7 +167,7 @@ namespace ConfigSSIS
                 string val;
                 try
                 {
-                    val = string.Format("{0}", par.GetValue(th) );
+                    val = string.Format("{0}", par.GetValue(th));
                 }
                 catch (Exception ex)
                 {
@@ -206,6 +206,84 @@ namespace ConfigSSIS
                 Console.WriteLine("Name:{0} - CreationName:{1}", p.Name, p.CreationName);
             }
         }
+
+        public static int ChangeOrAddVaribaleExpression(Package p, string variableName, string expression)
+        {
+            Variable temp = null;
+            int exists = 0;
+            int update = 0;
+            foreach (Variable var in p.Variables)
+            {
+                if (var.Name == variableName && var.Namespace == "User")
+                {
+                    temp = var;
+                    exists++;
+                }
+            }
+            if (temp == null)
+            {
+                exists++;
+                temp = p.Variables.Add(variableName, false, "User", "");
+                update++;
+            }
+            {
+                if (!temp.EvaluateAsExpression)
+                {
+                    temp.EvaluateAsExpression = true;
+                }
+                if (temp.Expression != expression)
+                {
+                    temp.Expression = expression;
+                    update++;
+                }
+            }
+
+            return update;
+        }
+        public static int ChangeOrAddVaribaleExpression(TaskHost h, string variableName, string oldExpression, string newExpression)
+        {
+            Variable temp = null;
+            int update = 0;
+            foreach (Variable var in h.Variables)
+            {
+                if (var.Name == variableName && var.Namespace == "User")
+                {
+                    temp = var;
+                }
+            }
+            if (temp == null)
+            {
+                temp = h.Variables.Add(variableName, false, "User", "");
+                update++;
+            }
+            if (oldExpression != null)
+            {
+                if (temp.Expression == oldExpression)
+                {
+                    if (temp.Expression != newExpression)
+                    {
+                        temp.Expression = newExpression;
+                        update++;
+                    }
+                }
+            }
+            else
+            {
+                if (!temp.EvaluateAsExpression)
+                {
+                    temp.EvaluateAsExpression = true;
+                    update++;
+                }
+                if (temp.Expression != newExpression)
+                {
+                    temp.Expression = newExpression;
+                    update++;
+                }
+            }
+
+            return update;
+        }
+
     }
 }
 // https://msdn.microsoft.com/en-us/library/ms135932.aspx

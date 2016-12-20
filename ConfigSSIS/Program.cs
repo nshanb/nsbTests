@@ -73,6 +73,14 @@ namespace ConfigSSIS
                     continue;
                 }
             }
+            foreach (var p in zpackages)
+            {
+                var t = tables.Where(x => x.PackageName.ToLower() == (p.Name + ".dtsx").ToLower()).SingleOrDefault();
+                if (t == null)
+                {
+                    Console.WriteLine("Unused package: {0}", p.Name);
+                }
+            }
             if (exists != 0)
             {
                 Console.WriteLine("Error! Processing stopped");
@@ -119,15 +127,20 @@ namespace ConfigSSIS
         {
             Project project = Project.OpenProject(PackageUtils.projectPath);
             List<SimpleDal.SyncTable> tables = SimpleDal.getSyncTables();
-            tables.Add(new SimpleDal.SyncTable() { Name = "EmptyPlaceHolder", PackageName = "EmptyPlaceHolder.dtsx" });
+            tables.Add(new SimpleDal.SyncTable() { Name = "EmptyPlaceHolder", PackageName = "EmptyPlaceHolder.dtsx", PartnerSpec = "" });
             int exists;
             int update;
             Package p;
             foreach (SimpleDal.SyncTable t in tables.OrderBy(x => x.Name))
             {
                 p = project.PackageItems.Where(x => (x.Package.Name + ".dtsx").ToLower() == t.PackageName.ToLower()).SingleOrDefault().Package;
+                if (p.Name == "EmptyPlaceHolder")
+                {
+                    Console.WriteLine("");
+                }
                 exists = 0;
                 update = 0;
+                Parameter deltaModifiedSeconds_P = null;
                 foreach (Parameter par in p.Parameters)
                 {
                     if (par.Name == "partnerSpec")
@@ -136,11 +149,8 @@ namespace ConfigSSIS
                         var s = (string)par.Value;
                         if (s != t.PartnerSpec)
                         {
-                            if (!(String.IsNullOrEmpty(t.PartnerSpec) && s == "None"))
-                            {
-                                par.Value = String.IsNullOrEmpty(t.PartnerSpec) ? "None" : t.PartnerSpec;
-                                update++;
-                            }
+                            par.Value = String.IsNullOrEmpty(t.PartnerSpec) ? "" : t.PartnerSpec;
+                            update++;
                         }
                     }
                     if (par.Name == "SyncTableName")
@@ -153,8 +163,62 @@ namespace ConfigSSIS
                             update++;
                         }
                     }
+                    if (par.Name == "deltaModifiedSeconds")
+                    {
+                        exists++;
+                        deltaModifiedSeconds_P = par;
+                        var s = (int)par.Value;
+                        if (s != 0)
+                        {
+                            par.Value = 0;
+                            update++;
+                        }
+                    }
                 }
-                if (exists != 2)
+                if (deltaModifiedSeconds_P == null)
+                {
+                    deltaModifiedSeconds_P = p.Parameters.Add("deltaModifiedSeconds", TypeCode.Int32);
+                    exists++;
+                    deltaModifiedSeconds_P.Value = 0;
+                    update++;
+                }
+                Variable tempVar = null;
+                foreach (Variable var in p.Variables)
+                {
+                    if (var.Name == "partnerSpecBool" && var.Namespace == "User")
+                    {
+                        tempVar = var;
+                    }
+                }
+                if (tempVar != null)
+                {
+                    p.Variables.Remove(tempVar);
+                    update++;
+                }
+                update += PackageUtils.ChangeOrAddVaribaleExpression(p, "deltaModifiedSeconds", "@[$Package::deltaModifiedSeconds]+ @[$Project::deltaModifiedSeconds]");
+                update += PackageUtils.ChangeOrAddVaribaleExpression(p, "partnerSpec1", "REPLACE( @[$Package::partnerSpec], \"?\", (DT_WSTR,10) @[$Package::PartnerId] )");
+                update += PackageUtils.ChangeOrAddVaribaleExpression(p, "tableNameCanonical", "\"[\"+@[$Package::SyncTableName]+\"]\"");
+
+                TaskHost th;
+                foreach (Executable e in p.Executables)
+                {
+                    th = e as TaskHost;
+                    if (th == null)
+                    {
+                        continue;
+                    }
+                    if (th.Name == "Data Flow Task" && th.CreationName.Contains("SSIS.Pipeline.5"))
+                    {
+                        //Console.WriteLine("package : {0},{1}", p.Name, th.CreationName);"Select * from " + @[$Package::SyncTableName] + " where Id>"+ (DT_WSTR,10) @[User::lastKey] +" order by Id"
+                        exists++;
+                        //update += PackageUtils.ChangeOrAddVaribaleExpression(th, "sourceSelect", "\"Select * from \" + @[User::tableNameCanonical] + \" order by Id\""
+                        //                                                                       , "\"Select * from \" + @[User::tableNameCanonical] + \" \" + @[User::partnerSpec1] + \" order by Id\"");
+                        //update += PackageUtils.ChangeOrAddVaribaleExpression(th, "sourceSelect", "\"Select * from \" + @[$Package::SyncTableName] + \" where Id > \"+ (DT_WSTR,10) @[User::lastKey] +\" order by Id\""
+                        //                                                                       , "kuku");
+                    }
+                }
+
+                if (exists != 4)
                 {
                     Console.WriteLine("package : {0}, missing parameter! : {1}", p.Name, exists);
                     //Parameter par =  p.Parameters.Add("partnerSpec", TypeCode.String);

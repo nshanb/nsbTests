@@ -47,6 +47,7 @@ namespace ConfigSSIS
                     FullJoin = Convert.ToInt32(r["FullJoin"]) == 1,
                     PartnerSpec = r.Field<string>("PartnerSpec")
                 };
+                if (aST.PartnerSpec == "") aST.PartnerSpec = "where 1=1";
                 lst.Add(aST);
             }
             return lst;
